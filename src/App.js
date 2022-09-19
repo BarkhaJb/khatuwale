@@ -4,8 +4,9 @@ import './App.css';
 import Footer from './Components/Footer';
 import Header from './Components/Header'
 import './Components/assets/css/style.css'
-import Trending from './pages/Trending';
-
+import Home from './pages/Home';
+import Trend from './pages/Trending';
+import Artist from './pages/Top-Artist';
 
 
 function App() {
@@ -13,14 +14,15 @@ function App() {
     <div className="App">
      
      <Router>
-     {/* <Header /> */}
-     <Trending/>
+     <Header />
+     {/* <Trending/>
+     <Newsong/> */}
       <div className='topMargin'>
         <Routes>  
-          {/* <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/Service' element={<Service />} />
-          <Route path='/Contact' element={<Contact />} />
+          <Route path='/' element={<Home />} />
+       <Route path='/Trending' element={<Trend />} />
+           <Route path='/Top-Artist' element={<Artist />} />
+            {/* <Route path='/Contact' element={<Contact />} />
           <Route path='/FAQ' element={<FAQ />} />
           <Route path='/Book' element={<Book />} /> */}
         </Routes>

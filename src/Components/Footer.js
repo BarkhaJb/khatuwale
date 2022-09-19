@@ -7,7 +7,12 @@ const Footer = () => {
   return (
  <div className="footer" >
 
-    <div className='container'>
+        <div className='top-footer-para'>
+            <h2>Bas Bajna Chahiye Gaana</h2>
+            <p>Gaana is the one-stop solution for all your music needs. Gaana offers you free, unlimited access to over 30 million Hindi Songs, Bollywood Music, English MP3 songs, Regional Music & Mirchi Play.</p>
+        </div>
+    <div className='container-fluid'>
+        <div className='container'>
         <div className='footer-awsfnts'>
         <Link to='' className='anchor-foo'> <i className="fa fa-facebook-official icon" aria-hidden="true"></i></Link>
         <Link to='' className='anchor-foo'> <i className="fa fa-twitter-square icon" aria-hidden="true"></i></Link>
@@ -83,6 +88,7 @@ const Footer = () => {
  </div>
  <div className='bottom-footer'>
     <p className='bottom-footer-para'>© Gamma Gaana Ltd. 2022, All Rights Reserved</p>
+ </div>
  </div>
 </div> 
 

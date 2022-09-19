@@ -1,6 +1,6 @@
 import React  from "react";
 import trend from '../Components/assets/images/trend.jpg';
-
+import { Link } from 'react-router-dom';
 
 const Trend=()=>{
     return(
@@ -28,6 +28,8 @@ const Trend=()=>{
                         <div className="artist"><p className="heading">Artist</p></div>
                     </div>
                 </li>
+                <li className="songabt-img"> <Link to='' className='anchor-foo'><p className="imgsong"><i className="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
+                <li className="songabt-img"><p className="imgsong"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></li>
                 <li className="songabt-dur"><p className="heading">Duration</p></li>
               </ul>
               <ul  className="song-about">
@@ -42,6 +44,8 @@ const Trend=()=>{
                         <div className="artist"><p>Pritam, Arijit Singh, Amitabh Bhattacharya</p></div>
                     </div>
                 </li>
+                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
+                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
                 <li className="row-item">
                    <p>04:28</p>
                 </li>
@@ -59,6 +63,8 @@ const Trend=()=>{
                         <div className="artist"><p>AP Dhillon</p></div>
                     </div>
                 </li>
+                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
+                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
                 <li className="row-item">
                 <p>04:28</p>
                 </li>
@@ -76,6 +82,8 @@ const Trend=()=>{
                         <div className="artist"><p>HRVY</p></div>
                     </div>
                 </li>
+                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
+                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
                 <li className="row-item">
                 <p>04:28</p>
                 </li>
@@ -93,6 +101,8 @@ const Trend=()=>{
                         <div className="artist"><p>Kaka</p></div>
                     </div>
                 </li>
+                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
+                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
                 <li className="row-item">
                 <p>04:28</p>
                 </li>
