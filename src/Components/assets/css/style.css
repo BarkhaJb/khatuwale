@@ -10,7 +10,14 @@
 
 
 /* header css */
-
+.navigation{
+    box-shadow: 0px 15px 10px -15px #11111147;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
 .logo-box{
     width: 19% ;
 }
@@ -48,7 +55,7 @@
     font-size: 16px!important;
     color: #F15E2B;
     font-weight: bolder;
-
+    display: inline;
 }
 
 .nav-link:hover{
@@ -69,6 +76,10 @@ ul{
 /* home page css */
 /* slider css */
 
+.home{
+    width: 100%;
+    max-width: 1505px;
+}
 li.blocks-gallery-item.wdt {
     margin-right: 10px;
       margin-left: 10px;
@@ -86,6 +97,7 @@ li.blocks-gallery-item.wdt {
 }
 .tr_sng ,.third-heading{
 text-align: left;
+font-weight: 700;
 }
 .div-sec{
     margin-top: 26px;
@@ -96,7 +108,17 @@ text-align: left;
 .top-searchimg{
     border-radius: 109px;
 }
-
+.tr_img{
+    width: -webkit-fill-available;
+    border-radius: 12px;
+    height: 193px;
+}
+.top-searchimg{
+    border-radius: 124px;
+    width: 188px;
+    height: 178px;
+    object-fit: fill;
+}
 
 
 /* footer css */

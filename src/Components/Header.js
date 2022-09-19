@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div className="navigation">
        <div className="container-fluid">
+    <div className="navigation">
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <Link className="logo-box" to='' ><img src={logo} className="logoimg"  /></Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,20 +24,8 @@ const Header = () => {
       <li className="nav-item">
       <Link to='/Trending' className="nav-link"> Trending Bhajans</Link>
       </li>
-      <li className="nav-item dropdown">
-      <Link to='/Service' className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Top 10 Bhajans
-        </Link>
-        <div className="dropdown-menu service-drop" aria-labelledby="navbarDropdown">
-        <Link to='' className="dropdown-item nav-link service-menu">REGULAR CLEANING</Link>
-        <Link to='' className="dropdown-item nav-link service-menu" >DEEP CLEANING</Link>
-        <Link to='' className="dropdown-item nav-link service-menu">POST CONSTRUCTION</Link>
-        <Link to='' className="dropdown-item nav-link service-menu">CLEANING</Link>
-        <Link to='' className="dropdown-item nav-link service-menu" >MONE IN / OUT CLEANING</Link>
-        <Link to='' className="dropdown-item nav-link service-menu" >OFFICE CLEANING</Link>
-        <Link to='' className="dropdown-item nav-link service-menu" >CONSTRUCTION</Link>
-        <Link to='' className="dropdown-item nav-link service-menu" >PROTECTION</Link>
-        </div>
+      <li className="nav-item">
+      <Link to='/TopBhajan' className="nav-link"> Top 10 Bhajans</Link>
       </li>
       <li className="nav-item">
       <Link to='/contact' className="nav-link">Latest Release</Link>

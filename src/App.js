@@ -7,7 +7,7 @@ import './Components/assets/css/style.css'
 import Home from './pages/Home';
 import Trend from './pages/Trending';
 import Artist from './pages/Top-Artist';
-
+import TopBhajan from './pages/Top10-Bhajan';
 
 function App() {
   return (
@@ -20,10 +20,10 @@ function App() {
       <div className='topMargin'>
         <Routes>  
           <Route path='/' element={<Home />} />
-       <Route path='/Trending' element={<Trend />} />
+          <Route path='/Trending' element={<Trend />} />
            <Route path='/Top-Artist' element={<Artist />} />
-            {/* <Route path='/Contact' element={<Contact />} />
-          <Route path='/FAQ' element={<FAQ />} />
+          <Route path='/TopBhajan' element={<TopBhajan />} />
+                     {/* <Route path='/FAQ' element={<FAQ />} />
           <Route path='/Book' element={<Book />} /> */}
         </Routes>
         </div>

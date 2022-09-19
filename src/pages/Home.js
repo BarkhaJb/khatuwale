@@ -2,10 +2,19 @@ import React from "react";
 import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
-import s1 from '../Components/assets/images/s1.jpg'
-import s2 from '../Components/assets/images/s2.webp'
-import s3 from '../Components/assets/images/s3.webp'
-import s4 from '../Components/assets/images/s4.webp'
+import s1 from '../Components/assets/images/s1.jpg';
+import s2 from '../Components/assets/images/s2.jpg';
+import s3 from '../Components/assets/images/s3.jpg';
+import s4 from '../Components/assets/images/s4.jpg';
+import tr_img1 from '../Components/assets/images/tr_img1.jpg';
+import tr_img2 from '../Components/assets/images/tr_img2.png';
+import tr_img4 from '../Components/assets/images/tr_img4.jpg';
+import tr_img3 from '../Components/assets/images/tr_img3.jpg';
+import top_searchimg1 from '../Components/assets/images/top-searchimg1.jpg';
+import top_searchimg2 from '../Components/assets/images/top-searchimg2.jpg';
+import top_searchimg3 from '../Components/assets/images/top-searchimg3.jpg';
+import top_searchimg4 from '../Components/assets/images/top-searchimg4.jpg';
+import top_searchimg5 from '../Components/assets/images/top-searchimg5.jpg';
 
 
 const Home = () => {
@@ -50,6 +59,7 @@ const Home = () => {
         },
       };
     return(
+
       <div className="home">
      
         <div className='ft-bnr'>
@@ -107,11 +117,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/mGjKr1b6zX/jKrPEMM1W6/size_m.jpg'
-                  }
-                ></img>
+                <img  className='tr_img'
+                  src={tr_img1}  ></img>
+               
               </figure>
               <figcaption> </figcaption>
             </li>
@@ -119,11 +127,8 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/xbnwYoezKy/size_m.jpg'
-                  }
-                ></img>
+                <img className='tr_img'
+                  src={ tr_img2}></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -132,11 +137,8 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/4Z9bqgo3yQ/9bqgZ8xM3y/size_m.webp'
-                  }
-                ></img>
+                <img className='tr_img'
+                  src={tr_img4}  ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -145,11 +147,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/xbnwYoezKy/size_m.jpg'
-                  }
-                ></img>
+                <img className='tr_img'
+                  src={tr_img3 }></img>
+ 
               </figure>
               <figcaption></figcaption>
             </li>
@@ -157,11 +157,8 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/VdNW0Mbo5e/NW0JexPpKo/size_m.jpg'
-                  }
-                ></img>
+                <img className='tr_img'
+                src={tr_img4}  ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -170,11 +167,8 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/xbnwYoezKy/size_m.jpg'
-                  }
-                ></img>
+                <img className='tr_img'
+                    src={ tr_img2}></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -183,11 +177,8 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/4Z9bqgo3yQ/9bqgZ8xM3y/size_m.webp'
-                  }
-                ></img>
+                <img className='tr_img'
+                  src={tr_img1}  ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -195,11 +186,8 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/xbnwYoezKy/size_m.jpg'
-                  }
-                ></img>
+                <img className='tr_img'
+                  src={ tr_img2}></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -216,10 +204,7 @@ const Home = () => {
             <li className='3rd-slide-item'>
               <figure>
                 <img className="top-searchimg"
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/mGjKr1b6zX/jKrPEMM1W6/size_m.jpg'
-                  }
-                ></img>
+                  src={top_searchimg1} ></img>
               </figure>
               <figcaption> </figcaption>
             </li>
@@ -228,10 +213,7 @@ const Home = () => {
             <li className='3rd-slide-item'>
               <figure>
                 <img className="top-searchimg"
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/xbnwYoezKy/size_m.jpg'
-                  }
-                ></img>
+                  src={top_searchimg4} ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -241,10 +223,7 @@ const Home = () => {
             <li className='3rd-slide-item'>
               <figure>
                 <img className="top-searchimg"
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/4Z9bqgo3yQ/9bqgZ8xM3y/size_m.webp'
-                  }
-                ></img>
+                   src={top_searchimg1} ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -254,10 +233,7 @@ const Home = () => {
             <li className='3rd-slide-item'>
               <figure>
                 <img className="top-searchimg"
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/xbnwYoezKy/size_m.jpg'
-                  }
-                ></img>
+                 src={top_searchimg5} ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -266,10 +242,7 @@ const Home = () => {
             <li className='3rd-slide-item'>
               <figure>
                 <img className="top-searchimg"
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/VdNW0Mbo5e/NW0JexPpKo/size_m.jpg'
-                  }
-                ></img>
+                  src={top_searchimg2} ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -279,10 +252,7 @@ const Home = () => {
             <li className='3rd-slide-item'>
               <figure>
                 <img className="top-searchimg"
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/xbnwYoezKy/size_m.jpg'
-                  }
-                ></img>
+                   src={top_searchimg3} ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -292,10 +262,7 @@ const Home = () => {
             <li className='3rd-slide-item'>
               <figure>
                 <img className="top-searchimg"
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/4Z9bqgo3yQ/9bqgZ8xM3y/size_m.webp'
-                  }
-                ></img>
+                  src={top_searchimg4} ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -304,10 +271,7 @@ const Home = () => {
             <li className='3rd-slide-item'>
               <figure>
                 <img className="top-searchimg"
-                  src={
-                    'https://a10.gaanacdn.com/gn_img/albums/kGxbnw0Ky4/xbnwYoezKy/size_m.jpg'
-                  }
-                ></img>
+                   src={top_searchimg5} ></img>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -316,6 +280,7 @@ const Home = () => {
         </Carousel>
       </div>
      </div>
+  
     )
 }
 

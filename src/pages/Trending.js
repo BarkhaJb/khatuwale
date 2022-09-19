@@ -1,5 +1,8 @@
 import React  from "react";
-import trend from '../Components/assets/images/trend.jpg';
+import tr_img1 from '../Components/assets/images/tr_img1.jpg';
+import tr_img2 from '../Components/assets/images/tr_img2.png';
+import tr_img4 from '../Components/assets/images/tr_img4.jpg';
+import tr_img3 from '../Components/assets/images/tr_img3.jpg';
 import { Link } from 'react-router-dom';
 
 const Trend=()=>{
@@ -8,7 +11,7 @@ const Trend=()=>{
             <div className="trend-area">
                 <section className="sec-1">
                 <div className="trendimg">
-                <a href="" className="bigimg"><img src={trend}  /></a>
+                <a href="" className="bigimg"><img src={tr_img1}  /></a>
                 </div>
                 <div className="Trending-song">
                     <h2>Trending Songs</h2>
@@ -35,7 +38,7 @@ const Trend=()=>{
               <ul  className="song-about">
                 <li className="songabt-img">
                     <div className="listimg">
-                    <a href="" ><img src={trend}  /></a>
+                    <a href="" ><img src={tr_img2}  /></a>
                     </div>
                 </li>
                 <li className="songabt">
@@ -54,7 +57,7 @@ const Trend=()=>{
               <ul  className="song-about">
                 <li className="songabt-img">
                     <div className="listimg">
-                    <a href="" ><img src={trend}  /></a>
+                    <a href="" ><img src={tr_img4}  /></a>
                     </div>
                 </li>
                 <li className="songabt">
@@ -73,7 +76,7 @@ const Trend=()=>{
               <ul  className="song-about">
                 <li className="songabt-img">
                     <div className="listimg">
-                    <a href="" ><img src={trend}  /></a>
+                    <a href="" ><img src={tr_img2}  /></a>
                     </div>
                 </li>
                 <li className="songabt">
@@ -92,7 +95,7 @@ const Trend=()=>{
               <ul  className="song-about">
                 <li className="songabt-img">
                     <div className="listimg">
-                    <a href="" ><img src={trend}  /></a>
+                    <a href="" ><img src={tr_img3}  /></a>
                     </div>
                 </li>
                 <li className="songabt">
