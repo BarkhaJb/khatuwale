@@ -3,3 +3,7 @@
   width: 100%;
   max-width: 1505px;
 } 
+.container-fluid{
+  margin: 0 auto;
+  width: 85%;
+}

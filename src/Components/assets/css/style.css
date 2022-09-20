@@ -89,37 +89,74 @@ li.blocks-gallery-item.wdt {
   
   img.slider-top-img {
     width: 100%;
-    box-shadow: 1px 1px #4f4a4a6e;
+   
+    height: 100%;
+    max-height: 162px;
   }
 
-  li.react-multi-carousel-item.react-multi-carousel-item--active {
-    margin: 0 10px 0 10px;
-}
-.tr_sng ,.third-heading{
+
+.slider-heading{
 text-align: left;
 font-weight: 700;
+font-size: 24px;
+padding: 0 0 0 30px;
 }
-.div-sec{
-    margin-top: 26px;
+.slider{
+    margin-bottom: 40px;
 }
-.hm-bn2-trend{
+.about-slider1{
     margin: 23px 0;
 }
-.top-searchimg{
-    border-radius: 109px;
+.react-multiple-carousel__arrow--left{
+    left:0;
+    top:65px;
+    z-index: 1 !important;
 }
-.tr_img{
-    width: -webkit-fill-available;
-    border-radius: 12px;
-    height: 193px;
+.react-multiple-carousel__arrow--right{
+    right: 0;
+    top:65px;
+    z-index: 1 !important;
 }
-.top-searchimg{
-    border-radius: 124px;
-    width: 188px;
-    height: 178px;
-    object-fit: fill;
+.superhit ul ,.trnding-area ul{
+    width: 100%;
+}
+.trnding-area li{
+    margin: 0 12px;
+}
+.superhit-img , .searchimg{
+width: 92%;
+}
+.slider-img{
+  
+    border-radius: 7px;
+    height: 170px;
 }
 
+.Releaseimg{
+    width: 75%;
+}
+.searchimg{
+    border-radius: 90px;
+    width: 78%;
+    border: 4px solid #F15C27;
+
+}
+/* .searchimg:hover, .slider-top-img:hover{
+    filter: blur(1px);
+    /* transition: 0.5s ease-in-out; */
+ 
+
+figure:hover{
+   
+}
+.songname p{
+    font-size:16px;
+
+    font-weight: 700;
+}
+.ft-bnr{
+    margin-bottom: 30px;
+}
 
 /* footer css */
 .footer{
@@ -139,9 +176,11 @@ font-weight: 700;
     font-weight: 600;
     margin: 20px 0;
 }
-.container-fluid{
-    border-top: 1px solid #66666663;
+.about-para{
+    word-spacing: 4px;
 }
+
+
 .footer-album,.footer-genres ,.footer-artist ,.footer-release{
     width: 30%;
    
@@ -165,7 +204,7 @@ font-weight: 700;
     line-height: 1.3;
 }
 .top-footer-para p{
-    font-size: 14px;
+    font-size: 17px;
     width: 58%;
     margin: 0 auto;
 }
@@ -200,28 +239,28 @@ font-weight: 700;
     font-weight: 600;
 }
 .fa-facebook-official{
-    color: #43438e;
+    color: #F15A26;
 }
 .fa-facebook-official:hover{
-    color: #7c7cbe;
+    color: #ea8c6d;
 }
 .fa-twitter-square{
-    color:#32BCF1;
+    color: #F15A26;
 }
 .fa-twitter-square:hover{
-    color:#5bcdfa;
+    color: #ea8c6d;
 }
 .fa-instagram{
-    color:#F56040;
+    color: #F15A26;
 }
 .fa-instagram:hover{
-    color:#d07661;
+    color: #ea8c6d;
 }
 .fa-youtube-play{
-    color: #c81414;
+    color: #F15A26;
 }
 .fa-youtube-play:hover{
-    color: #ec4d4d;
+    color: #ea8c6d;
 }
 
 

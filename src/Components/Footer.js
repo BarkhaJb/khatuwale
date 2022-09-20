@@ -8,8 +8,12 @@ const Footer = () => {
  <div className="footer" >
 
         <div className='top-footer-para'>
-            <h2>Bas Bajna Chahiye Gaana</h2>
-            <p>Gaana is the one-stop solution for all your music needs. Gaana offers you free, unlimited access to over 30 million Hindi Songs, Bollywood Music, English MP3 songs, Regional Music & Mirchi Play.</p>
+            <h2>Hare Ka Sahara Baba Shyam Hamara</h2>
+            <p>Kathin rah bhi saral ho jayegi mushkilen
+sari hal ho jayegi ek bar aaja tu sharan
+shyam ke zindagi teri safal ho jayegi,
+Jay shree Shyam.
+</p>
         </div>
     <div className='container-fluid'>
         <div className='container'>
@@ -20,7 +24,7 @@ const Footer = () => {
         <Link to='' className='anchor-foo'> <i className="fa fa-youtube-play icon" aria-hidden="true"></i></Link>
         </div>
         <div className='footer-para'>
-            <p className='about-para'>Advertise on Gaana.comTerms of UsePrivacy Policy Partners Sitemap FAQ</p>
+            <p className='about-para'>Advertise on Khatushyam .Terms  of  UsePrivacy  Policy  Partners  Sitemap FAQ</p>
         </div>
  <div className='footer-content'>
     <div className='footer-album'>
@@ -87,7 +91,7 @@ const Footer = () => {
  </div>
  </div>
  <div className='bottom-footer'>
-    <p className='bottom-footer-para'>© Gamma Gaana Ltd. 2022, All Rights Reserved</p>
+    <p className='bottom-footer-para'>2022 Jmbliss IT Solutions</p>
  </div>
  </div>
 </div> 
