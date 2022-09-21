@@ -403,3 +403,18 @@ figure:hover{
     font-size: 12px;
     line-height: 1.75em;
 }
+.tp-art{
+    border: solid 1px grey;
+    padding: 5px;
+    border-radius: 15px;
+}
+button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
