@@ -24,7 +24,14 @@ Jay shree Shyam.
         <Link to='' className='anchor-foo'> <i className="fa fa-youtube-play icon" aria-hidden="true"></i></Link>
         </div>
         <div className='footer-para'>
-            <p className='about-para'>Advertise on Khatushyam .Terms  of  UsePrivacy  Policy  Partners  Sitemap FAQ</p>
+            <ul  className='about-para'>
+                <li className='about-para2'>Terms of Use </li>
+                
+                <li className='about-para2'>Privacy Policy </li>
+                <li className='about-para2'>Partners</li>
+                <li className='about-para2'>Sitemap </li>
+                <li className='about-para2'>FAQ </li>
+                </ul>
         </div>
  <div className='footer-content'>
     <div className='footer-album'>
@@ -37,7 +44,7 @@ Jay shree Shyam.
                 <li className='album-item bullet'><Link to=''  className='anchor-foo'>Telgu</Link></li>
                 <li className='album-item bullet'><Link to=''  className='anchor-foo'>Tamil</Link></li>
                 <li className='album-item bullet'><Link to=''  className='anchor-foo'>Bhojpuri</Link></li>
-                <li className='genres-item bullet'> <Link to='' className='anchor-foo view'>View All</Link></li>
+             
             </ul>
         </div>
        </div>
@@ -47,12 +54,12 @@ Jay shree Shyam.
         <h4 className='foo-heading'>genres</h4>
         <div className='menu2-content'>
             <ul className='genres-list'>
-               <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Bollywood Songs</Link></li>
+               <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Latest Bhajans</Link></li>
                 <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Devotional Songs</Link></li>
                 <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Bhajans</Link></li>
-                <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Romentic songs</Link></li>
-                <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Sufi songs</Link></li>
-               <li className='genres-item bullet'> <Link to='' className='anchor-foo view'>View  All</Link></li>
+                <li className='genres-item bullet'><Link to=''  className='anchor-foo'>New Bhajans</Link></li>
+                <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Old Bhajans</Link></li>
+            
             </ul>
         </div>
      </div>
@@ -62,12 +69,12 @@ Jay shree Shyam.
         <h4 className='foo-heading'>artist</h4>
         <div className='menu3-content'>
             <ul className='artist-list'>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Arijit</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Neha</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Shahid</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Atif</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Shreya</Link></li>
-                <li className='genres-item bullet'> <Link to='' className='anchor-foo view'>View  All</Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Kanhaiya Mittal </Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Lakhbir Singh Lakkha</Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Raju Kumar Khandelwal</Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Anjali Dewadi</Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Jaya Kishori</Link></li>
+              
             </ul>
         </div>
      </div>
@@ -77,12 +84,12 @@ Jay shree Shyam.
             <h4 className='foo-heading'>release</h4>
             <div className='menu4-content'>
                 <ul className='release-list'>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>English Songs</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Hindi Songs</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Telgu Songs</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Tamil Songs</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Bhojpuri Songs</Link></li>
-                <li className='genres-item bullet'> <Link to='' className='anchor-foo view'>View All</Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Baba Aayega</Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Sanware ki God Main</Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Kar Shyam ko Yaad</Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Khatu se Bulawa Aayega</Link></li>
+                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Shyam Milega</Link></li>
+               
                 </ul>
             </div>
         </div>
@@ -91,7 +98,7 @@ Jay shree Shyam.
  </div>
  </div>
  <div className='bottom-footer'>
-    <p className='bottom-footer-para'>2022 Jmbliss IT Solutions</p>
+    <p className='bottom-footer-para'> © 2022 Jmbliss IT Solutions</p>
  </div>
  </div>
 </div> 

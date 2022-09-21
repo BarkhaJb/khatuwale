@@ -45,7 +45,7 @@ const Home = () => {
         },
         mobile: {
           breakpoint: { max: 464, min: 0 },
-          items: 1,
+          items: 2,
         },
       };
       
@@ -60,12 +60,12 @@ const Home = () => {
           items: 5,
         },
         tablet: {
-          breakpoint: { max: 1024, min: 464 },
+          breakpoint: { max: 729, min: 464 },
           items: 2,
         },
         mobile: {
           breakpoint: { max: 464, min: 0 },
-          items: 1,
+          items: 2,
         },
       };
     return(
@@ -84,7 +84,7 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item wdt'>
               <figure>
-                <img src={s1} className='slider-top-img'></img>
+              <Link to='/Trending'>   <img src={s1} className='slider-top-img'></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -93,7 +93,7 @@ const Home = () => {
       <div className='slick-slide'>
             <li className='blocks-gallery-item wdt'>
               <figure>
-                <img src={s2} className='slider-top-img'></img>
+              <Link to='/Trending'> <img src={s2} className='slider-top-img'></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -102,7 +102,7 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item wdt'>
               <figure>
-                <img src={s3} className='slider-top-img'></img>
+              <Link to='/Trending'>    <img src={s3} className='slider-top-img'></img></Link> 
               </figure>
               <figcaption></figcaption>
             </li>
@@ -111,7 +111,7 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item wdt'>
               <figure>
-                <img src={s4} className='slider-top-img'></img>
+              <Link to='/Trending'>   <img src={s4} className='slider-top-img'></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -120,21 +120,24 @@ const Home = () => {
         </Carousel>
       </div>
       <div className="slider">
+      {' '}
+       
       <div className='slider1'>
         <h2 className='slider-heading'>Trending Bhajans</h2>
       </div>    
        <div className='about-slider1 trnding-area'>
-        <Carousel responsive={responsiveTwo} infinite={true} autoPlay={true}>
+        <Carousel responsive={responsiveTwo} infinite={true} autoPlay={true} >
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img  className='slider-img trnding-img'
-                  src={tr_img1}  ></img>
+              <Link to='/Trending'> <img  className='slider-img trnding-img'
+                  src={tr_img1}  ></img></Link>
                
               </figure>
               <figcaption> </figcaption>
              
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -142,11 +145,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img trnding-img'
-                  src={ tr_img2}></img>
+              <Link to='/Trending'><img className='slider-img trnding-img'
+                  src={ tr_img2}></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -156,11 +160,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img trnding-img'
-                  src={tr_img4}  ></img>
+              <Link to='/Trending'>  <img className='slider-img trnding-img'
+                  src={tr_img4}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -169,12 +174,13 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item trnding-img'>
               <figure>
-                <img className='slider-img trnding-img'
-                  src={tr_img3 }></img>
+              <Link to='/Trending'>  <img className='slider-img trnding-img'
+                  src={tr_img3 }></img></Link>
  
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -182,11 +188,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img'
-                src={tr_img4}  ></img>
+              <Link to='/Trending'>  <img className='slider-img'
+                src={tr_img4}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -195,11 +202,12 @@ const Home = () => {
            <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img'
-                    src={ tr_img2}></img>
+              <Link to='/Trending'>  <img className='slider-img'
+                    src={ tr_img2}></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -208,11 +216,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img'
-                  src={tr_img1}  ></img>
+              <Link to='/Trending'>   <img className='slider-img'
+                  src={tr_img1}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -230,12 +239,14 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img  className='slider-img superhit-img'
-                  src={top1}  ></img>
-               
+              <Link to='/Trending'>    <img  className='slider-img superhit-img'
+                  src={top1}  ></img></Link>
+              
               </figure>
               <figcaption> </figcaption>
+             
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -243,11 +254,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img superhit-img'
-                  src={ top2}></img>
+              <Link to='/Trending'>  <img className='slider-img superhit-img'
+                  src={ top2}></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -256,11 +268,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img superhit-img'
-                  src={top3}  ></img>
+              <Link to='/Trending'>   <img className='slider-img superhit-img'
+                  src={top3}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -269,11 +282,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img superhit-img'
-                  src={top3}  ></img>
+              <Link to='/Trending'>    <img className='slider-img superhit-img'
+                  src={top3}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -343,12 +357,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img  className='slider-img searchimg'
-                  src={tr_img1}  ></img>
+              <Link to='/Top-Artist'>   <img  className='slider-img searchimg'
+                  src={tr_img1}  ></img></Link>
               </figure>
               <figcaption> </figcaption>
             </li>
-           
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Kanhaiya Mittal</p>
           </div>
@@ -356,11 +370,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img searchimg'
-                  src={ lkhabir}></img>
+              <Link to='/Top-Artist'>    <img className='slider-img searchimg'
+                  src={ lkhabir}></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Lakhbir Singh Lakkha</p>
           </div>
@@ -369,11 +384,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img searchimg'
-                  src={Raju}  ></img>
+              <Link to='/Top-Artist'>  <img className='slider-img searchimg'
+                  src={Raju}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Raju Kumar Khandelwal</p>
           </div>
@@ -382,12 +398,13 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img searchimg'
-                  src={Anjali }></img>
+              <Link to='/Top-Artist'>  <img className='slider-img searchimg'
+                  src={Anjali }></img></Link>
  
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Anjali Dewadi</p>
           </div>
@@ -395,11 +412,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img searchimg'
-                src={jaya}  ></img>
+              <Link to='/Top-Artist'>     <img className='slider-img searchimg'
+                src={jaya}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Jaya Kishori</p>
           </div>
@@ -408,11 +426,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img searchimg'
-                    src={ Uma}></img>
+              <Link to='/Top-Artist'>   <img className='slider-img searchimg'
+                    src={ Uma}></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Uma Lahri</p>
           </div>
@@ -421,11 +440,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img searchimg'
-                  src={shiv}  ></img>
+              <Link to='/Top-Artist'>  <img className='slider-img searchimg'
+                  src={shiv}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Shiv Kumar Jalan</p>
           </div>
@@ -443,14 +463,14 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img  className='slider-img Releaseimg  '
-                  src={Release1}  ></img>
+              <Link to='/Trending'>     <img  className='slider-img Releaseimg  '
+                  src={Release1}  ></img></Link>
              
               </figure>
               <figcaption> </figcaption>
              
             </li>
-          
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Baba Aayega</p>
           </div>
@@ -458,11 +478,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img Releaseimg'
-                  src={Release2}></img>
+              <Link to='/Trending'>     <img className='slider-img Releaseimg'
+                  src={Release2}></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Sanware Ki God Main</p>
           </div>
@@ -471,11 +492,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img Releaseimg'
-                  src={Release3}  ></img>
+              <Link to='/Trending'>    <img className='slider-img Releaseimg'
+                  src={Release3}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Kar Shyam Ko Yaad</p>
           </div>
@@ -484,12 +506,13 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img Releaseimg'
-                  src={Release4}></img>
+              <Link to='/Trending'>     <img className='slider-img Releaseimg'
+                  src={Release4}></img></Link>
  
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Khatu se Bulawa Aayega</p>
           </div>
@@ -497,11 +520,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img Releaseimg'
-                src={Release5}  ></img>
+              <Link to='/Trending'>    <img className='slider-img Releaseimg'
+                src={Release5}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Shyam Milega</p>
           </div>
@@ -510,11 +534,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img Releaseimg'
-                    src={Release6}></img>
+              <Link to='/Trending'>  <img className='slider-img Releaseimg'
+                    src={Release6}></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Bhawo Ke Bhuke Shree Shyam </p>
           </div>
@@ -523,11 +548,12 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img Releaseimg'
-                  src={Release4}  ></img>
+              <Link to='/Trending'>    <img className='slider-img Releaseimg'
+                  src={Release4}  ></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
+            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Khatu se Bulawa Aayega</p>
           </div>
@@ -537,6 +563,49 @@ const Home = () => {
       </div>
       </div>
      </div>
+      <div className='upcomingEvents'>
+              <div className='eventhead'>
+                <h1 className='event-h1'>Upcoming Events</h1>
+              </div>
+              <div className='clctn-ee'>
+                <div class='sliderrr'>
+                  <div class='slide-trackkk'>
+                    <div class='slideee'>
+                      <div className='events'>
+                        <h3 className='events-h3'>
+                          Khatu Shyam Bhajan sandhya, indore
+                        </h3>
+                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
+                      </div>
+                      <div className='events'>
+                        <h3 className='events-h3'>
+                          Khatu Shyam Bhajan sandhya, pune
+                        </h3>
+                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
+                      </div>
+                      <div className='events'>
+                        <h3 className='events-h3'>
+                          Khatu Shyam Bhajan sandhya, mumbai
+                        </h3>
+                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
+                      </div>
+                      <div className='events'>
+                        <h3 className='events-h3'>
+                          Khatu Shyam Bhajan sandhya, jaipur
+                        </h3>
+                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
+                      </div>
+                      <div className='events'>
+                        <h3 className='events-h3'>
+                          Khatu Shyam Bhajan sandhya, delhi
+                        </h3>
+                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
      </div>
     )
 }
