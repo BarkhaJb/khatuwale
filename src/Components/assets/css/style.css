@@ -674,7 +674,7 @@ font-weight: 600!important;
             width: 100%;
         }
         .logoimg{
-            width: 30%;
+            width: 60%;
         }
         .logo-box{
             width: 90%;
@@ -721,6 +721,10 @@ font-weight: 600!important;
         }
         .song-about{
             width: 95%;
+            padding: 0;
+        }
+        .icon{
+            margin: 6px;
         }
         .track{
             width: 100%;
@@ -735,6 +739,16 @@ font-weight: 600!important;
         .navbar-search{
             display: none;
         }
+       .topMargin {
+        margin-top: 100px;
+    }
+    .playyicon{
+        top: 0%;
+    left: 3%;
+    }
+    .footer-awsfnts{
+        padding: 12px 0;
+    }
     }
 
 
