@@ -45,7 +45,7 @@ const Home = () => {
         },
         mobile: {
           breakpoint: { max: 464, min: 0 },
-          items: 2,
+          items: 1,
         },
       };
       
@@ -65,7 +65,7 @@ const Home = () => {
         },
         mobile: {
           breakpoint: { max: 464, min: 0 },
-          items: 2,
+          items: 1,
         },
       };
     return(
@@ -120,7 +120,6 @@ const Home = () => {
               <figcaption></figcaption>
             </li>
           </div> 
-          
          
         </Carousel>
       </div>
@@ -131,7 +130,7 @@ const Home = () => {
         <h2 className='slider-heading'>Trending Bhajans</h2>
       </div>    
        <div className='about-slider1 trnding-area'>
-        <Carousel responsive={responsiveTwo} infinite={true} autoPlay={true}  >
+        <Carousel responsive={responsiveTwo} infinite={true}   >
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>

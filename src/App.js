@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Trend from './pages/Trending';
 import Artist from './pages/Top-Artist';
 import TopBhajan from './pages/Top10-Bhajan';
+import Player from './Components/Player';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         </Routes>
         </div>
         <Footer />
+        <Player />
       </Router>
     </div>
   );
