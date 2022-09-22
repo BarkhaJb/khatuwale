@@ -40,6 +40,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img2}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -59,6 +60,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img4}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -78,6 +80,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img2}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -97,6 +100,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -116,6 +120,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -135,6 +140,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -154,6 +160,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -173,6 +180,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -192,6 +200,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -211,6 +220,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -230,6 +240,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -249,6 +260,7 @@ const TopBhajan=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">

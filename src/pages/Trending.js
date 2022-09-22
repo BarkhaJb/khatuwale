@@ -15,11 +15,15 @@ const Trend=()=>{
                 <a href="" className="bigimg"><img src={tr_img1}  /></a>
                 </div>
                 <div className="Trending-song">
+                    <div className="trnd-img-about">
                     <h2>Trending Songs</h2>
                 <p>Top trending hits, refreshed daily</p>
                 <p>Created by Gaana</p>
                 <p>23 Tracks</p>
+                </div>
+                <div className="trndbtn">
                 <button className="footer-btn">play</button>
+                </div>
                 </div>
               </section>
               <section className="sec-2">
@@ -40,6 +44,7 @@ const Trend=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img2}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -59,6 +64,7 @@ const Trend=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img4}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -78,6 +84,7 @@ const Trend=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img2}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">
@@ -97,6 +104,7 @@ const Trend=()=>{
                 <li className="songabt-img">
                     <div className="listimg">
                     <a href="" ><img src={tr_img3}  /></a>
+                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     </div>
                 </li>
                 <li className="songabt">

@@ -60,7 +60,7 @@ const Home = () => {
           items: 5,
         },
         tablet: {
-          breakpoint: { max: 729, min: 464 },
+          breakpoint: { max: 1024, min: 464 },
           items: 2,
         },
         mobile: {
@@ -85,6 +85,7 @@ const Home = () => {
             <li className='blocks-gallery-item wdt'>
               <figure>
               <Link to='/Trending'>   <img src={s1} className='slider-top-img'></img></Link>
+             
               </figure>
               <figcaption></figcaption>
             </li>
@@ -94,6 +95,7 @@ const Home = () => {
             <li className='blocks-gallery-item wdt'>
               <figure>
               <Link to='/Trending'> <img src={s2} className='slider-top-img'></img></Link>
+              
               </figure>
               <figcaption></figcaption>
             </li>
@@ -103,6 +105,7 @@ const Home = () => {
             <li className='blocks-gallery-item wdt'>
               <figure>
               <Link to='/Trending'>    <img src={s3} className='slider-top-img'></img></Link> 
+             
               </figure>
               <figcaption></figcaption>
             </li>
@@ -112,6 +115,7 @@ const Home = () => {
             <li className='blocks-gallery-item wdt'>
               <figure>
               <Link to='/Trending'>   <img src={s4} className='slider-top-img'></img></Link>
+            
               </figure>
               <figcaption></figcaption>
             </li>
@@ -132,12 +136,11 @@ const Home = () => {
               <figure>
               <Link to='/Trending'> <img  className='slider-img trnding-img'
                   src={tr_img1}  ></img></Link>
-               
+                 <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption> </figcaption>
              
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -147,10 +150,11 @@ const Home = () => {
               <figure>
               <Link to='/Trending'><img className='slider-img trnding-img'
                   src={ tr_img2}></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+          
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -162,10 +166,11 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>  <img className='slider-img trnding-img'
                   src={tr_img4}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+           
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -176,11 +181,10 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>  <img className='slider-img trnding-img'
                   src={tr_img3 }></img></Link>
- 
+                 <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -190,10 +194,11 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>  <img className='slider-img'
                 src={tr_img4}  ></img></Link>
+                  <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+          
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -204,10 +209,11 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>  <img className='slider-img'
                     src={ tr_img2}></img></Link>
+                      <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+           
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -218,10 +224,11 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>   <img className='slider-img'
                   src={tr_img1}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+           
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -241,12 +248,11 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>    <img  className='slider-img superhit-img'
                   src={top1}  ></img></Link>
-              
+                <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption> </figcaption>
              
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -256,10 +262,10 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>  <img className='slider-img superhit-img'
                   src={ top2}></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -270,10 +276,10 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>   <img className='slider-img superhit-img'
                   src={top3}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -284,10 +290,10 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>    <img className='slider-img superhit-img'
                   src={top3}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
@@ -359,10 +365,11 @@ const Home = () => {
               <figure>
               <Link to='/Top-Artist'>   <img  className='slider-img searchimg'
                   src={tr_img1}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption> </figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+           
             <div className="songname">
             <p>Kanhaiya Mittal</p>
           </div>
@@ -372,10 +379,10 @@ const Home = () => {
               <figure>
               <Link to='/Top-Artist'>    <img className='slider-img searchimg'
                   src={ lkhabir}></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Lakhbir Singh Lakkha</p>
           </div>
@@ -386,10 +393,11 @@ const Home = () => {
               <figure>
               <Link to='/Top-Artist'>  <img className='slider-img searchimg'
                   src={Raju}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+          
             <div className="songname">
             <p>Raju Kumar Khandelwal</p>
           </div>
@@ -400,11 +408,11 @@ const Home = () => {
               <figure>
               <Link to='/Top-Artist'>  <img className='slider-img searchimg'
                   src={Anjali }></img></Link>
- 
+                 <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+          
             <div className="songname">
             <p>Anjali Dewadi</p>
           </div>
@@ -414,10 +422,11 @@ const Home = () => {
               <figure>
               <Link to='/Top-Artist'>     <img className='slider-img searchimg'
                 src={jaya}  ></img></Link>
+                  <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+           
             <div className="songname">
             <p>Jaya Kishori</p>
           </div>
@@ -428,10 +437,11 @@ const Home = () => {
               <figure>
               <Link to='/Top-Artist'>   <img className='slider-img searchimg'
                     src={ Uma}></img></Link>
+                      <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+           
             <div className="songname">
             <p>Uma Lahri</p>
           </div>
@@ -442,10 +452,11 @@ const Home = () => {
               <figure>
               <Link to='/Top-Artist'>  <img className='slider-img searchimg'
                   src={shiv}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+            
             <div className="songname">
             <p>Shiv Kumar Jalan</p>
           </div>
@@ -465,12 +476,12 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>     <img  className='slider-img Releaseimg  '
                   src={Release1}  ></img></Link>
-             
+                   <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption> </figcaption>
              
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+            {/* <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div> */}
             <div className="songname">
             <p>Baba Aayega</p>
           </div>
@@ -480,10 +491,11 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>     <img className='slider-img Releaseimg'
                   src={Release2}></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
+           
             <div className="songname">
             <p>Sanware Ki God Main</p>
           </div>
@@ -494,10 +506,10 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>    <img className='slider-img Releaseimg'
                   src={Release3}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Kar Shyam Ko Yaad</p>
           </div>
@@ -508,11 +520,10 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>     <img className='slider-img Releaseimg'
                   src={Release4}></img></Link>
- 
+             <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Khatu se Bulawa Aayega</p>
           </div>
@@ -522,6 +533,7 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>    <img className='slider-img Releaseimg'
                 src={Release5}  ></img></Link>
+                  <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -536,6 +548,7 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>  <img className='slider-img Releaseimg'
                     src={Release6}></img></Link>
+                      <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -550,10 +563,10 @@ const Home = () => {
               <figure>
               <Link to='/Trending'>    <img className='slider-img Releaseimg'
                   src={Release4}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
             <div className="songname">
             <p>Khatu se Bulawa Aayega</p>
           </div>

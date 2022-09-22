@@ -8,10 +8,13 @@ const Header = () => {
        <div className="container-fluid">
     <div className="navigation">
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <Link className="logo-box" to='' ><img src={logo} className="logoimg"  /></Link>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div className='logo-n-toggle'>
+   <div className='logo'> <Link className="logo-box" to='' ><img src={logo} className="logoimg"  /></Link></div>
+ <div className='toggle-btn'> <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
+  </div>
+  </div>
   <form class="form-inline my-2 my-lg-0 navbar-search">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
     </form>
