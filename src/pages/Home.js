@@ -120,6 +120,7 @@ const Home = () => {
               <figcaption></figcaption>
             </li>
           </div> 
+          
          
         </Carousel>
       </div>
@@ -130,7 +131,7 @@ const Home = () => {
         <h2 className='slider-heading'>Trending Bhajans</h2>
       </div>    
        <div className='about-slider1 trnding-area'>
-        <Carousel responsive={responsiveTwo} infinite={true} autoPlay={true} >
+        <Carousel responsive={responsiveTwo} infinite={true} autoPlay={true}  >
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
@@ -299,37 +300,12 @@ const Home = () => {
           </div>
           </div>
 
-          {/* <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-                <img className='slider-img'
-                  src={tr_img3 }></img>
- 
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            <div className="songname">
-            <p>Tera Jaadu Khatu</p>
-          </div>
-          </div> */}
-          {/* <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-                <img className='slider-img'
-                src={tr_img4}  ></img>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            <div className="songname">
-            <p>Tera Jaadu Khatu</p>
-          </div>
-          </div>
-
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-                <img className='slider-img'
-                    src={ tr_img2}></img>
+              <Link to='/Trending'>    <img className='slider-img superhit-img'
+                  src={top3}  ></img></Link>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -337,19 +313,6 @@ const Home = () => {
             <p>Tera Jaadu Khatu</p>
           </div>
           </div>
-
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-                <img className='slider-img'
-                  src={tr_img1}  ></img>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            <div className="songname">
-            <p>Tera Jaadu Khatu</p>
-          </div>
-          </div> */}
         
         </Carousel>
       </div>
