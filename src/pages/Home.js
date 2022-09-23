@@ -130,7 +130,7 @@ const Home = () => {
         <h2 className='slider-heading'>Trending Bhajans</h2>
       </div>    
        <div className='about-slider1 trnding-area'>
-        <Carousel responsive={responsiveTwo} infinite={true}   >
+        <Carousel responsive={responsiveTwo} infinite={true}  autoPlay={true}>
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
@@ -321,7 +321,7 @@ const Home = () => {
         <h2 className='slider-heading'>Top Searched Artists</h2>
       </div>    
        <div className='about-slider1 Searched'>
-        <Carousel responsive={responsiveTwo} infinite={true} >
+        <Carousel responsive={responsiveTwo} infinite={true}   autoPlay={true}>
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
