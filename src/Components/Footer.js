@@ -36,6 +36,7 @@ Jay shree Shyam.
  <div className='footer-content'>
     <div className='footer-album'>
        <div className='footer-menu1'>
+      <div className='album-area'>
         <h4 className='foo-heading'>album</h4>
         <div className="menu1-content">
             <ul className='album-list'>
@@ -47,10 +48,12 @@ Jay shree Shyam.
              
             </ul>
         </div>
+        </div>
        </div>
     </div>
     <div className='footer-genres'>
      <div className='footer-menu2'>
+        <div className='genres-area'>
         <h4 className='foo-heading'>genres</h4>
         <div className='menu2-content'>
             <ul className='genres-list'>
@@ -61,6 +64,7 @@ Jay shree Shyam.
                 <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Old Bhajans</Link></li>
             
             </ul>
+        </div>
         </div>
      </div>
     </div>  

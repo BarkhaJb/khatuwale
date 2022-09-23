@@ -71,10 +71,29 @@
 ul{
     list-style: none;
 }
+.navbar-expand-lg .navbar-nav .dropdown-menu{
+    margin-top: 21px;
+    position: absolute;
+    box-shadow: 1px 9px 39px 5px #888888a1;
+    border: none;
+}
+.dropdown-item{
+    color: #F15E2B;
+    font-weight: 800;
+    line-height: 2.2em;
+
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+ }
 
 
 .dropdown-item:hover{
     color: #F15E2B !important;
+    border-bottom: solid 3px #f15924;
+    transform: scaleX(1);
+    transition: transform 250ms ease-in-out;
 }
 /* home page css */
 /* slider css */
@@ -159,9 +178,7 @@ padding: 0 0 0 30px;
 }
 
 
-figure:hover{
-   
-}
+
 .songname p{
     font-size:16px;
 
@@ -646,12 +663,13 @@ font-weight: 600!important;
 
 
     @media only screen and (max-width : 991px){
+       
         .logo-n-toggle{
             display: flex;
             width: 100%;
         }
         .logoimg{
-           max-width: 300px;
+           /* max-width: 300px; */
         }
         .logo-box{
             width: 90%;
@@ -719,6 +737,10 @@ font-weight: 600!important;
         .trend{
             padding: 0;
         }
+        .footer-album, .footer-genres, .footer-artist, .footer-release{
+            width: 50%;
+            text-align: center;
+        }
         .navbar-nav{
             line-height: 2em;
         }
@@ -748,11 +770,11 @@ font-weight: 600!important;
         padding: 12px 0;
     }
     .footer-content{
-        flex-direction: column;
+       flex-wrap: wrap;
     }
     .about-para{
         flex-direction: column;
-        text-align: left;
+       
         padding: 0;
     }
     .about-para2{
@@ -771,7 +793,12 @@ font-weight: 600!important;
     .sliderrr{
         box-shadow: none;
     }
-    
+    .menu1-content, .menu2-content, .menu3-content, .menu4-content{
+        padding: 0;
+    }
+    li.album-item.bullet{
+        text-align: center;
+    }
     
     }
 
@@ -792,9 +819,9 @@ font-weight: 600!important;
     }
     
 }
-@media only screen and (max-width: 1295px) and (min-width: 1061px){
+@media only screen and (max-width: 1326px) and (min-width: 1044px){
     .navbar-search {
-        width: 32%;
+        width: 30% !important;
     }
     .navbar-expand-lg .navbar-nav .nav-link{
         padding-right: 0;
@@ -803,4 +830,22 @@ font-weight: 600!important;
         padding-right: 0;
     }
 }
+@media only screen and (max-width: 1014px) and (min-width: 992px){
+    .navbar-search {
+        width: 22%;
+    }
+}
 
+@media only screen and (max-width : 464px){
+    .slider-img{
+        width: 236px;
+        height: 187px;
+    }
+    img.slider-img.searchimg{
+        width: 227px;
+        height: 216px;
+      border-radius: 119px;
+}
+    }
+    
+  

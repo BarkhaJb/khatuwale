@@ -21,9 +21,22 @@ const Header = () => {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
  
     <ul className="navbar-nav mr-auto">
-      <li className="nav-item ">
-      <Link to='/Top-Artist' className="nav-link" >Top Artists</Link>
+
+
+
+       <li className="nav-item dropdown">
+       <Link to='/'  className="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+       Top Artists
+        </Link>
+       
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Sanjay Mittal</a>
+          <a class="dropdown-item" href="#">Kanhya Mittal</a>
+          <a class="dropdown-item" href="#">Nandu Maharaj</a>
+          <a class="dropdown-item" href="#">Shubham Rupam</a>
+        </div>
       </li>
+      
       <li className="nav-item">
       <Link to='/Trending' className="nav-link"> Trending Bhajans</Link>
       </li>
