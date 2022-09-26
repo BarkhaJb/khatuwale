@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 import dol from '../Components/assets/images/dol.jpg';
 import Hanji from '../Components/assets/images/hanji.jpg';
@@ -6,7 +6,14 @@ import song from '../Components/assets/images/song.jpg';
 import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 
-const Artist = () => {
+const Artist = ({
+  releaseSong,
+  currentArtist,
+  setMusicTracks,
+  setDefaultMusic,
+  setTrackIndex,
+}) => {
+  const [displaySongs, setDisplaySongs] = useState([]);
   const responsive1111 = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -25,6 +32,30 @@ const Artist = () => {
       breakpoint: { max: 464, min: 0 },
       items: 1,
     },
+  };
+  const filterSongsOnArtist = (songs, selectedArtist) => {
+    const filteredSongs = songs.filter((element) => {
+      return element.artist === selectedArtist.artist;
+    });
+    return filteredSongs;
+  };
+  useEffect(() => {
+    if (currentArtist === null) {
+      setDisplaySongs(releaseSong);
+      setDefaultMusic();
+    } else {
+      const filteredSongs = filterSongsOnArtist(releaseSong, currentArtist);
+      setDisplaySongs(filteredSongs);
+      if (filteredSongs && filteredSongs?.length > 0) {
+        const parsedData = filteredSongs.map((item) => {
+          return { src: item.song, name: item.track, id: item._id };
+        });
+        setMusicTracks(parsedData);
+      }
+    }
+  }, [currentArtist, releaseSong, setDefaultMusic, setMusicTracks]);
+  const ChangeCurrentSong = (index) => {
+    setTrackIndex(index);
   };
   return (
     <div className='newsong-page'>
@@ -105,11 +136,13 @@ const Artist = () => {
             </div>
             <div className='ul-song'>
               <ul className='card-area'>
+              {displaySongs?.map((user, index) => (
                 <li className='card'>
-                <Link to='' className='box-img'><img src={dol} /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Hanji Hanji</Link></div>
+                <Link to='' className='box-img'><img src={user.image} onClick={() => ChangeCurrentSong(index)} /></Link>
+                <div className='song-name'><Link to='' className='box-song'><p>{user.track}</p></Link></div>
                 </li>
-                <li className='card'> <Link to='' className='box-img'><img src={dol}  /></Link>
+              ))}
+                {/* <li className='card'> <Link to='' className='box-img'><img src={dol}  /></Link>
                 <div className='song-name'><Link to='' className='box-song'>Dhol Bajaa</Link></div>
                 </li>
                 <li className='card'>
@@ -187,7 +220,7 @@ const Artist = () => {
                 <li className='card'>
                 <Link to='' className='box-img'><img src={dol} /></Link>
                 <div className='song-name'><Link to='' className='box-song'>Hanji Hanji</Link></div>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

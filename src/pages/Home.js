@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect}  from "react";
 import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
@@ -25,9 +25,15 @@ import Release6 from '../Components/assets/images/Release6.jpg';
 import top1 from '../Components/assets/images/newRelease.jpg';
 import top2 from '../Components/assets/images/kanhiyahitts.jpg';
 import top3 from '../Components/assets/images/super5.jpg';
+import {useNavigate} from 'react-router-dom'
 
 
-const Home = () => {
+const Home = ({
+  releaseSong,
+  setReleaseSong,
+  setCurrentArtist,
+  fetchSongs,
+}) => {
 
     const responsive = {
         superLargeDesktop: {
@@ -68,30 +74,58 @@ const Home = () => {
           items: 1,
         },
       };
+      const [isLoading, setIsLoading] = React.useState(true);
+  const [data, setData] = React.useState([]);
+  const [category, setCategory] = React.useState([]);
+  useEffect(() => {
+    const url = 'https://khatu-wale-api.herokuapp.com/artist';
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    const url = 'https://khatu-wale-api.herokuapp.com/category';
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setCategory(json))
+      .catch((error) => console.log(error));
+  }, []);
+  const navigate = useNavigate();
+  const SongSelect = (user) => {
+    navigate('/Trending', { state: { user } });
+    console.log('ths is user', user);
+  };
+  const navigateToTopArtist = (user) => {
+    console.log('USER THIS', user);
+    setCurrentArtist(user);
+    navigate('/Top-Artist');
+  };
+
     return(
 <div className="container-fluid">
       <div className="home">
      
-        <div className='ft-bnr'>
+         <div className='ft-bnr'>
         {' '}
         <Carousel
           responsive={responsive}
           infinite={true}
           autoPlay={true}
-          autoPlaySpeed={2000}
+          autoPlaySpeed={3000}
         >
-    
+        {category.map((user) => (
           <div className='slick-slide'>
             <li className='blocks-gallery-item wdt'>
               <figure>
-              <Link to='/Trending'>   <img src={s1} className='slider-top-img'></img></Link>
-             
+              <Link to='/Category'>   <img src={user.image} className='slider-top-img'  onClick={() => SongSelect(user)}></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
           </div>
-
-      <div className='slick-slide'>
+     ))}
+      {/* <div className='slick-slide'>
             <li className='blocks-gallery-item wdt'>
               <figure>
               <Link to='/Trending'> <img src={s2} className='slider-top-img'></img></Link>
@@ -99,9 +133,9 @@ const Home = () => {
               </figure>
               <figcaption></figcaption>
             </li>
-          </div>
+          </div> */}
 
-          <div className='slick-slide'>
+          {/* <div className='slick-slide'>
             <li className='blocks-gallery-item wdt'>
               <figure>
               <Link to='/Trending'>    <img src={s3} className='slider-top-img'></img></Link> 
@@ -109,9 +143,9 @@ const Home = () => {
               </figure>
               <figcaption></figcaption>
             </li>
-          </div>
+          </div> */}
 
-          <div className='slick-slide'>
+          {/* <div className='slick-slide'>
             <li className='blocks-gallery-item wdt'>
               <figure>
               <Link to='/Trending'>   <img src={s4} className='slider-top-img'></img></Link>
@@ -119,7 +153,7 @@ const Home = () => {
               </figure>
               <figcaption></figcaption>
             </li>
-          </div> 
+          </div>  */}
          
         </Carousel>
       </div>
@@ -134,9 +168,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'> <img  className='slider-img trnding-img'
-                  src={tr_img1}  ></img></Link>
-                 <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+             <img  className='slider-img trnding-img'
+                  src={tr_img1}  ></img>
+                 <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>
              
@@ -148,9 +182,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'><img className='slider-img trnding-img'
-                  src={ tr_img2}></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+            <img className='slider-img trnding-img'
+                  src={ tr_img2}></img>
+                    <div className="playyiconhome">  <Link to='/Trending'><i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -164,9 +198,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>  <img className='slider-img trnding-img'
-                  src={tr_img4}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+              <img className='slider-img trnding-img'
+                  src={tr_img4}  ></img>
+                    <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -179,9 +213,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item trnding-img'>
               <figure>
-              <Link to='/Trending'>  <img className='slider-img trnding-img'
-                  src={tr_img3 }></img></Link>
-                 <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+             <img className='slider-img trnding-img'
+                  src={tr_img3 }></img>
+                  <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -192,9 +226,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>  <img className='slider-img'
-                src={tr_img4}  ></img></Link>
-                  <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+              <img className='slider-img'
+                src={tr_img4}  ></img>
+                   <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -207,9 +241,9 @@ const Home = () => {
            <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>  <img className='slider-img'
-                    src={ tr_img2}></img></Link>
-                      <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+                <img className='slider-img'
+                    src={ tr_img2}></img>
+                      <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -222,9 +256,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>   <img className='slider-img'
-                  src={tr_img1}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+               <img className='slider-img'
+                  src={tr_img1}  ></img>
+                     <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -246,9 +280,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>    <img  className='slider-img superhit-img'
-                  src={top1}  ></img></Link>
-                <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+               <img  className='slider-img superhit-img'
+                  src={top1}  ></img>
+                  <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>
              
@@ -260,9 +294,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>  <img className='slider-img superhit-img'
-                  src={ top2}></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+             <img className='slider-img superhit-img'
+                  src={ top2}></img>
+                     <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -274,9 +308,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>   <img className='slider-img superhit-img'
-                  src={top3}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+               <img className='slider-img superhit-img'
+                  src={top3}  ></img>
+                     <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -288,9 +322,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>    <img className='slider-img superhit-img'
-                  src={top3}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+                <img className='slider-img superhit-img'
+                  src={top3}  ></img>
+                    <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -302,9 +336,9 @@ const Home = () => {
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>    <img className='slider-img superhit-img'
-                  src={top3}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+            <img className='slider-img superhit-img'
+                  src={top3}  ></img>
+                     <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -322,223 +356,61 @@ const Home = () => {
       </div>    
        <div className='about-slider1 Searched'>
         <Carousel responsive={responsiveTwo} infinite={true}   autoPlay={true}>
+           {data.map((user) => (
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Top-Artist'>   <img  className='slider-img searchimg'
-                  src={tr_img1}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+              <img  className='slider-img searchimg'
+                  src={user.image}  onClick={() => {
+                    navigateToTopArtist(user);
+                  }} ></img>
+                    <div className="playyiconhome">  <Link to='/Top-Artist'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>
             </li>
            
             <div className="songname">
-            <p>Kanhaiya Mittal</p>
-          </div>
-          </div>
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Top-Artist'>    <img className='slider-img searchimg'
-                  src={ lkhabir}></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            <div className="songname">
-            <p>Lakhbir Singh Lakkha</p>
-          </div>
-          </div>
+            <p>{user.artist}</p>
+          </div> 
+          </div>         
+           ))}
 
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Top-Artist'>  <img className='slider-img searchimg'
-                  src={Raju}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-          
-            <div className="songname">
-            <p>Raju Kumar Khandelwal</p>
-          </div>
-          </div>
-
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Top-Artist'>  <img className='slider-img searchimg'
-                  src={Anjali }></img></Link>
-                 <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-          
-            <div className="songname">
-            <p>Anjali Dewadi</p>
-          </div>
-          </div>
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Top-Artist'>     <img className='slider-img searchimg'
-                src={jaya}  ></img></Link>
-                  <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-           
-            <div className="songname">
-            <p>Jaya Kishori</p>
-          </div>
-          </div>
-
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Top-Artist'>   <img className='slider-img searchimg'
-                    src={ Uma}></img></Link>
-                      <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-           
-            <div className="songname">
-            <p>Uma Lahri</p>
-          </div>
-          </div>
-
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Top-Artist'>  <img className='slider-img searchimg'
-                  src={shiv}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            
-            <div className="songname">
-            <p>Shiv Kumar Jalan</p>
-          </div>
-          </div>
-        
         </Carousel>
-      </div>
-      </div>
+        </div>
+     
+    
       <div className="slider">
       <div className='slider1'>
         <h2 className='slider-heading'>New Releases</h2>
       </div>    
        <div className='about-slider1 release-area'>
         <Carousel responsive={responsiveTwo} infinite={true} autoPlay={true}>
+        {releaseSong.map((user) => (
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
-              <Link to='/Trending'>     <img  className='slider-img Releaseimg  '
-                  src={Release1}  ></img></Link>
-                   <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
+                 <img  className='slider-img Releaseimg  '
+                  src={user.image}  ></img>
+                    <div className="playyiconhome">  <Link to='/Top-Artist'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>
              
             </li>
             {/* <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div> */}
             <div className="songname">
-            <p>Baba Aayega</p>
+            <p>{user.track}</p>
           </div>
           </div>
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Trending'>     <img className='slider-img Releaseimg'
-                  src={Release2}></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-           
-            <div className="songname">
-            <p>Sanware Ki God Main</p>
-          </div>
-          </div>
-
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Trending'>    <img className='slider-img Releaseimg'
-                  src={Release3}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            <div className="songname">
-            <p>Kar Shyam Ko Yaad</p>
-          </div>
-          </div>
-
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Trending'>     <img className='slider-img Releaseimg'
-                  src={Release4}></img></Link>
-             <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            <div className="songname">
-            <p>Khatu se Bulawa Aayega</p>
-          </div>
-          </div>
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Trending'>    <img className='slider-img Releaseimg'
-                src={Release5}  ></img></Link>
-                  <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
-            <div className="songname">
-            <p>Shyam Milega</p>
-          </div>
-          </div>
-
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Trending'>  <img className='slider-img Releaseimg'
-                    src={Release6}></img></Link>
-                      <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div>
-            <div className="songname">
-            <p>Bhawo Ke Bhuke Shree Shyam </p>
-          </div>
-          </div>
-
-          <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
-              <figure>
-              <Link to='/Trending'>    <img className='slider-img Releaseimg'
-                  src={Release4}  ></img></Link>
-                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-              </figure>
-              <figcaption></figcaption>
-            </li>
-            <div className="songname">
-            <p>Khatu se Bulawa Aayega</p>
-          </div>
-          </div>
+        ))}
         
         </Carousel>
       </div>
-      </div>
-     </div>
-      <div className='upcomingEvents'>
+    
+    </div>
+    </div>
+    </div>
+
+          <div className='upcomingEvents'>
               <div className='eventhead'>
                 <h1 className='event-h1'>Upcoming Events</h1>
               </div>

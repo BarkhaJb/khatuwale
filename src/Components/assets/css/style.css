@@ -56,17 +56,23 @@
   
     font-family: 'Nunito Sans', sans-serif;
     font-size: 16px!important;
-    color: #F15E2B;
+    color: #F15E2B !important;
     font-weight: bolder;
-    display: inline;
+    display: contents;
 }
 
 .nav-link:hover{
     opacity: .6;
+    color: #000000 !important;
     border-bottom: solid 3px #f15924;
     /* transform: scaleX(0); */
-    transition: transform 250ms ease-in-out;
-  
+    opacity: 1;
+    transform: scaleX(1);
+    transition: color 300ms ease 0ms;
+}
+button.navbar-toggler.collapsed{
+    border: none;
+
 }
 ul{
     list-style: none;
@@ -119,7 +125,7 @@ li.blocks-gallery-item.wdt {
     width: 100%;
    
     height: 100%;
-    max-height: 162px;
+    max-height: 135px;
   }
   /* .ft-bnr{
     width: 1125px;
@@ -127,6 +133,7 @@ li.blocks-gallery-item.wdt {
 
 .playyicon i{
     font-size: 35px;
+    display: none!important;
 }
 .slider-heading{
 text-align: left;
@@ -309,6 +316,7 @@ padding: 0 0 0 30px;
 .fa-play-circle-o{
     font-size: 38px;
     cursor: pointer;
+    color: white;
 }
 .playyiconhome{
  
@@ -327,6 +335,7 @@ padding: 0 0 0 30px;
     width: 100%;
     max-width: 1353px;
     z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 button.rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button path{
     color:#f15924;
@@ -342,6 +351,9 @@ button.rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button path{
 }
 .rhap_volume-indicator , .rhap_progress-filled ,.rhap_progress-indicator{
     background-color: #f15924 !important;
+}
+.rhap_progress-bar{
+    background-color: #dfd2d2 !important;
 }
 .rhap_header {
     margin-bottom: 5px;
@@ -364,6 +376,7 @@ button.rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button path{
 .listimg img{
     height: 30px;
     width: 30x;
+    cursor: pointer;
 }
 .trend-area{
     margin: 0 auto;
@@ -667,6 +680,7 @@ font-weight: 600!important;
         .logo-n-toggle{
             display: flex;
             width: 100%;
+            display: contents;
         }
         .logoimg{
            /* max-width: 300px; */
@@ -685,6 +699,9 @@ font-weight: 600!important;
             align-items: center;
         }
         
+        .navbar-toggler-icon{
+            background-image: url('../images/toggel.png');
+        }
         .sec-1{
             flex-direction: column;
             align-items: center;
@@ -847,5 +864,12 @@ font-weight: 600!important;
       border-radius: 119px;
 }
     }
-    
+
+
   
+
+
+
+
+
+   

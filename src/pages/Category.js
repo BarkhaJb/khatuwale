@@ -5,7 +5,7 @@ import tr_img4 from '../Components/assets/images/tr_img4.jpg';
 import tr_img3 from '../Components/assets/images/tr_img3.jpg';
 import { Link } from 'react-router-dom';
 
-const Trend=({ setMusicTracks, setTrackIndex })=>{
+const Category=({ setMusicTracks, setTrackIndex })=>{
     const [release, setRelease] = React.useState([]);
     useEffect(() => {
         const url = 'https://khatu-wale-api.herokuapp.com/songs';
@@ -38,13 +38,13 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
                 </div>
                 <div className="Trending-song">
                     <div className="trnd-img-about">
-                    <h2>Trending Songs</h2>
+                    <h2>Lene Aaja Khatu</h2>
                 <p>Top trending hits, refreshed daily</p>
                 <p>Created by Gaana</p>
                 <p>23 Tracks</p>
                 </div>
                 <div className="trndbtn">
-                <button className="footer-btn" onClick={()=>SetIndexToZero()}>play all</button>
+                <button className="footer-btn" onClick={()=>SetIndexToZero()}>play</button>
                 </div>
                 </div>
               </section>
@@ -84,66 +84,7 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
                     
               </ul>
               ))}
-            {/* //   <ul  className="song-about">
-            //     <li className="songabt-img">
-            //         <div className="listimg">
-            //         <a href="" ><img src={tr_img4}  /></a>
-            //         <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-            //         </div>
-            //     </li>
-            //     <li className="songabt">
-            //         <div className="heading-row">
-            //             <div className="track"><p>Summer High</p></div>
-            //             <div className="artist"><p>AP Dhillon</p></div>
-            //         </div>
-            //     </li>
-            //     <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
-            //     <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
-            //     <li className="row-item">
-            //     <p>04:28</p>
-            //     </li>
-                    
-            //   </ul> */}
-              {/* <ul  className="song-about">
-                <li className="songabt-img">
-                    <div className="listimg">
-                    <a href="" ><img src={tr_img2}  /></a>
-                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-                    </div>
-                </li>
-                <li className="songabt">
-                    <div className="heading-row">
-                        <div className="track"><p>I Wish I Could Hate You</p></div>
-                        <div className="artist"><p>HRVY</p></div>
-                    </div>
-                </li>
-                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
-                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
-                <li className="row-item">
-                <p>04:28</p>
-                </li>
-                    
-              </ul>
-              <ul  className="song-about">
-                <li className="songabt-img">
-                    <div className="listimg">
-                    <a href="" ><img src={tr_img3}  /></a>
-                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-                    </div>
-                </li>
-                <li className="songabt">
-                    <div className="heading-row">
-                        <div className="track"><p>Mitti De Tibbe</p></div>
-                        <div className="artist"><p>Kaka</p></div>
-                    </div>
-                </li>
-                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
-                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
-                <li className="row-item">
-                <p>04:28</p>
-                </li>
-                    
-              </ul> */}
+       
               </div>
               </section> 
             </div>
@@ -151,4 +92,4 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
         </div>
     );
 };
-export default Trend;
+export default Category;
