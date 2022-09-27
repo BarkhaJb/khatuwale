@@ -74,6 +74,7 @@ const Home = ({
           items: 1,
         },
       };
+      const [trendingSong, setTrendingSong] = React.useState([]);
       const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState([]);
   const [category, setCategory] = React.useState([]);
@@ -102,6 +103,18 @@ const Home = ({
     setCurrentArtist(user);
     navigate('/Top-Artist');
   };
+  const CategorySelect = (user) => {
+    console.log('ths is user', user);
+    setCurrentArtist(user);
+    navigate('/category');
+  };
+  useEffect(() => {
+    const url = 'https://khatu-wale-api.herokuapp.com/songs';
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setTrendingSong(json))
+      .catch((error) => console.log(error));
+  }, []);
 
     return(
 <div className="container-fluid">
@@ -119,7 +132,7 @@ const Home = ({
           <div className='slick-slide'>
             <li className='blocks-gallery-item wdt'>
               <figure>
-              <Link to='/Category'>   <img src={user.image} className='slider-top-img'  onClick={() => SongSelect(user)}></img></Link>
+              <Link to='/Category'>   <img src={user.image} className='slider-top-img'    onClick={() => CategorySelect(user)}></img></Link>
               </figure>
               <figcaption></figcaption>
             </li>
@@ -165,21 +178,27 @@ const Home = ({
       </div>    
        <div className='about-slider1 trnding-area'>
         <Carousel responsive={responsiveTwo} infinite={true}  autoPlay={true}>
+          {trendingSong.map((user)=>(
+
+        
+
+
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
              <img  className='slider-img trnding-img'
-                  src={tr_img1}  ></img>
+                  src={user.image} onClick={()=>SongSelect()} ></img>
                  <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>
              
             </li>
             <div className="songname">
-            <p>Tera Jaadu Khatu</p>
+            <p>{user.track}</p>
           </div>
           </div>
-          <div className='slick-slide'>
+          ))}
+          {/* <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
             <img className='slider-img trnding-img'
@@ -193,9 +212,9 @@ const Home = ({
             <p>Tera Jaadu Khatu</p>
           </div>
           </div>
+         */}
         
-
-          <div className='slick-slide'>
+          {/* <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
               <img className='slider-img trnding-img'
@@ -266,7 +285,7 @@ const Home = ({
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
-          </div> 
+          </div>  */}
         
         </Carousel>
       </div>
@@ -277,21 +296,23 @@ const Home = ({
       </div>    
        <div className='about-slider1 superhit'>
         <Carousel className="superhit" responsive={responsiveTwo} infinite={true} autoPlay={true}>
+        {category.map((user) => (
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
                <img  className='slider-img superhit-img'
-                  src={top1}  ></img>
+                  src={user.image}   onClick={() => CategorySelect(user)} ></img>
                   <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>
              
             </li>
             <div className="songname">
-            <p>Tera Jaadu Khatu</p>
+            <p>{user.track}</p>
           </div>
           </div>
-          <div className='slick-slide'>
+        ))}
+          {/* <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
              <img className='slider-img superhit-img'
@@ -345,7 +366,7 @@ const Home = ({
             <div className="songname">
             <p>Tera Jaadu Khatu</p>
           </div>
-          </div>
+          </div> */}
         
         </Carousel>
       </div>

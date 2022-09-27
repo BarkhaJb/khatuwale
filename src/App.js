@@ -124,7 +124,10 @@ function App() {
                   setDefaultMusic={setDefaultMusic}
                   setTrackIndex={setTrackIndex} />} />
           <Route path='/TopBhajan' element={<TopBhajan  />} />
-          <Route path='/Category' element={<Category  />} />
+          <Route path='/Category' element={<Category currentArtist={currentArtist}
+                  setTrackIndex={setTrackIndex}
+                  fetchSongs={fetchSongs}
+                  setMusicTracks={setMusicTracks} />} />
           <Route path='/latestsong' element={<Latest />} />
                      {/* <Route path='/FAQ' element={<FAQ />} />
           <Route path='/Book' element={<Book />} /> */}
