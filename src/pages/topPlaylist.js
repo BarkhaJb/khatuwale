@@ -3,32 +3,29 @@ import tr_img1 from '../Components/assets/images/tr_img1.jpg';
 import tr_img2 from '../Components/assets/images/tr_img2.png';
 import tr_img4 from '../Components/assets/images/tr_img4.jpg';
 import tr_img3 from '../Components/assets/images/tr_img3.jpg';
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Category = ({
+const TopPlaylist = ({
   setMusicTracks,
   setTrackIndex,
   user,
   currentArtist,
   fetchSongs,
 }) => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
   const [release, setRelease] = React.useState([]);
-  const [category, setCategory] = useState([]);
+  const [playlist, setPlaylist] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentArtist === null) {
+    if (currentArtist === null || undefined) {
+      navigate('/');
     }
-    const url = `https://khatu-wale-api.herokuapp.com/category/songs/${currentArtist._id}`;
+    const url = `https://khatu-wale-api.herokuapp.com/playlist/songs/${currentArtist._id}`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
-        setCategory(json);
+        setPlaylist(json);
         console.log('CONSOLE', json);
         const parsedDataTwo = json.map((item) => {
           return { src: item.song, name: item.track, id: item._id };
@@ -56,18 +53,18 @@ const Category = ({
       <div className='trend-area'>
         <section className='sec-1'>
           <div className='trendimg'>
-            <img src={currentArtist.image}  className="art-img"/>
+            <img src={tr_img1} />
           </div>
           <div className='Trending-song'>
             <div className='trnd-img-about'>
               <h2>Lene Aaja Khatu</h2>
               <p>Top trending hits, refreshed daily</p>
-             
+              <p>Created by Gaana</p>
               <p>23 Tracks</p>
             </div>
             <div className='trndbtn'>
               <button className='footer-btn' onClick={() => SetIndexToZero()}>
-                play All
+                play
               </button>
             </div>
           </div>
@@ -105,7 +102,7 @@ const Category = ({
                 <p className='heading'>Duration</p>
               </li>
             </ul>
-            {category.map((user, index) => (
+            {playlist.map((user, index) => (
               <ul className='song-about'>
                 <li className='songabt-img'>
                   <div className='listimg'>
@@ -153,4 +150,4 @@ const Category = ({
     </div>
   );
 };
-export default Category;
+export default TopPlaylist;

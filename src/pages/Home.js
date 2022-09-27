@@ -2,29 +2,6 @@ import React,{useState, useEffect}  from "react";
 import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
-import s1 from '../Components/assets/images/s1.jpg';
-import s2 from '../Components/assets/images/s2.jpg';
-import s3 from '../Components/assets/images/s3.jpg';
-import s4 from '../Components/assets/images/s4.jpg';
-import tr_img1 from '../Components/assets/images/tr_img1.jpg';
-import tr_img2 from '../Components/assets/images/tr_img2.png';
-import tr_img4 from '../Components/assets/images/tr_img4.jpg';
-import tr_img3 from '../Components/assets/images/tr_img3.jpg';
-import lkhabir from '../Components/assets/images/Lakhbir-Singh-Lakha-q.jpg';
-import Anjali from '../Components/assets/images/Anjali-Dwivedi.jpg';
-import Uma  from '../Components/assets/images/Uma Lahari.jpg';
-import shiv from '../Components/assets/images/shiv.jpg';
-import jaya from '../Components/assets/images/jaya.jpg';
-import Raju from '../Components/assets/images/Rajukumar.jpg';
-import Release1 from '../Components/assets/images/Release1.png';
-import Release2 from '../Components/assets/images/Release2.png';
-import Release3 from '../Components/assets/images/Release3.png';
-import Release4 from '../Components/assets/images/Release4.png';
-import Release5 from '../Components/assets/images/Release5.png';
-import Release6 from '../Components/assets/images/Release6.jpg';
-import top1 from '../Components/assets/images/newRelease.jpg';
-import top2 from '../Components/assets/images/kanhiyahitts.jpg';
-import top3 from '../Components/assets/images/super5.jpg';
 import {useNavigate} from 'react-router-dom'
 
 
@@ -74,10 +51,30 @@ const Home = ({
           items: 1,
         },
       };
+      const responsiveThree = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 5,
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 3,
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 2,
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1,
+        },
+      };
       const [trendingSong, setTrendingSong] = React.useState([]);
       const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState([]);
   const [category, setCategory] = React.useState([]);
+  const [playlist, setPlaylist] = React.useState([]);
   useEffect(() => {
     const url = 'https://khatu-wale-api.herokuapp.com/artist';
     fetch(url)
@@ -87,10 +84,24 @@ const Home = ({
   }, []);
 
   useEffect(() => {
-    const url = 'https://khatu-wale-api.herokuapp.com/category';
+    const url = 'https://khatu-wale-api.herokuapp.com/category/songs';
     fetch(url)
       .then((response) => response.json())
       .then((json) => setCategory(json))
+      .catch((error) => console.log(error));
+  }, []);
+  useEffect(() => {
+    const url = 'https://khatu-wale-api.herokuapp.com/playlist';
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setPlaylist(json))
+      .catch((error) => console.log(error));
+  }, []);
+  useEffect(() => {
+    const url = 'https://khatu-wale-api.herokuapp.com/trending';
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setTrendingSong(json))
       .catch((error) => console.log(error));
   }, []);
   const navigate = useNavigate();
@@ -108,13 +119,23 @@ const Home = ({
     setCurrentArtist(user);
     navigate('/category');
   };
-  useEffect(() => {
-    const url = 'https://khatu-wale-api.herokuapp.com/songs';
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => setTrendingSong(json))
-      .catch((error) => console.log(error));
-  }, []);
+  const navigateToNewRelease = (user) => {
+    // console.log('USER THIS', user);
+    // setCurrentArtist(user);
+    navigate('/newReleases');
+  };
+  const MoveToPlaylist = (user) => {
+    console.log(' THIS user', user);
+    setCurrentArtist(user);
+    navigate('/TopPlaylist');
+  };
+  // useEffect(() => {
+  //   const url = 'https://khatu-wale-api.herokuapp.com/songs';
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((json) => setTrendingSong(json))
+  //     .catch((error) => console.log(error));
+  // }, []);
 
     return(
 <div className="container-fluid">
@@ -179,10 +200,6 @@ const Home = ({
        <div className='about-slider1 trnding-area'>
         <Carousel responsive={responsiveTwo} infinite={true}  autoPlay={true}>
           {trendingSong.map((user)=>(
-
-        
-
-
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
@@ -295,20 +312,20 @@ const Home = ({
         <h2 className='slider-heading'>Top Playlist</h2>
       </div>    
        <div className='about-slider1 superhit'>
-        <Carousel className="superhit" responsive={responsiveTwo} infinite={true} autoPlay={true}>
-        {category.map((user) => (
+        <Carousel className="superhit" responsive={responsiveThree} infinite={true}>
+        {playlist.map((user) => (
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
                <img  className='slider-img superhit-img'
-                  src={user.image}   onClick={() => CategorySelect(user)} ></img>
+                  src={user.image}   onClick={() => MoveToPlaylist(user)} ></img>
                   <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>
              
             </li>
             <div className="songname">
-            <p>{user.track}</p>
+            <p>{user.title}</p>
           </div>
           </div>
         ))}
@@ -411,7 +428,7 @@ const Home = ({
             <li className='blocks-gallery-item'>
               <figure>
                  <img  className='slider-img Releaseimg  '
-                  src={user.image}  ></img>
+                  src={user.image}  onClick={() => navigateToNewRelease()} ></img>
                     <div className="playyiconhome">  <Link to='/Top-Artist'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>

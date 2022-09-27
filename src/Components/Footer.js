@@ -1,9 +1,25 @@
-import React from 'react';
+import React ,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 
 
 
 const Footer = () => {
+    const[category,setCategory]=useState([]);
+    const [playlist, setPlaylist] = React.useState([]);
+    useEffect(() => {
+        const url = 'https://khatu-wale-api.herokuapp.com/category/songs';
+        fetch(url)
+          .then((response) => response.json())
+          .then((json) => setCategory(json))
+          .catch((error) => console.log(error));
+      }, []);
+      useEffect(() => {
+        const url = 'https://khatu-wale-api.herokuapp.com/playlist';
+        fetch(url)
+          .then((response) => response.json())
+          .then((json) => setPlaylist(json))
+          .catch((error) => console.log(error));
+      }, []);
   return (
  <div className="footer" >
 
@@ -40,13 +56,11 @@ Jay shree Shyam.
         <h4 className='foo-heading'>album</h4>
         <div className="menu1-content">
             <ul className='album-list'>
-                <li className='album-item bullet'><Link to='' className='anchor-foo'>English</Link></li>
-                <li className='album-item bullet '><Link to='' className='anchor-foo'>Hindi</Link></li>
-                <li className='album-item bullet'><Link to=''  className='anchor-foo'>Telgu</Link></li>
-                <li className='album-item bullet'><Link to=''  className='anchor-foo'>Tamil</Link></li>
-                <li className='album-item bullet'><Link to=''  className='anchor-foo'>Bhojpuri</Link></li>
-             
-            </ul>
+                {category.map((user)=>(
+                <li className='album-item bullet'><Link to='/category' className='anchor-foo'>{user.title}</Link></li>
+               
+                ))}
+                 </ul>
         </div>
         </div>
        </div>
@@ -57,12 +71,10 @@ Jay shree Shyam.
         <h4 className='foo-heading'>genres</h4>
         <div className='menu2-content'>
             <ul className='genres-list'>
-               <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Latest Bhajans</Link></li>
-                <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Devotional Songs</Link></li>
-                <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Bhajans</Link></li>
-                <li className='genres-item bullet'><Link to=''  className='anchor-foo'>New Bhajans</Link></li>
-                <li className='genres-item bullet'><Link to=''  className='anchor-foo'>Old Bhajans</Link></li>
-            
+            {playlist.map((user) => (
+               <li className='genres-item bullet'><Link to='/trending'  className='anchor-foo'>{user.title}</Link></li>
+               
+            ))}
             </ul>
         </div>
         </div>

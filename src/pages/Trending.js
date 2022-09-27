@@ -4,9 +4,18 @@ import tr_img2 from '../Components/assets/images/tr_img2.png';
 import tr_img4 from '../Components/assets/images/tr_img4.jpg';
 import tr_img3 from '../Components/assets/images/tr_img3.jpg';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
+
+
 
 const Trend=({ setMusicTracks, setTrackIndex })=>{
     const [release, setRelease] = React.useState([]);
+    const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
     useEffect(() => {
         const url = 'https://khatu-wale-api.herokuapp.com/songs';
         fetch(url)
@@ -40,7 +49,7 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
                     <div className="trnd-img-about">
                     <h2>Trending Songs</h2>
                 <p>Top trending hits, refreshed daily</p>
-                <p>Created by Gaana</p>
+               
                 <p>23 Tracks</p>
                 </div>
                 <div className="trndbtn">

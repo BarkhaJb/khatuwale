@@ -11,6 +11,8 @@ import TopBhajan from './pages/Top10-Bhajan';
 import Player from './Components/Player';
 import Latest from './pages/latest';
 import Category from './pages/Category';
+import TopPlaylist from './pages/topPlaylist';
+import NewReleases from './pages/NewReleases';
 
 
 
@@ -81,7 +83,7 @@ function App() {
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentArtist, setCurrentArtist] = useState(null);
   const fetchSongs = () => {
-    const url = 'https://khatu-wale-api.herokuapp.com/songs';
+    const url = 'https://khatu-wale-api.herokuapp.com/playlist/songs/6332be119778905b2cd45a83';
     fetch(url)
       .then((response) => response.json())
       .then((json) => setReleaseSong(json))
@@ -129,6 +131,27 @@ function App() {
                   fetchSongs={fetchSongs}
                   setMusicTracks={setMusicTracks} />} />
           <Route path='/latestsong' element={<Latest />} />
+          <Route
+              path='/newReleases'
+              element={
+                <NewReleases
+                  setMusicTracks={setMusicTracks}
+                  fetchSongs={fetchSongs}
+                  setTrackIndex={setTrackIndex}
+                />}
+            />
+            <Route
+              path='/TopPlaylist'
+              element={
+                <TopPlaylist
+                  currentArtist={currentArtist}
+                  setTrackIndex={setTrackIndex}
+                  fetchSongs={fetchSongs}
+                  setMusicTracks={setMusicTracks}
+                />}
+            
+            />
+              
                      {/* <Route path='/FAQ' element={<FAQ />} />
           <Route path='/Book' element={<Book />} /> */}
         </Routes>
