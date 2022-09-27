@@ -3,7 +3,7 @@ import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
-
+import { useLocation } from 'react-router-dom'
 
 const Home = ({
   releaseSong,
@@ -11,6 +11,11 @@ const Home = ({
   setCurrentArtist,
   fetchSongs,
 }) => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
     const responsive = {
         superLargeDesktop: {
@@ -204,7 +209,7 @@ const Home = ({
             <li className='blocks-gallery-item'>
               <figure>
              <img  className='slider-img trnding-img'
-                  src={user.image} onClick={()=>SongSelect()} ></img>
+                  src={user.image} onClick={()=>SongSelect(user)} ></img>
                  <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>
@@ -325,7 +330,7 @@ const Home = ({
              
             </li>
             <div className="songname">
-            <p>{user.title}</p>
+            {/* <p>{user.title}</p> */}
           </div>
           </div>
         ))}

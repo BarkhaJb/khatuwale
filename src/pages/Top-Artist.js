@@ -136,7 +136,7 @@ const Artist = ({
             </div>
             <div className='ul-song'>
               <ul className='card-area'>
-              {displaySongs?.map((user, index) => (
+              {displaySongs.map((user, index) => (
                 <li className='card'>
                 <Link to='' className='box-img'><img src={user.image} onClick={() => ChangeCurrentSong(index)} /></Link>
                 <div className='song-name'><Link to='' className='box-song'><p>{user.track}</p></Link></div>
