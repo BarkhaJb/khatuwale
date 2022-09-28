@@ -79,7 +79,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
           <Nav onClick={() => setExpanded(false)}>
           <ul className="navbar-nav mr-auto">
               <li className="nav-item dropdown">
-              <NavLink  to="/Trending"
+              <NavLink  to=""
                   className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
