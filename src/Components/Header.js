@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
  import toggel from "./assets/images/toggel.png";
  import { Link } from "react-router-dom";
  import { useNavigate } from 'react-router-dom'
+ import { useLocation } from 'react-router-dom';
 //  import toggel from "./assets/images/toggel.png";
 
 const Menu = ({ setCurrentArtist, searchAPI }) => {
@@ -16,6 +17,11 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
   const [expanded, setExpanded] = useState(false);
   const [artist, setArtist] = useState([]);
   const [searchValue, setSearchValue] = useState();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const navigate = useNavigate()
    useEffect(() => {
@@ -106,9 +112,9 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                 </NavLink>
               </li>
               <li className="nav-item">
-              <NavLink  to="/TopBhajan" className="nav-link">
+              <NavLink  to="/Trending" className="nav-link">
                   {" "}
-                  Top 10 Bhajans
+                  All Bhajans
                 </NavLink>
               </li>
               <li className="nav-item">
