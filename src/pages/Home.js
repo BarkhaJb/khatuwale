@@ -111,9 +111,10 @@ const Home = ({
       .catch((error) => console.log(error));
   }, []);
   const navigate = useNavigate();
-  const SongSelect = (user) => {
-    navigate('/Trending', { state: { user } });
-    console.log('ths is user', user);
+  const SongSelect = (index) => {
+    navigate('/Trending');
+    setTrackIndex(index);
+    console.log('ths is user');
   };
   const navigateToTopArtist = (user) => {
     console.log('USER THIS', user);
@@ -208,12 +209,12 @@ const Home = ({
       </div>    
        <div className='about-slider1 trnding-area'>
         <Carousel responsive={responsiveTwo} infinite={true}  autoPlay={true}>
-          {trendingSong.map((user)=>(
+          {trendingSong.map((user, index)=>(
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
              <img  className='slider-img trnding-img'
-                  src={user.image} onClick={()=>SongSelect(user)} ></img>
+                  src={user.image} onClick={()=>SongSelect(index)} ></img>
                  <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
               </figure>
               <figcaption> </figcaption>

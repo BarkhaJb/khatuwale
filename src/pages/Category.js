@@ -108,7 +108,7 @@ const Category = ({
               </li>
             </ul>
             {category.map((user, index) => (
-              <ul className='song-about'>
+              <ul className='song-about'  onClick={() => ChangeCurrentSong(index)}>
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img
