@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import tr_img1 from '../Components/assets/images/tr_img1.jpg';
+import tr_img1 from '../Components/assets/images/newRelease.jpg';
 import tr_img2 from '../Components/assets/images/tr_img2.png';
 import tr_img4 from '../Components/assets/images/tr_img4.jpg';
 import tr_img3 from '../Components/assets/images/tr_img3.jpg';
@@ -51,12 +51,12 @@ const NewReleases = ({ setMusicTracks, setTrackIndex }) => {
           </div>
           <div className='Trending-song'>
             <div className='trnd-img-about'>
-              <h2>New Releases</h2>
+              <h2>Latest Releases</h2>
              
             </div>
             <div className='trndbtn'>
               <button className='footer-btn' onClick={() => SetIndexToZero()}>
-                play
+                Play All
               </button>
             </div>
           </div>
@@ -95,7 +95,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex }) => {
               </li>
             </ul>
             {release.map((user, index) => (
-              <ul className='song-about'>
+              <ul className='song-about'  onClick={() => ChangeCurrentSong(index)}>
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img

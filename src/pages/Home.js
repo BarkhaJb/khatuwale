@@ -10,6 +10,7 @@ const Home = ({
   setReleaseSong,
   setCurrentArtist,
   fetchSongs,
+  setTrackIndex
 }) => {
   const { pathname } = useLocation();
 
@@ -119,14 +120,17 @@ const Home = ({
     setCurrentArtist(user);
     navigate('/Top-Artist');
   };
+
+
   const CategorySelect = (user) => {
     console.log('ths is user', user);
     setCurrentArtist(user);
     navigate('/category');
   };
-  const navigateToNewRelease = (user) => {
+  const navigateToNewRelease = (index) => {
     // console.log('USER THIS', user);
     // setCurrentArtist(user);
+    setTrackIndex(index)
     navigate('/newReleases');
   };
   const MoveToPlaylist = (user) => {
@@ -324,7 +328,7 @@ const Home = ({
               <figure>
                <img  className='slider-img superhit-img'
                   src={user.image}   onClick={() => MoveToPlaylist(user)} ></img>
-                  <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
+                  <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true" onClick={() => MoveToPlaylist(user)}></i></div>
               </figure>
               <figcaption> </figcaption>
              
@@ -407,7 +411,9 @@ const Home = ({
                   src={user.image}  onClick={() => {
                     navigateToTopArtist(user);
                   }} ></img>
-                    <div className="playyiconhome">  <Link to='/Top-Artist'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true" onClick={() => 
+                    navigateToTopArtist(user)
+                  }></i></div>
               </figure>
               <figcaption> </figcaption>
             </li>
@@ -428,13 +434,13 @@ const Home = ({
       </div>    
        <div className='about-slider1 release-area'>
         <Carousel responsive={responsiveTwo} infinite={true} autoPlay={true}>
-        {releaseSong.map((user) => (
+        {releaseSong.map((user, index) => (
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
               <figure>
                  <img  className='slider-img Releaseimg  '
-                  src={user.image}  onClick={() => navigateToNewRelease()} ></img>
-                    <div className="playyiconhome">  <Link to='/Top-Artist'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
+                  src={user.image}  onClick={() => navigateToNewRelease(index)} ></img>
+                    <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true" onClick={() => navigateToNewRelease(index)}></i></div>
               </figure>
               <figcaption> </figcaption>
              

@@ -17,7 +17,7 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
     window.scrollTo(0, 0);
   }, [pathname]);
     useEffect(() => {
-        const url = 'https://khatu-wale-api.herokuapp.com/songs';
+        const url = 'https://khatu-wale-api.herokuapp.com/trending';
         fetch(url)
           .then((response) => response.json())
           .then((json) => {
@@ -50,7 +50,7 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
                     <h2>Trending Songs</h2>
                 <p>Top trending hits, refreshed daily</p>
                
-                <p>23 Tracks</p>
+  
                 </div>
                 <div className="trndbtn">
                 <button className="footer-btn" onClick={()=>SetIndexToZero()}>play all</button>
@@ -58,8 +58,8 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
                 </div>
               </section>
               <section className="sec-2">
-                 <div className="trend-song">
-              <ul className="song-about">
+                 <div className="trend-song" >
+              <ul className="song-about" >
                 <li className="songabt-img"><p className="imgsong">#</p></li>
                 <li className="songabt">
                     <div className="heading-row">
@@ -72,7 +72,7 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
                 <li className="songabt-dur"><p className="heading">Duration</p></li>
               </ul>
               {release.map((user, index) => (
-              <ul  className="song-about">
+              <ul  className="song-about"  onClick={() => ChangeCurrentSong(index)}>
                 <li className="songabt-img">
                     <div className="listimg">
                   <img src={user.image}    onClick={() => ChangeCurrentSong(index)} />

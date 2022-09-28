@@ -5,6 +5,8 @@ import Hanji from '../Components/assets/images/hanji.jpg';
 import song from '../Components/assets/images/song.jpg';
 import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Artist = ({
   releaseSong,
@@ -14,6 +16,15 @@ const Artist = ({
   setTrackIndex,
 }) => {
   const [displaySongs, setDisplaySongs] = useState([]);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+
   const responsive1111 = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -40,23 +51,33 @@ const Artist = ({
     return filteredSongs;
   };
   useEffect(() => {
-    if (currentArtist === null) {
-      setDisplaySongs(releaseSong);
-      setDefaultMusic();
-    } else {
-      const filteredSongs = filterSongsOnArtist(releaseSong, currentArtist);
-      setDisplaySongs(filteredSongs);
-      if (filteredSongs && filteredSongs?.length > 0) {
-        const parsedData = filteredSongs.map((item) => {
+    if (currentArtist === null || undefined) {
+      // setDisplaySongs(releaseSong);
+      // setDefaultMusic();
+      navigate('/')
+      
+    } 
+    const url = `https://khatu-wale-api.herokuapp.com/artist/songs/${currentArtist?._id}`;
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        setDisplaySongs(json);
+        console.log('CONSOLE', json);
+        const parsedDataTwo = json.map((item) => {
           return { src: item.song, name: item.track, id: item._id };
         });
-        setMusicTracks(parsedData);
-      }
-    }
-  }, [currentArtist, releaseSong, setDefaultMusic, setMusicTracks]);
+        console.log('PARSED', parsedDataTwo);
+        setMusicTracks(parsedDataTwo);
+        setDisplaySongs(json);
+      })
+
+      .catch((error) => console.log(error));
+  }, []);
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
   };
+
+
   return (
     <div className='newsong-page'>
       <div className='container'>
@@ -136,7 +157,7 @@ const Artist = ({
             </div>
             <div className='ul-song'>
               <ul className='card-area'>
-              {displaySongs.map((user, index) => (
+              {displaySongs?.map((user, index) => (
                 <li className='card'>
                 <Link to='' className='box-img'><img src={user.image} onClick={() => ChangeCurrentSong(index)} /></Link>
                 <div className='song-name'><Link to='' className='box-song'><p>{user.track}</p></Link></div>

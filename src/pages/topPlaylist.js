@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React,{useState , useEffect}  from "react";
 import tr_img1 from '../Components/assets/images/tr_img1.jpg';
 import tr_img2 from '../Components/assets/images/tr_img2.png';
 import tr_img4 from '../Components/assets/images/tr_img4.jpg';
 import tr_img3 from '../Components/assets/images/tr_img3.jpg';
 import { Link, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const TopPlaylist = ({
   setMusicTracks,
@@ -16,12 +17,17 @@ const TopPlaylist = ({
   const [release, setRelease] = React.useState([]);
   const [playlist, setPlaylist] = useState([]);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     if (currentArtist === null || undefined) {
       navigate('/');
     }
-    const url = `https://khatu-wale-api.herokuapp.com/playlist/songs/${currentArtist._id}`;
+    const url = `https://khatu-wale-api.herokuapp.com/playlist/songs/${currentArtist?._id}`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
@@ -53,14 +59,13 @@ const TopPlaylist = ({
       <div className='trend-area'>
         <section className='sec-1'>
           <div className='trendimg'>
-            <img src={tr_img1} />
+            <img src={currentArtist.image} />
           </div>
           <div className='Trending-song'>
             <div className='trnd-img-about'>
-              <h2>Lene Aaja Khatu</h2>
+              <h2>{currentArtist.title}</h2>
               <p>Top trending hits, refreshed daily</p>
-              <p>Created by Gaana</p>
-              <p>23 Tracks</p>
+  
             </div>
             <div className='trndbtn'>
               <button className='footer-btn' onClick={() => SetIndexToZero()}>

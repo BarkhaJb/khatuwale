@@ -8,18 +8,42 @@ import { NavLink } from 'react-router-dom';
  import logo from "./assets/images/logo.png";
  import toggel from "./assets/images/toggel.png";
  import { Link } from "react-router-dom";
+ import { useNavigate } from 'react-router-dom'
 //  import toggel from "./assets/images/toggel.png";
 
-const Menu = () => {
+const Menu = ({ setCurrentArtist, searchAPI }) => {
   const [scroll, setScroll] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [artist, setArtist] = useState([]);
+  const [searchValue, setSearchValue] = useState();
 
+  const navigate = useNavigate()
    useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 50);
     });
   }, []);
 
+
+  useEffect(() => {
+    const url = 'https://khatu-wale-api.herokuapp.com/artist/songs';
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setArtist(json))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const MoveToTopArtist = (user) => {
+    console.log('navigating artist', user);
+    setCurrentArtist(user);
+    navigate('/Top-Artist');
+  };
+
+  const SearchSongs = () => {
+    // yaha pe call method
+    searchAPI(searchValue);
+    navigate('/search', { state: searchValue });
+  };
 
   return (
     <div className="container-fluid">
@@ -61,19 +85,17 @@ const Menu = () => {
                   Top Artists
                 </NavLink>
 
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link to="/Trending" class="dropdown-item">
-                    Sanjay Mittal
-                  </Link>
-                  <Link to="/Trending" class="dropdown-item">
-                    Kanhya Mittal
-                  </Link>
-                  <Link to="/Trending" class="dropdown-item">
-                    Nandu Maharaj
-                  </Link>
-                  <Link to="/Trending" class="dropdown-item">
-                    Shubham Rupam
-                  </Link>
+                <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                      {artist.map((user) => (
+                        <ul>
+                          <li
+                            onClick={() => MoveToTopArtist(user)}
+                            class='dropdown-item'
+                          >
+                            {user.artist}
+                          </li>
+                        </ul>
+                      ))}
                 </div>
               </li>
 
@@ -90,7 +112,7 @@ const Menu = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-              <NavLink  to="/Trending"className="nav-link">
+              <NavLink  to="/newReleases"className="nav-link">
                   Latest Release
                 </NavLink>
               </li>

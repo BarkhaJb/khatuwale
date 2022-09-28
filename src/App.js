@@ -2,7 +2,7 @@ import React,{useCallback,useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer';
-import Header from './Components/Header'
+import Menu from './Components/Header'
 import './Components/assets/css/style.css'
 import Home from './pages/Home';
 import Trend from './pages/Trending';
@@ -20,64 +20,20 @@ function App() {
   const [musicTracks, setMusicTracks] = useState([
     {
       id: 1,
-      name: 'Sunny',
-      src: 'https://www.bensound.com/bensound-music/bensound-sunny.mp3',
+      name: ' Haare Ke Sahare Aaja',
+      src: 'https://khatuwaleshyam.com/wp-content/uploads/2022/06/Hare-Ka-Sahara-Aaja.mp3',
     },
     {
       id: 2,
-      name: 'Tenderness',
-      src: 'https://www.bensound.com/bensound-music/bensound-tenderness.mp3',
+      name: 'Najre Jara Mila Le',
+      src: 'https://khatuwaleshyam.com/wp-content/uploads/2022/06/Superhit_Offici_getmp3.pro_.mp3',
     },
     {
       id: 3,
-      name: 'Once Again',
-      src: 'https://www.bensound.com/bensound-music/bensound-onceagain.mp3',
+      name: 'Mera Shyam Bada Albela',
+      src: 'https://khatuwaleshyam.com/wp-content/uploads/2022/06/getmp3.pro-25.mp3',
     },
-    {
-      id: 4,
-      name: 'Sweet',
-      src: 'https://www.bensound.com/bensound-music/bensound-sweet.mp3',
-    },
-    {
-      id: 5,
-      name: 'Love',
-      src: 'https://www.bensound.com/bensound-music/bensound-love.mp3',
-    },
-    {
-      id: 6,
-      name: 'Piano Moment',
-      src: 'https://www.bensound.com/bensound-music/bensound-pianomoment.mp3',
-    },
-    {
-      id: 7,
-      name: 'E.R.F',
-      src: 'https://www.bensound.com/bensound-music/bensound-erf.mp3',
-    },
-    {
-      id: 8,
-      name: 'Dreams',
-      src: 'https://www.bensound.com/bensound-music/bensound-dreams.mp3',
-    },
-    {
-      id: 9,
-      name: 'A Day To Remember',
-      src: 'https://www.bensound.com/royalty-free-music/track/a-day-to-remember-wedding-music',
-    },
-    {
-      id: 10,
-      name: 'Adventure',
-      src: 'https://www.bensound.com/bensound-music/bensound-adventure.mp3',
-    },
-    {
-      id: 11,
-      name: 'Photo Album',
-      src: 'https://www.bensound.com/bensound-music/bensound-photoalbum.mp3',
-    },
-    {
-      id: 12,
-      name: 'November',
-      src: 'https://www.bensound.com/bensound-music/bensound-november.mp3',
-    },
+    
   ]);
   const [releaseSong, setReleaseSong] = useState([]);
   const [trackIndex, setTrackIndex] = useState(0);
@@ -108,12 +64,12 @@ function App() {
     <div className="App">
      
      <Router>
-     <Header />
+     <Menu  setCurrentArtist={setCurrentArtist} />
      {/* <Trending/>
      <Newsong/> */}
       <div className='topMargin'>
         <Routes>  
-          <Route path='/' element={<Home releaseSong={releaseSong}
+          <Route path='/' element={<Home    setTrackIndex={setTrackIndex}  releaseSong={releaseSong}
                   fetchSongs={fetchSongs}
                   setReleaseSong={setReleaseSong}
                   setCurrentArtist={setCurrentArtist} />} />
