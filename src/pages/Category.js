@@ -64,8 +64,6 @@ const Category = ({
             <div className='trnd-img-about'>
               <h2>Lene Aaja Khatu</h2>
               <p>Top trending hits, refreshed daily</p>
-             
-        
             </div>
             <div className='trndbtn'>
               <button className='footer-btn' onClick={() => SetIndexToZero()}>

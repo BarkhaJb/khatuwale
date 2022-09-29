@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import tr_img1 from '../Components/assets/images/newRelease.jpg';
-import tr_img2 from '../Components/assets/images/tr_img2.png';
-import tr_img4 from '../Components/assets/images/tr_img4.jpg';
-import tr_img3 from '../Components/assets/images/tr_img3.jpg';
+import release1 from '../Components/assets/images/releasehead.png';
+
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
@@ -46,13 +44,15 @@ const NewReleases = ({ setMusicTracks, setTrackIndex }) => {
         <section className='sec-1'>
           <div className='trendimg'>
             <a href='' className='bigimg'>
-              <img src={tr_img1} />
+              <img src={release1} />
             </a>
           </div>
           <div className='Trending-song'>
             <div className='trnd-img-about'>
-              <h2>Latest Releases</h2>
              
+                  <h1>Song Name</h1>
+                    <h2>Latest Releases</h2>
+                  <p>Top Release hits, refreshed daily</p>
             </div>
             <div className='trndbtn'>
               <button className='footer-btn' onClick={() => SetIndexToZero()}>

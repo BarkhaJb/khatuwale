@@ -18,6 +18,9 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
   const [artist, setArtist] = useState([]);
   const [searchValue, setSearchValue] = useState();
   const { pathname } = useLocation();
+ 
+
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,7 +32,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
       setScroll(window.scrollY > 50);
     });
   }, []);
-
+ 
 
   useEffect(() => {
     const url = 'https://khatu-wale-api.herokuapp.com/artist/songs';
@@ -46,8 +49,8 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
   };
 
   const SearchSongs = () => {
-    // yaha pe call method
-    searchAPI(searchValue);
+    
+  
     navigate('/search', { state: searchValue });
   };
 
@@ -65,14 +68,16 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
              </div>
       
           </div>
-          <form class="form-inline my-2 my-lg-0 navbar-search">
+          <div className="form-inline my-2 my-lg-0 navbar-search">
              <input
               class="form-control mr-sm-2"
               type="search"
                placeholder="Search"
              aria-label="Search"
+             onChange={(e) => setSearchValue(e.target.value)}
            />
-        </form>
+           <button onClick={SearchSongs} className="searchbtn"><p><i class="fa fa-search" aria-hidden="true"></i></p></button>
+        </div>
         <Navbar.Toggle aria-controls='responsive-na' onClick={() => setExpanded(expanded ? false : "expanded")} />
         <Navbar.Collapse>
        

@@ -13,7 +13,7 @@ import Latest from './pages/latest';
 import Category from './pages/Category';
 import TopPlaylist from './pages/topPlaylist';
 import NewReleases from './pages/NewReleases';
-
+import SearchContent from './pages/search'
 
 
 function App() {
@@ -60,7 +60,7 @@ function App() {
   }, []);
 
   return (
-    
+   
     <div className="App">
      
      <Router>
@@ -76,6 +76,7 @@ function App() {
           <Route path='/Trending' element={<Trend  setMusicTracks={setMusicTracks}
                   fetchSongs={fetchSongs}
                   setTrackIndex={setTrackIndex}/>} />
+          <Route path='/search' element={<SearchContent  setTrackIndex={setTrackIndex} setMusicTracks={setMusicTracks}/>} />
            <Route path='/Top-Artist' element={<Artist releaseSong={releaseSong}
                   currentArtist={currentArtist}
                   setMusicTracks={setMusicTracks}
@@ -116,8 +117,11 @@ function App() {
         <Player  musicTracks={musicTracks}
           trackIndex={trackIndex}
           setTrackIndex={setTrackIndex}/>
+          
       </Router>
     </div>
+    
+   
   );
 }
 

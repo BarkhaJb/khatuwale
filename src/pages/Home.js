@@ -46,7 +46,7 @@ const Home = ({
         },
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
-          items: 5,
+          items: 6,
         },
         tablet: {
           breakpoint: { max: 1024, min: 464 },
@@ -208,16 +208,15 @@ const Home = ({
         <h2 className='slider-heading'>Trending Bhajans</h2>
       </div>    
        <div className='about-slider1 trnding-area'>
-        <Carousel responsive={responsiveTwo} infinite={true}  autoPlay={true}>
+        <Carousel responsive={responsiveTwo} infinite={true} >
           {trendingSong.map((user, index)=>(
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
-              <figure>
+  
              <img  className='slider-img trnding-img'
                   src={user.image} onClick={()=>SongSelect(index)} ></img>
                  <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
-              </figure>
-              <figcaption> </figcaption>
+      
              
             </li>
             <div className="songname">
@@ -326,12 +325,11 @@ const Home = ({
         {playlist.map((user) => (
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
-              <figure>
+      
                <img  className='slider-img superhit-img'
                   src={user.image}   onClick={() => MoveToPlaylist(user)} ></img>
                   <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true" onClick={() => MoveToPlaylist(user)}></i></div>
-              </figure>
-              <figcaption> </figcaption>
+             
              
             </li>
             <div className="songname">
@@ -403,11 +401,11 @@ const Home = ({
         <h2 className='slider-heading'>Top Searched Artists</h2>
       </div>    
        <div className='about-slider1 Searched'>
-        <Carousel responsive={responsiveTwo} infinite={true}   autoPlay={true}>
+        <Carousel responsive={responsiveTwo} infinite={true}>
            {data.map((user) => (
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
-              <figure>
+         
               <img  className='slider-img searchimg'
                   src={user.image}  onClick={() => {
                     navigateToTopArtist(user);
@@ -415,8 +413,7 @@ const Home = ({
                     <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true" onClick={() => 
                     navigateToTopArtist(user)
                   }></i></div>
-              </figure>
-              <figcaption> </figcaption>
+              
             </li>
            
             <div className="songname">
@@ -434,16 +431,16 @@ const Home = ({
         <h2 className='slider-heading'>New Releases</h2>
       </div>    
        <div className='about-slider1 release-area'>
-        <Carousel responsive={responsiveTwo} infinite={true} autoPlay={true}>
+        <Carousel responsive={responsiveTwo} infinite={true} >
         {releaseSong.map((user, index) => (
           <div className='slick-slide'>
             <li className='blocks-gallery-item'>
-              <figure>
+            
                  <img  className='slider-img Releaseimg  '
                   src={user.image}  onClick={() => navigateToNewRelease(index)} ></img>
                     <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true" onClick={() => navigateToNewRelease(index)}></i></div>
-              </figure>
-              <figcaption> </figcaption>
+      
+    
              
             </li>
             {/* <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div> */}
