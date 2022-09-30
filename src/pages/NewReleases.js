@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import release1 from '../Components/assets/images/releasehead.png';
 
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
 
-const NewReleases = ({ setMusicTracks, setTrackIndex }) => {
+const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
     const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+
   const [release, setRelease] = React.useState([]);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+
   useEffect(() => {
     const url = `https://khatu-wale-api.herokuapp.com/playlist/songs/6332be119778905b2cd45a83`;
     fetch(url)
@@ -33,6 +38,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex }) => {
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
     console.log('this is song index---->', index);
+    setIsPlaying(false);
   };
   const SetIndexToZero = (index) => {
     setTrackIndex(0);
@@ -55,8 +61,15 @@ const NewReleases = ({ setMusicTracks, setTrackIndex }) => {
                   <p>Top Release hits, refreshed daily</p>
             </div>
             <div className='trndbtn'>
-              <button className='footer-btn' onClick={() => SetIndexToZero()}>
-                Play All
+              <button className='footer-btn'  onClick={() => {
+                  const play = audiofunction();
+                  if (play) {
+                    setIsPlaying(false);
+                  } else {
+                    setIsPlaying(true);
+                  }
+                }}>
+               {isPlaying === true ? 'Play' : 'Pause'}
               </button>
             </div>
           </div>

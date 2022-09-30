@@ -6,7 +6,7 @@ import 'react-h5-audio-player/lib/styles.css';
 
 
 
-const Player = ({ musicTracks, trackIndex, setTrackIndex }) => {
+const Player = ({ musicTracks, trackIndex, setTrackIndex ,player}) => {
 
   const handleClickPrevious = () => {
     setTrackIndex((currentTrack) =>
@@ -21,8 +21,7 @@ const Player = ({ musicTracks, trackIndex, setTrackIndex }) => {
   return (
     <div className='playertwo'>
       <AudioPlayer
-        // style={{ borderRadius: '1.5rem' }}
-        autoPlay
+        ref={player}
         src={musicTracks[trackIndex].src}
         onPlay={(e) => console.log('onPlay')}
         showSkipControls={true}

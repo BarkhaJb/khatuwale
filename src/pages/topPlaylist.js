@@ -13,11 +13,13 @@ const TopPlaylist = ({
   user,
   currentArtist,
   fetchSongs,
+  audiofunction,
 }) => {
   const [release, setRelease] = React.useState([]);
   const [playlist, setPlaylist] = useState([]);
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [isPlaying, setIsPlaying] = useState(true);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -47,6 +49,7 @@ const TopPlaylist = ({
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
     console.log('this is song index---->', index);
+    setIsPlaying(false);
   };
 
   const SetIndexToZero = (index) => {
@@ -68,8 +71,16 @@ const TopPlaylist = ({
   
             </div>
             <div className='trndbtn'>
-              <button className='footer-btn' onClick={() => SetIndexToZero()}>
-                play
+              <button className='footer-btn' 
+               onClick={() => {
+                  const play = audiofunction();
+                  if (play) {
+                    setIsPlaying(false);
+                  } else {
+                    setIsPlaying(true);
+                  }
+                }}>
+               {isPlaying === true ? 'Play' : 'Pause'}
               </button>
             </div>
           </div>

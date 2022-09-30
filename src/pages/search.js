@@ -36,7 +36,7 @@ const SearchContent = ({ setMusicTracks, setTrackIndex }) => {
           setSearch(json);
         });
     }
-  }, []);
+  }, [location, location.state, setMusicTracks]);
   console.log('this is search', search);
 
   const ChangeCurrentSong = (index) => {

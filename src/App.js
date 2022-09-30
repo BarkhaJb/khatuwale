@@ -1,4 +1,4 @@
-import React,{useCallback,useState, useEffect} from 'react';
+import React,{useCallback,useState, useEffect , useRef} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer';
@@ -38,6 +38,7 @@ function App() {
   const [releaseSong, setReleaseSong] = useState([]);
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentArtist, setCurrentArtist] = useState(null);
+  
   const fetchSongs = () => {
     const url = 'https://khatu-wale-api.herokuapp.com/playlist/songs/6332be119778905b2cd45a83';
     fetch(url)
@@ -59,6 +60,17 @@ function App() {
     fetchSongs();
   }, []);
 
+
+  const player = useRef();
+  const audiofunction = () => {
+    if (player.current.isPlaying()) {
+      player.current.audio.current.pause();
+    } else {
+      player.current.audio.current.play();
+    }
+    return player.current.isPlaying();
+  };
+
   return (
    
     <div className="App">
@@ -75,7 +87,9 @@ function App() {
                   setCurrentArtist={setCurrentArtist} />} />
           <Route path='/Trending' element={<Trend  setMusicTracks={setMusicTracks}
                   fetchSongs={fetchSongs}
-                  setTrackIndex={setTrackIndex}/>} />
+                  setTrackIndex={setTrackIndex}
+                  audiofunction={ audiofunction}/>}
+                   />
           <Route path='/search' element={<SearchContent  setTrackIndex={setTrackIndex} setMusicTracks={setMusicTracks}/>} />
            <Route path='/Top-Artist' element={<Artist releaseSong={releaseSong}
                   currentArtist={currentArtist}
@@ -86,7 +100,8 @@ function App() {
           <Route path='/Category' element={<Category currentArtist={currentArtist}
                   setTrackIndex={setTrackIndex}
                   fetchSongs={fetchSongs}
-                  setMusicTracks={setMusicTracks} />} />
+                  setMusicTracks={setMusicTracks}
+                  audiofunction={ audiofunction} />} />
           <Route path='/latestsong' element={<Latest />} />
           <Route
               path='/newReleases'
@@ -95,6 +110,7 @@ function App() {
                   setMusicTracks={setMusicTracks}
                   fetchSongs={fetchSongs}
                   setTrackIndex={setTrackIndex}
+                  audiofunction={audiofunction}
                 />}
             />
             <Route
@@ -105,6 +121,7 @@ function App() {
                   setTrackIndex={setTrackIndex}
                   fetchSongs={fetchSongs}
                   setMusicTracks={setMusicTracks}
+                  audiofunction={ audiofunction}
                 />}
             
             />
@@ -116,7 +133,8 @@ function App() {
         <Footer />
         <Player  musicTracks={musicTracks}
           trackIndex={trackIndex}
-          setTrackIndex={setTrackIndex}/>
+          setTrackIndex={setTrackIndex} 
+          player={player}/>
           
       </Router>
     </div>

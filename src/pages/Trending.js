@@ -8,9 +8,11 @@ import { useLocation } from 'react-router-dom';
 
 
 
-const Trend=({ setMusicTracks, setTrackIndex })=>{
+const Trend=({ setMusicTracks, setTrackIndex,audiofunction, })=>{
     const [release, setRelease] = React.useState([]);
     const { pathname } = useLocation();
+    const [isPlaying, setIsPlaying] = useState(true);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,6 +34,7 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
       const ChangeCurrentSong = (index) => {
         setTrackIndex(index);
         console.log('this is song index---->', index);
+        setIsPlaying(false);
       };
       const SetIndexToZero =(index) => {
         setTrackIndex(0);
@@ -53,7 +56,15 @@ const Trend=({ setMusicTracks, setTrackIndex })=>{
             
 
                 <div className="trndbtn">
-                <button className="footer-btn" onClick={()=>SetIndexToZero()}>play all</button>
+                <button className="footer-btn" onClick={() => {
+                  const play = audiofunction();
+                  if (play) {
+                    setIsPlaying(false);
+                  } else {
+                    setIsPlaying(true);
+                  }
+                }}>
+               {isPlaying === true ? 'Play' : 'Pause'}</button>
                 <button className="heartbtn"><Link to='' ><i class="fa fa-heart-o" aria-hidden="true"></i></Link> </button>
                 </div>
                 </div>

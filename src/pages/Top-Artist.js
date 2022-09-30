@@ -72,7 +72,7 @@ const Artist = ({
       })
 
       .catch((error) => console.log(error));
-  }, []);
+  }, [currentArtist, navigate, setMusicTracks]);
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
   };

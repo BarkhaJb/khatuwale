@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import tr_img1 from '../Components/assets/images/tr_img1.jpg';
-import tr_img2 from '../Components/assets/images/tr_img2.png';
-import tr_img4 from '../Components/assets/images/tr_img4.jpg';
-import tr_img3 from '../Components/assets/images/tr_img3.jpg';
+// import tr_img1 from '../Components/assets/images/tr_img1.jpg';
+// import tr_img2 from '../Components/assets/images/tr_img2.png';
+// import tr_img4 from '../Components/assets/images/tr_img4.jpg';
+// import tr_img3 from '../Components/assets/images/tr_img3.jpg';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -13,9 +13,12 @@ const Category = ({
   user,
   currentArtist,
   fetchSongs,
+  audiofunction,
 }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const [isPlaying, setIsPlaying] = useState(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -46,6 +49,7 @@ const Category = ({
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
     console.log('this is song index---->', index);
+    setIsPlaying(false);
   };
 
   const SetIndexToZero = (index) => {
@@ -66,8 +70,16 @@ const Category = ({
               <p>Top trending hits, refreshed daily</p>
             </div>
             <div className='trndbtn'>
-              <button className='footer-btn' onClick={() => SetIndexToZero()}>
-                play All
+              <button className='footer-btn' 
+               onClick={() => {
+                  const play = audiofunction();
+                  if (play) {
+                    setIsPlaying(false);
+                  } else {
+                    setIsPlaying(true);
+                  }
+                }}>
+               {isPlaying === true ? 'Play' : 'Pause'}
               </button>
             </div>
           </div>

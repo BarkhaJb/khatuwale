@@ -3,7 +3,8 @@ import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
+// import  jaya from '../Components/assets/images/top';
 
 const Home = ({
   releaseSong,
