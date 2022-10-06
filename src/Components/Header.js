@@ -58,85 +58,81 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
     <div className="container-fluid">
             <div className="navigation">
           <Navbar expand="lg" expanded={expanded} className="navbar navbar-expand-lg navbar-light bg-light">
-        <Container>
-        <div className="logo-n-toggle">
-             <div className="logo">
-              {" "}
-              <Link className="logo-box" to="">            
-                  <img src={logo} className="logoimg" />        
+            <Container>
+                <div className="logo-n-toggle">
+                    <div className="logo">
+                    {" "}
+                    <Link className="logo-box" to="">            
+                       <img src={logo} className="logoimg" />        
                          </Link>          
-             </div>
+                    </div>
       
-          </div>
-          <div className="form-inline my-2 my-lg-0 navbar-search">
-             <input
-              class="form-control mr-sm-2"
-              type="search"
-               placeholder="Search"
-             aria-label="Search"
-             onChange={(e) => setSearchValue(e.target.value)}
-           />
-           <button onClick={SearchSongs} className="searchbtn"><p><i class="fa fa-search" aria-hidden="true"></i></p></button>
-        </div>
-        <Navbar.Toggle aria-controls='responsive-na' onClick={() => setExpanded(expanded ? false : "expanded")} />
-        <Navbar.Collapse>
-       
-          <Nav onClick={() => setExpanded(false)}>
-          <ul className="navbar-nav mr-auto">
-              <li className="nav-item dropdown">
-              <NavLink  to=""
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Top Artists
-                </NavLink>
-
-                <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
-                      {artist.map((user) => (
-                        <ul>
-                          <li
-                            onClick={() => MoveToTopArtist(user)}
-                            class='dropdown-item'
-                          >
-                            {user.artist}
-                          </li>
-                        </ul>
-                      ))}
                 </div>
-              </li>
+               <div className="form-inline my-2 my-lg-0 navbar-search">
+                    <input
+                      class="form-control mr-sm-2"
+                     type="search"
+                     placeholder="Search"
+                     aria-label="Search"
+                      onChange={(e) => setSearchValue(e.target.value)}
+                  />
+                    <button onClick={SearchSongs} className="searchbtn"><p><i class="fa fa-search" aria-hidden="true"></i></p></button>
+               </div>
+               <Navbar.Toggle aria-controls='responsive-na' onClick={() => setExpanded(expanded ? false : "expanded")} />
+                  <Navbar.Collapse>
+       
+                       <Nav onClick={() => setExpanded(false)}>
+                         <ul className="navbar-nav mr-auto">
+                              <li className="nav-item dropdown">
+                                  <NavLink  to=""
+                                     className="nav-link dropdown-toggle"
+                                        href="#"
+                                         id="navbarDropdown"
+                                            role="button"
+                                                  data-toggle="dropdown"
+                                             aria-haspopup="true"
+                                        aria-expanded="false"
+                                           >
+                                       Top Artists
+                                  </NavLink>
 
-              <li className="nav-item">
-              <NavLink  to="/Trending"  className="nav-link">
-                  {" "}
-                  Trending Bhajans
-                </NavLink>
-              </li>
-              <li className="nav-item">
-              <NavLink  to="/Trending" className="nav-link">
-                  {" "}
-                  All Bhajans
-                </NavLink>
-              </li>
-              <li className="nav-item">
-              <NavLink  to="/newReleases"className="nav-link">
-                  Latest Release
-                </NavLink>
-              </li>
-              
-      
-    
-      
-   
-            </ul>
+                                 <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                  {artist.map((user) => (
+                                  <ul>
+                                   <li
+                                    onClick={() => MoveToTopArtist(user)}
+                                  class='dropdown-item'
+                                    >
+                                  {user.artist}
+                                      </li>
+                                       </ul>
+                                      ))}
+                                   </div>
+                             </li>
+
+                               <li className="nav-item">
+                                   <NavLink  to="/Trending"  className="nav-link">
+                                    {" "}
+                                    Trending Bhajans
+                                      </NavLink>
+                               </li>
+                              <li className="nav-item">
+                          <NavLink  to="/Trending" className="nav-link">
+                            {" "}
+                            All Bhajans
+                          </NavLink>
+                    </li>
+                    <li className="nav-item">
+                       <NavLink  to="/newReleases"className="nav-link">
+                          Latest Release
+                       </NavLink>
+                    </li>
+             
+                </ul>
           
-          </Nav>
-          </Navbar.Collapse>
-        </Container>
+               </Nav>
+               </Navbar.Collapse>
+         </Container>
       </Navbar>
       </div>
 </div>

@@ -65,7 +65,7 @@ const Trend=({ setMusicTracks, setTrackIndex,audiofunction, })=>{
                   }
                 }}>
                {isPlaying === true ? 'Play' : 'Pause'}</button>
-                <button className="heartbtn"><Link to='' ><i class="fa fa-heart-o" aria-hidden="true"></i></Link> </button>
+                {/* <button className="heartbtn"><Link to='' ><i class="fa fa-heart-o" aria-hidden="true"></i></Link> </button> */}
                 </div>
                 </div>
               </section>

@@ -41,7 +41,7 @@ const Artist = ({
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1,
+      items: 2,
     },
   };
   const filterSongsOnArtist = (songs, selectedArtist) => {
@@ -155,7 +155,7 @@ const Artist = ({
             </div>
 
             </div>
-            <div className='ul-song'>
+            <div className='ul-song'  >
               <ul className='card-area'>
               {displaySongs?.map((user, index) => (
                 <li className='card'>
