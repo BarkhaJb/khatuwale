@@ -18,7 +18,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
 
 
   useEffect(() => {
-    const url = `https://khatu-wale-api.herokuapp.com/playlist/songs/6332be119778905b2cd45a83`;
+    const url = `http://localhost:3100/playlist/songs/633c3487cca1438524d18e91`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
@@ -131,20 +131,20 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
                     </div>
                   </div>
                 </li>
-                <li className='songabt-img'>
+                {/* <li className='songabt-img'>
                   <Link to='' className='anchor-foo'>
                     <p className='hearticon'>
                       <i class='fa fa-heart-o' aria-hidden='true'></i>
                     </p>
                   </Link>
-                </li>
-                <li className='songabt-img'>
+                </li> */}
+                {/* <li className='songabt-img'>
                   <Link to='' className='anchor-foo'>
                     <p className='moreoption'>
                       <i class='fa fa-ellipsis-v' aria-hidden='true'></i>
                     </p>
                   </Link>
-                </li>
+                </li> */}
                 <li className='row-item'>
                   <p>{user.duration}</p>
                 </li>

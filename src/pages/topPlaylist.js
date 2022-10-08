@@ -29,7 +29,7 @@ const TopPlaylist = ({
     if (currentArtist === null || undefined) {
       navigate('/');
     }
-    const url = `https://khatu-wale-api.herokuapp.com/playlist/songs/${currentArtist?._id}`;
+    const url = `http://localhost:3100/playlist/songs/${currentArtist?._id}`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
@@ -141,20 +141,20 @@ const TopPlaylist = ({
                     </div>
                   </div>
                 </li>
-                <li className='songabt-img'>
+                {/* <li className='songabt-img'>
                   <Link to='' className='anchor-foo'>
                     <p className='hearticon'>
                       <i class='fa fa-heart-o' aria-hidden='true'></i>
                     </p>
                   </Link>
-                </li>
-                <li className='songabt-img'>
+                </li> */}
+                {/* <li className='songabt-img'>
                   <Link to='' className='anchor-foo'>
                     <p className='moreoption'>
                       <i class='fa fa-ellipsis-v' aria-hidden='true'></i>
                     </p>
                   </Link>
-                </li>
+                </li> */}
                 <li className='row-item'>
                   <p>{user.duration}</p>
                 </li>

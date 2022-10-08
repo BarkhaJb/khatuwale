@@ -1,14 +1,12 @@
 import React,{useState , useEffect}  from "react";
 import tr_img1 from '../Components/assets/images/trending1.png';
-// import tr_img2 from '../Components/assets/images/tr_img2.png';
-// import tr_img4 from '../Components/assets/images/tr_img4.jpg';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 
 
 
-const Trend=({ setMusicTracks, setTrackIndex,audiofunction, })=>{
+const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
     const [release, setRelease] = React.useState([]);
     const { pathname } = useLocation();
     const [isPlaying, setIsPlaying] = useState(true);

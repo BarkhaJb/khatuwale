@@ -57,7 +57,7 @@ const Artist = ({
       navigate('/')
       
     } 
-    const url = `https://khatu-wale-api.herokuapp.com/artist/songs/${currentArtist?._id}`;
+    const url = `http://localhost:3100/artist/songs/${currentArtist?._id}`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
@@ -85,73 +85,7 @@ const Artist = ({
           <div className='listing'>
             <h2  className='newsong-head' >Songs By Artist</h2>
             <div className='short-slid'>
-              {/* <Carousel
-                responsive={responsive1111}
-                infinite={true}
-                autoPlay={false}
-                arrows={true}
-              >
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>All</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>Hindi</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>English</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>Marathi</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>Telgu</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>Tamil</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>Hindi</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>English</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>Marathi</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-                <div className='slick-slide'>
-                  <li className='blocks-gallery-item wdt'>
-                    <figure className='tp-art'>Telgu</figure>
-                    <figcaption></figcaption>
-                  </li>
-                </div>
-              </Carousel> */}
+             
             </div>
 
             </div>
@@ -160,88 +94,9 @@ const Artist = ({
               {displaySongs?.map((user, index) => (
                 <li className='card'>
                 <Link to='' className='box-img'><img src={user.image} onClick={() => ChangeCurrentSong(index)} /></Link>
-                <div className='song-name'><Link to='' className='box-song'><p>{user.track}</p></Link></div>
+                <div className='song-name'><Link to='' className='box-song' onClick={() => ChangeCurrentSong(index)}><p>{user.track}</p></Link></div>
                 </li>
               ))}
-                {/* <li className='card'> <Link to='' className='box-img'><img src={dol}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Dhol Bajaa</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={dol}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Name Fame</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={dol}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Honey Ke Sang</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={Hanji}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Aaj Phir</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={Hanji}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Like You</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={Hanji}   /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Kahāni Koyi</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={dol}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Honey Ke Sang</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={Hanji}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Aaj Phir</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={song}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Like You</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={Hanji}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Like You</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={song}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Like You</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={Hanji}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Like You</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={song}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Like You</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={song} /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Hanji Hanji</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={Hanji}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Like You</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={song} /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Hanji Hanji</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={Hanji}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Like You</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={dol} /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Hanji Hanji</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={Hanji}  /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Like You</Link></div>
-                </li>
-                <li className='card'>
-                <Link to='' className='box-img'><img src={dol} /></Link>
-                <div className='song-name'><Link to='' className='box-song'>Hanji Hanji</Link></div>
-                </li> */}
               </ul>
             </div>
           </div>

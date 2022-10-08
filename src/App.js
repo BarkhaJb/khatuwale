@@ -13,7 +13,9 @@ import Latest from './pages/latest';
 import Category from './pages/Category';
 import TopPlaylist from './pages/topPlaylist';
 import NewReleases from './pages/NewReleases';
-import SearchContent from './pages/search'
+import SearchContent from './pages/search';
+import Radio from './pages/Radio';
+
 
 
 function App() {
@@ -40,7 +42,7 @@ function App() {
   const [currentArtist, setCurrentArtist] = useState(null);
   
   const fetchSongs = () => {
-    const url = 'https://khatu-wale-api.herokuapp.com/playlist/songs/6332be119778905b2cd45a83';
+    const url = 'http://localhost:3100/playlist/songs/633c3487cca1438524d18e91';
     fetch(url)
       .then((response) => response.json())
       .then((json) => setReleaseSong(json))
@@ -84,6 +86,7 @@ function App() {
           <Route path='/' element={<Home    setTrackIndex={setTrackIndex}  releaseSong={releaseSong}
                   fetchSongs={fetchSongs}
                   setReleaseSong={setReleaseSong}
+                  setMusicTracks={setMusicTracks} 
                   setCurrentArtist={setCurrentArtist} />} />
           <Route path='/Trending' element={<Trend  setMusicTracks={setMusicTracks}
                   fetchSongs={fetchSongs}
@@ -126,8 +129,11 @@ function App() {
             
             />
               
-                     {/* <Route path='/FAQ' element={<FAQ />} />
-          <Route path='/Book' element={<Book />} /> */}
+           <Route path='/radio' element={<Radio setTrackIndex={setTrackIndex} 
+                setMusicTracks={setMusicTracks}
+                audiofunction={ audiofunction}
+                 />} />
+              {/*<Route path='/Book' element={<Book />} /> */}
         </Routes>
         </div>
         <Footer />
@@ -135,6 +141,7 @@ function App() {
           trackIndex={trackIndex}
           setTrackIndex={setTrackIndex} 
           player={player}/>
+       
           
       </Router>
     </div>

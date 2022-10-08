@@ -5,7 +5,7 @@ import React,{useState,useEffect} from 'react'
 import Container from 'react-bootstrap/Container';
 import { Navbar, Nav} from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
- import logo from "./assets/images/logo.png";
+ import logo from "./assets/images/finallogo.png";
  import toggel from "./assets/images/toggel.png";
  import { Link } from "react-router-dom";
  import { useNavigate } from 'react-router-dom'
@@ -35,7 +35,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
  
 
   useEffect(() => {
-    const url = 'https://khatu-wale-api.herokuapp.com/artist/songs';
+    const url = 'http://localhost:3100/artist/songs';
     fetch(url)
       .then((response) => response.json())
       .then((json) => setArtist(json))
@@ -55,11 +55,13 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
   };
 
   return (
-    <div className="container-fluid">
-            <div className="navigation">
+<div className="container-fluid">
+     <div className="navigation">
           <Navbar expand="lg" expanded={expanded} className="navbar navbar-expand-lg navbar-light bg-light">
-            <Container>
-                <div className="logo-n-toggle">
+              <Container>
+               <div className="header-left">
+                 <div className="headre-area"> 
+                     <div className="logo-n-toggle">
                     <div className="logo">
                     {" "}
                     <Link className="logo-box" to="">            
@@ -67,8 +69,8 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                          </Link>          
                     </div>
       
-                </div>
-               <div className="form-inline my-2 my-lg-0 navbar-search">
+                     </div>
+                     <div className="form-inline my-2 my-lg-0 navbar-search">
                     <input
                       class="form-control mr-sm-2"
                      type="search"
@@ -76,30 +78,38 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                      aria-label="Search"
                       onChange={(e) => setSearchValue(e.target.value)}
                   />
-                    <button onClick={SearchSongs} className="searchbtn"><p><i class="fa fa-search" aria-hidden="true"></i></p></button>
-               </div>
-               <Navbar.Toggle aria-controls='responsive-na' onClick={() => setExpanded(expanded ? false : "expanded")} />
-                  <Navbar.Collapse>
+                    <button onClick={SearchSongs} className="searchbtn"><i class="fa fa-search" aria-hidden="true"></i>Search</button>
+                     </div>
+                  </div>
+                    <Navbar.Toggle aria-controls='responsive-na' onClick={() => setExpanded(expanded ? false : "expanded")} />
+                <div className="menu">
+                    <Navbar.Collapse>
        
-                       <Nav onClick={() => setExpanded(false)}>
-                         <ul className="navbar-nav mr-auto">
-                              <li className="nav-item dropdown">
-                                  <NavLink  to=""
-                                     className="nav-link dropdown-toggle"
-                                        href="#"
-                                         id="navbarDropdown"
-                                            role="button"
+                        <Nav onClick={() => setExpanded(false)}>
+                              <ul className="navbar-nav mr-auto">
+                              <li className="nav-item">
+                                   <NavLink  to="/"  className="nav-link">
+                                    {" "}
+                                    Home
+                                      </NavLink>
+                               </li>
+                                     <li className="nav-item dropdown">
+                                          <NavLink  to=""
+                                                  className="nav-link dropdown-toggle"
+                                                href="#"
+                                                    id="navbarDropdown"
+                                                         role="button"
                                                   data-toggle="dropdown"
                                              aria-haspopup="true"
-                                        aria-expanded="false"
-                                           >
-                                       Top Artists
-                                  </NavLink>
+                                                    aria-expanded="false"
+                                                    >
+                                                       Top Artists
+                                              </NavLink>
 
-                                 <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
-                                  {artist.map((user) => (
-                                  <ul>
-                                   <li
+                                         <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                                    {artist.map((user) => (
+                                                 <ul>
+                                    <li
                                     onClick={() => MoveToTopArtist(user)}
                                   class='dropdown-item'
                                     >
@@ -108,7 +118,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                                        </ul>
                                       ))}
                                    </div>
-                             </li>
+                                 </li>
 
                                <li className="nav-item">
                                    <NavLink  to="/Trending"  className="nav-link">
@@ -117,24 +127,32 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                                       </NavLink>
                                </li>
                               <li className="nav-item">
-                          <NavLink  to="/Trending" className="nav-link">
-                            {" "}
-                            All Bhajans
-                          </NavLink>
-                    </li>
-                    <li className="nav-item">
-                       <NavLink  to="/newReleases"className="nav-link">
-                          Latest Release
-                       </NavLink>
-                    </li>
-             
-                </ul>
+                                 <NavLink  to="/Trending" className="nav-link">
+                                 {" "}
+                                All Bhajans
+                                         </NavLink>
+                                   </li>
+                                          <li className="nav-item">
+                                                 <NavLink  to="/newReleases"className="nav-link">
+                                              Latest Release
+                                           </NavLink>
+                                          </li>
+                                    
+                                          <li className="nav-item sound">
+                                                 <NavLink  to="/radio"className="nav-link">
+                                                 <i class="fa fa-volume-up" aria-hidden="true"></i>
+                                             <p className="radiopara"> Shri Shyam Radio</p>
+                                           </NavLink>
+                                          </li>
+                                       </ul>
           
-               </Nav>
-               </Navbar.Collapse>
-         </Container>
-      </Navbar>
-      </div>
+                        </Nav>
+                  </Navbar.Collapse>
+                  </div>
+                  </div>
+              </Container>
+          </Navbar>
+     </div>
 </div>
   )
 }

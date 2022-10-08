@@ -22,6 +22,7 @@ const Player = ({ musicTracks, trackIndex, setTrackIndex ,player}) => {
     <div className='playertwo'>
       <AudioPlayer
         ref={player}
+        
         src={musicTracks[trackIndex].src}
         onPlay={(e) => console.log('onPlay')}
         showSkipControls={true}

@@ -4,14 +4,21 @@ import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
-// import  jaya from '../Components/assets/images/top';
+ import  event from '../Components/assets/images/eventback.png';
+ import  eventright  from '../Components/assets/images/eventright.png';
+ import row1 from '../Components/assets/images/rowone.jpg';
+ import row2 from '../Components/assets/images/rowtwo.jpg';
+ import row3 from '../Components/assets/images/rowthree.jpg';
+ import Recommend from '../Components/Recommend';
 
 const Home = ({
   releaseSong,
   setReleaseSong,
   setCurrentArtist,
   fetchSongs,
-  setTrackIndex
+  setTrackIndex,
+  setMusicTracks,
+
 }) => {
   const { pathname } = useLocation();
 
@@ -50,12 +57,12 @@ const Home = ({
           items: 5,
         },
         desktop: {
-          breakpoint: { max: 3000, min: 1024 },
+          breakpoint: { max: 3000, min: 1025 },
           items: 6,
         },
         tablet: {
-          breakpoint: { max: 1025, min: 992 },
-          items: 3,
+          breakpoint: { max: 1024, min: 992 },
+          items: 5,
         },
         tablet: {
           breakpoint: { max: 991, min: 464 },
@@ -66,33 +73,35 @@ const Home = ({
           items: 2,
         },
       };
-      const responsiveThree = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 5,
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3,
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2,
-        },
+      // const responsiveThree = {
+      //   superLargeDesktop: {
+      //     // the naming can be any, depends on you.
+      //     breakpoint: { max: 4000, min: 3000 },
+      //     items: 5,
+      //   },
+      //   desktop: {
+      //     breakpoint: { max: 3000, min: 1024 },
+      //     items: 3,
+      //   },
+      //   tablet: {
+      //     breakpoint: { max: 1024, min: 464 },
+      //     items: 2,
+      //   },
       
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 2,
-        },
-      };
+      //   mobile: {
+      //     breakpoint: { max: 464, min: 0 },
+      //     items: 2,
+      //   },
+      // };
       const [trendingSong, setTrendingSong] = React.useState([]);
       const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState([]);
   const [category, setCategory] = React.useState([]);
   const [playlist, setPlaylist] = React.useState([]);
+
+
   useEffect(() => {
-    const url = 'https://khatu-wale-api.herokuapp.com/artist';
+    const url = 'http://localhost:3100/artist';
     fetch(url)
       .then((response) => response.json())
       .then((json) => setData(json))
@@ -100,21 +109,21 @@ const Home = ({
   }, []);
 
   useEffect(() => {
-    const url = 'https://khatu-wale-api.herokuapp.com/category/songs';
+    const url = 'http://localhost:3100/category/songs';
     fetch(url)
       .then((response) => response.json())
       .then((json) => setCategory(json))
       .catch((error) => console.log(error));
   }, []);
   useEffect(() => {
-    const url = 'https://khatu-wale-api.herokuapp.com/playlist';
+    const url = 'http://localhost:3100/playlist';
     fetch(url)
       .then((response) => response.json())
       .then((json) => setPlaylist(json))
       .catch((error) => console.log(error));
   }, []);
   useEffect(() => {
-    const url = 'https://khatu-wale-api.herokuapp.com/trending';
+    const url = 'http://localhost:3100/trending';
     fetch(url)
       .then((response) => response.json())
       .then((json) => setTrendingSong(json))
@@ -176,7 +185,57 @@ const Home = ({
         </Carousel>
         </div>
       </div>
-    
+      <Recommend setMusicTracks={setMusicTracks} 
+      setTrackIndex={ setTrackIndex}/>
+{/*  
+      <div className="slider  ulhover">
+        {' '}
+       
+         <div className='slider1'>
+           <div className="heading-area">
+              <div className="rightheading-area">
+              <h2 className='slider-heading'>Khatuwaleshyam Recommends</h2>
+              </div>
+              <div className="leftheading-area">
+                <h5 className='see-head'>see all</h5>
+                </div>
+           </div>
+         </div>    
+         <div className='about-slider1 recommend'>
+              <div className="row1">
+               <div className="row-area">
+                <div className="recommend-no">01</div>
+                  <div className="row-image">
+                  <Link to='/'>   <img src={row1}  className="roimg"></img></Link>
+                  </div>
+                   <div className="row-content">
+                    <p className="recommend-song">Haare Ke Sahare Aaja</p>
+                    <p className="recommend-artist">sanjay mittal</p>
+                    </div>
+                    </div>
+              </div>
+              <div className="row1">
+                <div className="row-area">
+                   <div className="recommend-no">02</div>
+                  <div className="row-image"> <Link to='/'>   <img src={row2} className="roimg" ></img></Link></div>
+                  <div className="row-content">
+                   <p className="recommend-song">Haara Hu Baba</p>
+                   <p className="recommend-artist">kanhaiya mittal</p>
+                  </div>
+                  </div>
+               </div> 
+               <div className="row1">
+               <div className="row-area">
+               <div className="recommend-no">03</div>
+                   <div className="row-image"> <Link to='/'>   <img src={row3} className="roimg" ></img></Link></div>
+                   <div className="row-content">
+                   <p className="recommend-song">Pakad Lo Hath Banwari Ka</p>
+                    <p className="recommend-artist">upasna mehta</p>
+                    </div>
+                    </div>
+               </div> 
+         </div>
+      </div> */}
       <div className="slider  ulhover">
         {' '}
        
@@ -190,10 +249,11 @@ const Home = ({
                  <li className='blocks-gallery-item'>
                      <img  className='slider-img trnding-img'
                      src={user.image} onClick={()=>SongSelect(index)} ></img>
-                     <div className="playyiconhome"> <Link to='/Trending'> <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
+                     <div className="playyiconhome"> <Link to='/Trending' > <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
                  </li>
-              <div className="songname">
-                 <p>{user.track}</p>
+              <div className="songname" onClick={()=>SongSelect(index)}>
+                 <p className="artsong">{user.track}</p>
+                 <p className="artname">{user.artist}</p>
               </div>
                </div>
                 ))}
@@ -205,7 +265,7 @@ const Home = ({
               <h2 className='slider-heading'>Top Playlist</h2>
          </div>    
          <div className='about-slider1 superhit'>
-               <Carousel className="superhit" responsive={responsiveThree} infinite={true}>
+               <Carousel className="superhit" responsive={responsiveTwo} infinite={true}>
               {playlist.map((user) => (
                <div className='slick-slide'>
                <li className='blocks-gallery-item'>
@@ -268,7 +328,8 @@ const Home = ({
             </li>
             {/* <div className="playyicon"><i class="fa fa-play-circle" aria-hidden="true"></i> </div> */}
             <div className="songname">
-            <p>{user.track}</p>
+            <p className="artsong">{user.track}</p>
+            <p className="artname">{user.artist}</p>
           </div>
           </div>
         ))}
@@ -278,51 +339,47 @@ const Home = ({
        </div>
       </div>
     {/* </div> */}
-
-          <div className='upcomingEvents'>
-              <div className='eventhead'>
-                <h1 className='event-h1'>Upcoming Events</h1>
-              </div>
-              <div className='clctn-ee'>
-                <div class='sliderrr'>
-                  <div class='slide-trackkk'>
-                    <div class='slideee'>
-                      <div className='events'>
-                        <h3 className='events-h3'>
-                          Khatu Shyam Bhajan sandhya, indore
-                        </h3>
-                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
-                      </div>
-                      <div className='events'>
-                        <h3 className='events-h3'>
-                          Khatu Shyam Bhajan sandhya, pune
-                        </h3>
-                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
-                      </div>
-                      <div className='events'>
-                        <h3 className='events-h3'>
-                          Khatu Shyam Bhajan sandhya, mumbai
-                        </h3>
-                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
-                      </div>
-                      <div className='events'>
-                        <h3 className='events-h3'>
-                          Khatu Shyam Bhajan sandhya, jaipur
-                        </h3>
-                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
-                      </div>
-                      <div className='events'>
-                        <h3 className='events-h3'>
-                          Khatu Shyam Bhajan sandhya, delhi
-                        </h3>
-                        <h5 className='events-h5'>June 21 @ 6:00 PM</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div style={{ backgroundImage:`url(${event})` }} className='upcomingEvents'  >
+           <div className="event-left">
+                     <div className='eventhead'>
+                            <h2>upcoming Events</h2>
+                     </div>
+                     <div className="about-event">
+                      <h3>Khatushyam Bhajan Sandhya</h3>
+                     </div>
+                     <div className="concert">
+                        <div className="area1">
+                            <div  className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-map-marker areaicon" aria-hidden="true"></i></button></Link>
+                               <p>Indore</p></div>
+                           <div  className="area-content"> <Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-calendar areaicon" aria-hidden="true"></i></button></Link><p>06 oct..</p></div>
+                            <div className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-clock-o areaicon" aria-hidden="true"></i></button></Link><p>06:00 pm</p></div>
+                        </div>
+                        <div className="area1">
+                            <div  className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-map-marker areaicon" aria-hidden="true"></i></button></Link>
+                               <p>Indore</p></div>
+                           <div  className="area-content"> <Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-calendar areaicon" aria-hidden="true"></i></button></Link><p>06 oct..</p></div>
+                            <div className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-clock-o areaicon" aria-hidden="true"></i></button></Link><p>06:00 pm</p></div>
+                        </div>
+                        <div className="area1">
+                            <div  className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-map-marker areaicon" aria-hidden="true"></i></button></Link>
+                               <p>Indore</p></div>
+                           <div  className="area-content"> <Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-calendar areaicon" aria-hidden="true"></i></button></Link><p>06 oct..</p></div>
+                            <div className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-clock-o areaicon" aria-hidden="true"></i></button></Link><p>06:00 pm</p></div>
+                        </div>
+                        <div className="area1">
+                            <div  className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-map-marker areaicon" aria-hidden="true"></i></button></Link>
+                               <p>Indore</p></div>
+                           <div  className="area-content"> <Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-calendar areaicon" aria-hidden="true"></i></button></Link><p>06 oct..</p></div>
+                            <div className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-clock-o areaicon" aria-hidden="true"></i></button></Link><p>06:00 pm</p></div>
+                        </div>
+                     </div> 
            </div>
+           <div className="event-right">
+               <div className="eventimg"> <a href="" ><img src={eventright}  className="eventimgsize"/></a></div>
+           </div>
+
+    </div>      
+</div>
            
     
     )

@@ -24,7 +24,7 @@ const SearchContent = ({ setMusicTracks, setTrackIndex }) => {
   useEffect(() => {
     if (location && location.state) {
       const searchValue = location.state;
-      const url = `https://khatu-wale-api.herokuapp.com/search/${searchValue}`;
+      const url = `http://localhost:3100/search/${searchValue}`;
       fetch(url)
         .then((response) => response.json())
         .then((json) => {

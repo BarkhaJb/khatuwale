@@ -29,7 +29,7 @@ const Category = ({
     if (currentArtist === null) {
       navigate("/")
     }
-    const url = `https://khatu-wale-api.herokuapp.com/category/songs/${currentArtist?._id}`;
+    const url = `http://localhost:3100/category/songs/${currentArtist?._id}`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
@@ -143,14 +143,14 @@ const Category = ({
                 <li className='songabt-img'>
                   <Link to='' className='anchor-foo'>
                     <p className='hearticon'>
-                      <i class='fa fa-heart-o' aria-hidden='true'></i>
+                      {/* <i class='fa fa-heart-o' aria-hidden='true'></i> */}
                     </p>
                   </Link>
                 </li>
                 <li className='songabt-img'>
                   <Link to='' className='anchor-foo'>
                     <p className='moreoption'>
-                      <i class='fa fa-ellipsis-v' aria-hidden='true'></i>
+                      {/* <i class='fa fa-ellipsis-v' aria-hidden='true'></i> */}
                     </p>
                   </Link>
                 </li>

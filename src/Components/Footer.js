@@ -7,14 +7,14 @@ const Footer = () => {
     const[category,setCategory]=useState([]);
     const [playlist, setPlaylist] = React.useState([]);
     useEffect(() => {
-        const url = 'https://khatu-wale-api.herokuapp.com/category/songs';
+        const url = 'http://localhost:3100/category/songs';
         fetch(url)
           .then((response) => response.json())
           .then((json) => setCategory(json))
           .catch((error) => console.log(error));
       }, []);
       useEffect(() => {
-        const url = 'https://khatu-wale-api.herokuapp.com/playlist';
+        const url = 'http://localhost:3100/playlist';
         fetch(url)
           .then((response) => response.json())
           .then((json) => setPlaylist(json))
@@ -22,7 +22,7 @@ const Footer = () => {
       }, []);
   return (
  <div className="footer" >
-
+<div className='container-fluid first-foo-para'>
         <div className='top-footer-para'>
             <h2>Hare Ka Sahara Baba Shyam Hamara</h2>
             <p>Kathin rah bhi saral ho jayegi mushkilen
@@ -31,21 +31,24 @@ shyam ke zindagi teri safal ho jayegi,
 Jay shree Shyam.
 </p>
         </div>
+        </div>
     <div className='container-fluid'>
         <div className='container'>
         <div className='footer-awsfnts'>
-        <Link to='' className='anchor-foo'> <i className="fa fa-facebook-official icon" aria-hidden="true"></i></Link>
-        <Link to='' className='anchor-foo'> <i className="fa fa-twitter-square icon" aria-hidden="true"></i></Link>
-        <Link to='' className='anchor-foo'> <i className="fa fa-instagram icon" aria-hidden="true"></i></Link>
-        <Link to='' className='anchor-foo'> <i className="fa fa-youtube-play icon" aria-hidden="true"></i></Link>
+           <div className='footer-awsfnts-area'>
+        <Link to='' className='anchor-foo'><button className='foot-btn-icon face'> <i className="fa fa-facebook" aria-hidden="true"></i></button></Link>
+        <Link to='' className='anchor-foo'><button className='foot-btn-icon insta'><i className="fa fa-instagram" aria-hidden="true"></i></button></Link>
+        <Link to='' className='anchor-foo'><button className='foot-btn-icon twitter'><i className="fa fa-twitter" aria-hidden="true"></i></button></Link>
+        <Link to='' className='anchor-foo'> <button className='foot-btn-icon youtube'><i className="fa fa-youtube-play" aria-hidden="true"></i></button></Link>
+           </div>
         </div>
         <div className='footer-para'>
             <ul  className='about-para'>
-                <li className='about-para2'>Terms of Use </li>
-                
-                <li className='about-para2'>Privacy Policy </li>
-                <li className='about-para2'>Partners</li>
-                <li className='about-para2'>Sitemap </li>
+                <li className='about-para2 right-border'>Advertise on Khatushyam.com </li>
+                <li className='about-para2 right-border'>Terms of Use</li>
+                <li className='about-para2 right-border'>Privacy Policy </li>
+                <li className='about-para2 right-border'>Partners</li>
+                <li className='about-para2 right-border'>Sitemap </li>
                 <li className='about-para2'>FAQ </li>
                 </ul>
         </div>
