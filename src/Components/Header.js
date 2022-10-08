@@ -127,7 +127,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                                       </NavLink>
                                </li>
                               <li className="nav-item">
-                                 <NavLink  to="/Trending" className="nav-link">
+                                 <NavLink  to="/Allbhajan" className="nav-link">
                                  {" "}
                                 All Bhajans
                                          </NavLink>
