@@ -209,8 +209,8 @@ const Artist=({releaseSong,
                             
                                 <h1>{displaySongs[0]?.artist}</h1>
                                
-                                 <h2>Trending Songs</h2>
-                                <p>Top trending hits, refreshed daily</p>
+                                 <h2>Top-Artist</h2>
+                                <p>Top Artist hits, refreshed daily</p>
                               </div>
             
 
