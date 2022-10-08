@@ -375,7 +375,7 @@ const Home = ({
                      </div> 
            </div>
            <div className="event-right">
-               <div className="eventimg"> <a href="" ><img src={eventright}  className="eventimgsize"/></a></div>
+               <div className="eventimg"> <img src={eventright}  className="eventimgsize"/></div>
            </div>
 
     </div>      

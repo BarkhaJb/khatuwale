@@ -15,7 +15,7 @@ import TopPlaylist from './pages/topPlaylist';
 import NewReleases from './pages/NewReleases';
 import SearchContent from './pages/search';
 import Radio from './pages/Radio';
-
+import Allbhajan from './pages/Allsong';
 
 
 function App() {
@@ -97,6 +97,7 @@ function App() {
            <Route path='/Top-Artist' element={<Artist releaseSong={releaseSong}
                   currentArtist={currentArtist}
                   setMusicTracks={setMusicTracks}
+                  audiofunction={ audiofunction}
                   setDefaultMusic={setDefaultMusic}
                   setTrackIndex={setTrackIndex} />} />
           <Route path='/TopBhajan' element={<TopBhajan  />} />
@@ -133,7 +134,7 @@ function App() {
                 setMusicTracks={setMusicTracks}
                 audiofunction={ audiofunction}
                  />} />
-              {/*<Route path='/Book' element={<Book />} /> */}
+              <Route path='/Allbhajan' element={<Allbhajan />} />
         </Routes>
         </div>
         <Footer />

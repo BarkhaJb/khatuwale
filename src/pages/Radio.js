@@ -1,5 +1,5 @@
 import React,{useState, useEffect}  from "react";
-import radioimg from '../Components/assets/images/radio.jpg'
+import radioimg from '../Components/assets/images/radioimg.png'
 import { Link } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
@@ -43,6 +43,7 @@ const Radio = ({
 <div className="araeaaaa">
       <div className="radio-img">
           <img src={radioimg} />
+          </div>
           <div className='trndbtn'>
               <button className='footer-btn' 
                onClick={() => {
@@ -56,7 +57,7 @@ const Radio = ({
                {isPlaying === true ? 'Play' : 'Pause'}
               </button>
             </div>
-      </div>
+      
 </div>
 
   );

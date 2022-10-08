@@ -82,6 +82,9 @@ button.searchbtn{
     display: flex;
     
 }
+i.fa.fa-volume-up{
+    color:white;
+}
 p.radiopara {
     margin: 0;
     color: white;
@@ -117,9 +120,9 @@ li.nav-item.sound {
   
     font-family: 'Nunito Sans', sans-serif;
     font-size: 16px!important;
-    color: #808080d1 !important;
-
+    color: #413f3fab !important;
     display: contents;
+    font-weight: 700;
 }
 
 .nav-link:hover{
@@ -411,7 +414,7 @@ img.slider-img.superhit-img{
 }
 .top-footer-para p{
     font-size: 18px;
-      color: #939393;
+    color: #726d6d;
     margin: 0 auto;
 }
 
@@ -436,7 +439,7 @@ img.slider-img.superhit-img{
     text-decoration: none;
     line-height: 2.2em;
     text-transform: capitalize;
-    color:#939393;
+    color:#747171;
 }
 li.about-para2.right-border{
     border-right: 1px solid #818181;
@@ -570,6 +573,7 @@ i.fa.fa-heart-o{
 p.recommend-song {
     font-size: 20px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 p.recommend-artist {
     text-align: initial;
@@ -679,7 +683,8 @@ button.rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button path{
 .song-about{
     padding: 8px 10px !important;
     display: flex;
-    width: 75%;
+    /* width: 75%; */
+    width: 100%;
     list-style: none;
     border-bottom: 1px solid hsl(0deg 12% 84%);
     color: #666;

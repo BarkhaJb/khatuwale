@@ -16,7 +16,7 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
     window.scrollTo(0, 0);
   }, [pathname]);
     useEffect(() => {
-        const url = 'https://khatu-wale-api.herokuapp.com/trending';
+        const url = 'http://localhost:3100/trending';
         fetch(url)
           .then((response) => response.json())
           .then((json) => {
@@ -63,7 +63,7 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
                   }
                 }}>
                {isPlaying === true ? 'Play' : 'Pause'}</button>
-                {/* <button className="heartbtn"><Link to='' ><i class="fa fa-heart-o" aria-hidden="true"></i></Link> </button> */}
+             
                 </div>
                 </div>
               </section>
@@ -76,9 +76,7 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
                         <div className="track"><p className="heading">Track</p></div>
                         <div className="artist"><p className="heading">Artist</p></div>
                     </div>
-                    {/* <div className="albumarea">
-                    <div className="artist"><p className="heading">Album</p></div>
-                    </div> */}
+                
                 </li>
                 <li className="songabt-dur"><p className="heading">Duration</p></li>
               </ul>
@@ -96,75 +94,14 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
                         <div className="track"><p>{user.track}</p></div>
                         <div className="artist"><p>{user.artist}</p></div>
                     </div>
-                    {/* <div className="albumarea">
-                    <div className="artist"><p className="heading">Album</p></div>
-                    </div> */}
+                  
                 </li>
         
                   <li className="songabt-dur"><p className="heading"><p>{user.duration}</p></p></li>
                     
               </ul>
               ))}
-            {/* //   <ul  className="song-about">
-            //     <li className="songabt-img">
-            //         <div className="listimg">
-            //         <a href="" ><img src={tr_img4}  /></a>
-            //         <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-            //         </div>
-            //     </li>
-            //     <li className="songabt">
-            //         <div className="heading-row">
-            //             <div className="track"><p>Summer High</p></div>
-            //             <div className="artist"><p>AP Dhillon</p></div>
-            //         </div>
-            //     </li>
-            //     <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
-            //     <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
-            //     <li className="row-item">
-            //     <p>04:28</p>
-            //     </li>
-                    
-            //   </ul> */}
-              {/* <ul  className="song-about">
-                <li className="songabt-img">
-                    <div className="listimg">
-                    <a href="" ><img src={tr_img2}  /></a>
-                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-                    </div>
-                </li>
-                <li className="songabt">
-                    <div className="heading-row">
-                        <div className="track"><p>I Wish I Could Hate You</p></div>
-                        <div className="artist"><p>HRVY</p></div>
-                    </div>
-                </li>
-                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
-                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
-                <li className="row-item">
-                <p>04:28</p>
-                </li>
-                    
-              </ul>
-              <ul  className="song-about">
-                <li className="songabt-img">
-                    <div className="listimg">
-                    <a href="" ><img src={tr_img3}  /></a>
-                    <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
-                    </div>
-                </li>
-                <li className="songabt">
-                    <div className="heading-row">
-                        <div className="track"><p>Mitti De Tibbe</p></div>
-                        <div className="artist"><p>Kaka</p></div>
-                    </div>
-                </li>
-                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="hearticon"><i class="fa fa-heart-o" aria-hidden="true"></i></p></Link></li>
-                <li className="songabt-img"><Link to='' className='anchor-foo'><p className="moreoption"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></p></Link></li>
-                <li className="row-item">
-                <p>04:28</p>
-                </li>
-                    
-              </ul> */}
+           
               </div>
               </section> 
             </div>
