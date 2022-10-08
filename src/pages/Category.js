@@ -40,7 +40,7 @@ const Category = ({
         });
         console.log('PARSED', parsedDataTwo);
         setMusicTracks(parsedDataTwo);
-        setRelease(json);
+       
       })
 
       .catch((error) => console.log(error));

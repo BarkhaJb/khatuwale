@@ -61,7 +61,7 @@ const Artist = ({
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
-        setDisplaySongs(json);
+        
         console.log('CONSOLE', json);
         const parsedDataTwo = json.map((item) => {
           return { src: item.song, name: item.track, id: item._id };

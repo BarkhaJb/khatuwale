@@ -16,7 +16,7 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
     window.scrollTo(0, 0);
   }, [pathname]);
     useEffect(() => {
-        const url = 'https://khatu-wale-api.herokuapp.com/trending';
+        const url = 'http://localhost:3100/trending';
         fetch(url)
           .then((response) => response.json())
           .then((json) => {

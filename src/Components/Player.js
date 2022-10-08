@@ -21,13 +21,12 @@ const Player = ({ musicTracks, trackIndex, setTrackIndex ,player}) => {
   return (
     <div className='playertwo'>
       <AudioPlayer
-        ref={player}
-        
-        src={musicTracks[trackIndex].src}
+        ref={player} 
+        src={musicTracks[trackIndex]?.src}
         onPlay={(e) => console.log('onPlay')}
         showSkipControls={true}
         showJumpControls={true}
-        header={`Now playing: ${musicTracks[trackIndex].name}`}
+        header={`Now playing: ${musicTracks[trackIndex]?.name}`}
         onClickPrevious={()=> handleClickPrevious()}
         onClickNext={() => handleClickNext()}
         onEnded={handleClickNext}
