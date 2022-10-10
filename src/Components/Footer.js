@@ -42,10 +42,7 @@ const Footer = ({ setCurrentArtist}) => {
         setCurrentArtist(user);
         navigate('/TopPlaylist');
       };
-    const MoveToNewRelease=()=>{
-        navigate('/newReleases')
-    }
-
+  
   return (
  <div className="footer" >
 <div className='container-fluid first-foo-para'>

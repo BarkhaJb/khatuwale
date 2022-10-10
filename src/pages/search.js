@@ -7,20 +7,6 @@ const SearchContent = ({ setMusicTracks, setTrackIndex }) => {
   console.log(location.state);
 
 
-  // useEffect(() => {
-  //   if (location && location.state) {
-  //     const searchValue = location.state;
-  //     const url = `https://khatu-wale-api.herokuapp.com/search/${searchValue}`;
-  //     fetch(url)
-  //       .then((response) => response.json())
-  //       .then((json) => {
-  //         setSearch(json);
-  //       });
-  //   }
-  // }, []);
-  // console.log('this is search', search);
-
-
   useEffect(() => {
     if (location && location.state) {
       const searchValue = location.state;
