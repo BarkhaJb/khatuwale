@@ -6,7 +6,7 @@ import 'react-h5-audio-player/lib/styles.css';
 
 
 
-const Player = ({ musicTracks, trackIndex, setTrackIndex ,player}) => {
+const Player = ({ musicTracks, trackIndex, setTrackIndex ,player ,audiofunction, isPlaying, setIsPlaying}) => {
 
   const handleClickPrevious = () => {
     setTrackIndex((currentTrack) =>
@@ -22,8 +22,10 @@ const Player = ({ musicTracks, trackIndex, setTrackIndex ,player}) => {
     <div className='playertwo'>
       <AudioPlayer
         ref={player} 
+        autoPlay={false}
         src={musicTracks[trackIndex]?.src}
-        onPlay={(e) => console.log('onPlay')}
+        onPlay={() => setIsPlaying(false)}
+        onPause={() => setIsPlaying(true)}
         showSkipControls={true}
         showJumpControls={true}
         header={`Now playing: ${musicTracks[trackIndex]?.name}`}

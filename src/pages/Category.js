@@ -14,10 +14,11 @@ const Category = ({
   currentArtist,
   fetchSongs,
   audiofunction,
+   isPlaying, setIsPlaying, player
 }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const [isPlaying, setIsPlaying] = useState(true);
+ 
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -49,7 +50,7 @@ const Category = ({
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
     console.log('this is song index---->', index);
-    setIsPlaying(false);
+    
   };
 
   const SetIndexToZero = (index) => {
@@ -123,7 +124,7 @@ const Category = ({
                   <div className='listimg'>
                     <img
                       src={user.image}
-                      onClick={() => ChangeCurrentSong(index)}
+                      // onClick={() => ChangeCurrentSong(index)}
                     />
                     <div className='playyicon'>
                       <i class='fa fa-play-circle-o' aria-hidden='true'></i>{' '}

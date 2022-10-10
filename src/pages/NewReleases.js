@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
 
-const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
+const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying, setIsPlaying}) => {
     const { pathname } = useLocation();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
 
 
   const [release, setRelease] = React.useState([]);
-  const [isPlaying, setIsPlaying] = useState(true);
+  
 
 
   useEffect(() => {

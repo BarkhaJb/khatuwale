@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
 
-const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
+const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, setIsPlaying}) => {
     const { pathname } = useLocation();
 
   useEffect(() => {
@@ -13,8 +13,8 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
   }, [pathname]);
 
 
-  const [release, setRelease] = React.useState([]);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [songs, setSongs] = React.useState([]);
+ 
 
 
   useEffect(() => {
@@ -22,14 +22,14 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
-        setRelease(json);
+       
         console.log('CONSOLE', json);
-        const parsedDataTwo = json.map((item) => {
+        const parsedDataThree = json.map((item) => {
           return { src: item.song, name: item.track, id: item._id };
         });
-        console.log('PARSED', parsedDataTwo);
-        setMusicTracks(parsedDataTwo);
-        setRelease(json);
+        console.log('PARSED', parsedDataThree);
+        setMusicTracks(parsedDataThree);
+        setSongs(json);
       })
 
       .catch((error) => console.log(error));
@@ -40,10 +40,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
     console.log('this is song index---->', index);
     setIsPlaying(false);
   };
-  const SetIndexToZero = (index) => {
-    setTrackIndex(0);
-    console.log('this is current index', index);
-  };
+  
   return (
     <div className='trend'>
       <div className='trend-area'>
@@ -57,8 +54,8 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
             <div className='trnd-img-about'>
              
                   <h1>Song Name</h1>
-                    <h2>Latest Releases</h2>
-                  <p>Top Release hits, refreshed daily</p>
+                    <h2>All Bajans</h2>
+                  <p>all bajan's of khatushyam</p>
             </div>
             <div className='trndbtn'>
               <button className='footer-btn'  onClick={() => {
@@ -107,13 +104,13 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
                 <p className='heading'>Duration</p>
               </li>
             </ul>
-            {release.map((user, index) => (
+            {songs.map((user, index) => (
               <ul className='song-about'  onClick={() => ChangeCurrentSong(index)}>
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img
                       src={user.image}
-                      onClick={() => ChangeCurrentSong(index)}
+                      // onClick={() => ChangeCurrentSong(index)}
                     />
 
                     <div className='playyicon'>
@@ -144,4 +141,4 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
     </div>
   );
 };
-export default NewReleases;
+export default AllSongs;

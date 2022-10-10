@@ -6,10 +6,10 @@ import { useLocation } from 'react-router-dom';
 
 
 
-const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
+const Trend=({setMusicTracks, setTrackIndex,audiofunction, isPlaying, setIsPlaying})=>{
     const [release, setRelease] = React.useState([]);
     const { pathname } = useLocation();
-    const [isPlaying, setIsPlaying] = useState(true);
+    
 
 
   useEffect(() => {

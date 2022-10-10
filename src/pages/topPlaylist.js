@@ -13,13 +13,13 @@ const TopPlaylist = ({
   user,
   currentArtist,
   fetchSongs,
-  audiofunction,
+  audiofunction, isPlaying, setIsPlaying
 }) => {
   const [release, setRelease] = React.useState([]);
   const [playlist, setPlaylist] = useState([]);
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [isPlaying, setIsPlaying] = useState(true);
+ 
   
   useEffect(() => {
     window.scrollTo(0, 0);
