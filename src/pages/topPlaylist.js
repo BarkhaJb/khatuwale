@@ -141,20 +141,6 @@ const TopPlaylist = ({
                     </div>
                   </div>
                 </li>
-                {/* <li className='songabt-img'>
-                  <Link to='' className='anchor-foo'>
-                    <p className='hearticon'>
-                      <i class='fa fa-heart-o' aria-hidden='true'></i>
-                    </p>
-                  </Link>
-                </li> */}
-                {/* <li className='songabt-img'>
-                  <Link to='' className='anchor-foo'>
-                    <p className='moreoption'>
-                      <i class='fa fa-ellipsis-v' aria-hidden='true'></i>
-                    </p>
-                  </Link>
-                </li> */}
                 <li className='row-item'>
                   <p>{user.duration}</p>
                 </li>

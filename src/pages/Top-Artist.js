@@ -56,22 +56,6 @@ import { useLocation } from 'react-router-dom';
 //       // setDefaultMusic();
 //       navigate('/')
       
-<<<<<<< HEAD
-    } 
-    const url = `http://localhost:3100/artist/songs/${currentArtist?._id}`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => {
-        
-        console.log('CONSOLE', json);
-        const parsedDataTwo = json.map((item) => {
-          return { src: item.song, name: item.track, id: item._id };
-        });
-        console.log('PARSED', parsedDataTwo);
-        setMusicTracks(parsedDataTwo);
-        setDisplaySongs(json);
-      })
-=======
 //     } 
 //     const url = `http://localhost:3100/artist/songs/${currentArtist?._id}`;
 //     fetch(url)
@@ -86,7 +70,6 @@ import { useLocation } from 'react-router-dom';
 //         setMusicTracks(parsedDataTwo);
 //         setDisplaySongs(json);
 //       })
->>>>>>> 47528bb432518fd5a1226d9c397427d9b907af24
 
 //       .catch((error) => console.log(error));
 //   }, [currentArtist, navigate, setMusicTracks]);

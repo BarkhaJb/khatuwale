@@ -134,14 +134,23 @@ function App() {
                 setMusicTracks={setMusicTracks}
                 audiofunction={ audiofunction}
                  />} />
-              <Route path='/Allbhajan' element={<Allbhajan />} />
+              <Route path='/Allbhajan' element={<Allbhajan setMusicTracks={setMusicTracks}
+                  fetchSongs={fetchSongs}
+                  setTrackIndex={setTrackIndex}
+                  audiofunction={ audiofunction} />} />
         </Routes>
         </div>
-        <Footer />
+        <Footer  releaseSong={releaseSong}
+        setTrackIndex={setTrackIndex} 
+          setCurrentArtist={setCurrentArtist} />
         <Player  musicTracks={musicTracks}
           trackIndex={trackIndex}
           setTrackIndex={setTrackIndex} 
-          player={player}/>
+          player={player}
+          setMusicTracks={setMusicTracks}
+          fetchSongs={fetchSongs}
+          setCurrentArtist={setCurrentArtist} 
+          audiofunction={audiofunction}/>
        
           
       </Router>

@@ -18,7 +18,6 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
   const [artist, setArtist] = useState([]);
   const [searchValue, setSearchValue] = useState();
   const { pathname } = useLocation();
- 
 
 
 
@@ -77,6 +76,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                      placeholder="Search"
                      aria-label="Search"
                       onChange={(e) => setSearchValue(e.target.value)}
+                      
                   />
                     <button onClick={SearchSongs} className="searchbtn"><i class="fa fa-search" aria-hidden="true"></i>Search</button>
                      </div>

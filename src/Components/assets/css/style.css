@@ -195,7 +195,7 @@ li.blocks-gallery-item.wdt {
     width: 100%;
    
     height: 100%;
-    max-height: 172px;
+    max-height: 192px;
   }
 
 .slider-heading{
@@ -292,8 +292,8 @@ img.slider-img.superhit-img{
         height: 100%;
         max-height:300px;
         width: 100%;
-        max-width: 300px;
-     
+        /* max-width: 300px; */
+        min-width: 231px;
         box-shadow: 5px 8px 11px 0px #888888 !important;
     }
     .slick-slide.topplaylist {
@@ -336,6 +336,9 @@ img.slider-img.superhit-img{
 }
 .ft-bnr{
     margin-bottom: 30px;
+}
+.ft-bnr button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left ,.ft-bnr button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
+    top:79px !important;
 }
 
 /* footer css */
@@ -534,7 +537,7 @@ i.fa.fa-heart-o{
 .roimg{  
       border-radius: 7px;
     height: 100%;
-    width: 64px;
+    width: 75px;
 
 }
 .row1 {

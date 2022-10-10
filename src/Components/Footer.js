@@ -1,11 +1,16 @@
 import React ,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom'
 
 
-
-const Footer = () => {
+const Footer = ({ setCurrentArtist}) => {
     const[category,setCategory]=useState([]);
     const [playlist, setPlaylist] = React.useState([]);
+    const[artist,setArtist]=useState([]);
+ 
+    const navigate = useNavigate();
+   
+
     useEffect(() => {
         const url = 'http://localhost:3100/category/songs';
         fetch(url)
@@ -20,6 +25,27 @@ const Footer = () => {
           .then((json) => setPlaylist(json))
           .catch((error) => console.log(error));
       }, []);
+      useEffect(() => {
+        const url = 'http://localhost:3100/artist';
+        fetch(url)
+          .then((response) => response.json())
+          .then((json) => setArtist(json))
+          .catch((error) => console.log(error));
+      }, []);
+      const navigateToTopArtist = (user) => {
+        console.log('USER THIS', user);
+        setCurrentArtist(user);
+        navigate('/Top-Artist');
+      };
+      const MoveToPlaylist = (user) => {
+        console.log(' THIS user', user);
+        setCurrentArtist(user);
+        navigate('/TopPlaylist');
+      };
+    const MoveToNewRelease=()=>{
+        navigate('/newReleases')
+    }
+
   return (
  <div className="footer" >
 <div className='container-fluid first-foo-para'>
@@ -74,8 +100,8 @@ Jay shree Shyam.
         <h4 className='foo-heading'>genres</h4>
         <div className='menu2-content'>
             <ul className='genres-list'>
-            {playlist.map((user) => (
-               <li className='genres-item bullet'><Link to='/trending'  className='anchor-foo'>{user.title}</Link></li>
+              {playlist.map((user) => (
+               <li className='genres-item bullet'  onClick={() => MoveToPlaylist(user)}><Link to=''  className='anchor-foo'>{user.title}</Link></li>
                
             ))}
             </ul>
@@ -87,15 +113,16 @@ Jay shree Shyam.
      <div className='footer-menu3'>
         <h4 className='foo-heading'>artist</h4>
         <div className='menu3-content'>
-            <ul className='artist-list'>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Kanhaiya Mittal </Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Lakhbir Singh Lakkha</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Raju Kumar Khandelwal</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Anjali Dewadi</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Jaya Kishori</Link></li>
               
+            <ul className='artist-list'>
+                {artist.slice(0,5).map((user)=>(
+                    <li className='artist-item bullet'   onClick={() =>navigateToTopArtist(user)}><Link to='' className='anchor-foo'>{user.artist} </Link></li>
+            
+                ))}
             </ul>
+               
         </div>
+      
      </div>
     </div>
     <div className='footer-release'>
@@ -103,13 +130,12 @@ Jay shree Shyam.
             <h4 className='foo-heading'>release</h4>
             <div className='menu4-content'>
                 <ul className='release-list'>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Baba Aayega</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Sanware ki God Main</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Kar Shyam ko Yaad</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Khatu se Bulawa Aayega</Link></li>
-                <li className='artist-item bullet'><Link to='' className='anchor-foo'>Shyam Milega</Link></li>
-               
-                </ul>
+                <li className='artist-item bullet' ><Link to='/newReleases' className='anchor-foo'>Baba Aayega</Link></li>
+                <li className='artist-item bullet'><Link to='/newReleases' className='anchor-foo'>Sanware Ki God Main</Link></li>
+                <li className='artist-item bullet'><Link to='/newReleases' className='anchor-foo'>Kar Shyam Ko Yaad</Link></li>
+                <li className='artist-item bullet'><Link to='/newReleases' className='anchor-foo'>Khatu Se Bulawa Aayega</Link></li>
+                <li className='artist-item bullet'><Link to='/newReleases' className='anchor-foo'>Shyam Milega</Link></li>
+            </ul> 
             </div>
         </div>
 
