@@ -10,11 +10,14 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, isPlaying, setIsPlayi
     const [release, setRelease] = React.useState([]);
     const { pathname } = useLocation();
     
-
+    const[superData, setSuperData]= useState()
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+
+  
     useEffect(() => {
         const url = 'http://localhost:3100/trending';
         fetch(url)
@@ -24,30 +27,31 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, isPlaying, setIsPlayi
               return { src: item.song, name: item.track, id: item._id };
             });
             console.log('PARSED', parsedData);
-            setMusicTracks(parsedData);
+           setSuperData(parsedData)
             setRelease(json);
           })
           .catch((error) => console.log(error));
       }, []);
       const ChangeCurrentSong = (index) => {
+     
+        setMusicTracks(superData);
         setTrackIndex(index);
         console.log('this is song index---->', index);
         setIsPlaying(false);
       };
-      const SetIndexToZero =(index) => {
-        setTrackIndex(0);
-      }
+     
 
     return(
         <div className="trend">
             <div className="trend-area">
+            {/* <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>Category</Link>-- <span className='rts-tag'>{currentArtist.title}</span></h6></div> */}
                 <section className="sec-1">
                 <div className="trendimg">
               <img src={tr_img1}  />
                 </div>
                 <div className="Trending-song">
                     <div className="trnd-img-about">
-                      <h1>Song Name</h1>
+                  
                     <h2>Trending Songs</h2>
                   <p>Top trending hits, refreshed daily</p>
                 </div>

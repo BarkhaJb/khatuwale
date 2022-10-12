@@ -8,7 +8,7 @@ import 'react-h5-audio-player/lib/styles.css';
 
 const Player = ({ musicTracks, trackIndex, setTrackIndex ,player ,audiofunction, isPlaying, setIsPlaying}) => {
 
-  const handleClickPrevious = () => {
+  const  handleClickPrevious = () => {
     setTrackIndex((currentTrack) =>
       currentTrack === 0 ? musicTracks.length - 1 : currentTrack - 1
     );

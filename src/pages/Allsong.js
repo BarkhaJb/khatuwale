@@ -14,6 +14,8 @@ const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, set
 
 
   const [songs, setSongs] = React.useState([]);
+  const [superData , setSuperData] = useState();
+
  
 
 
@@ -28,7 +30,7 @@ const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, set
           return { src: item.song, name: item.track, id: item._id };
         });
         console.log('PARSED', parsedDataThree);
-        setMusicTracks(parsedDataThree);
+        setSuperData(parsedDataThree)
         setSongs(json);
       })
 
@@ -36,6 +38,7 @@ const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, set
   }, []);
 
   const ChangeCurrentSong = (index) => {
+    setMusicTracks(superData);
     setTrackIndex(index);
     console.log('this is song index---->', index);
     setIsPlaying(false);
@@ -53,7 +56,7 @@ const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, set
           <div className='Trending-song'>
             <div className='trnd-img-about'>
              
-                  <h1>Song Name</h1>
+                
                     <h2>All Bajans</h2>
                   <p>all bajan's of khatushyam</p>
             </div>

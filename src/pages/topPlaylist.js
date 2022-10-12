@@ -16,14 +16,13 @@ const TopPlaylist = ({
   audiofunction, isPlaying, setIsPlaying
 }) => {
   const [release, setRelease] = React.useState([]);
+  const[superData, setSuperData]= useState()
   const [playlist, setPlaylist] = useState([]);
   const navigate = useNavigate();
   const { pathname } = useLocation();
  
   
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  
 
   useEffect(() => {
     if (currentArtist === null || undefined) {
@@ -39,14 +38,16 @@ const TopPlaylist = ({
           return { src: item.song, name: item.track, id: item._id };
         });
         console.log('PARSED', parsedDataTwo);
-        setMusicTracks(parsedDataTwo);
+        setSuperData(parsedDataTwo);
        
       })
 
       .catch((error) => console.log(error));
-  }, []);
+  }, [currentArtist]);
 
   const ChangeCurrentSong = (index) => {
+
+    setMusicTracks(superData);
     setTrackIndex(index);
     console.log('this is song index---->', index);
     setIsPlaying(false);
@@ -57,16 +58,20 @@ const TopPlaylist = ({
     console.log('this is current index', index);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentArtist]);
+
   return (
     <div className='trend'>
       <div className='trend-area'>
         <section className='sec-1'>
           <div className='trendimg'>
-            <img src={currentArtist.image} />
+            <img src={currentArtist?.image} />
           </div>
           <div className='Trending-song'>
             <div className='trnd-img-about'>
-              <h2>{currentArtist.title}</h2>
+              <h2>{currentArtist?.title}</h2>
               <p>Top trending hits, refreshed daily</p>
   
             </div>
@@ -141,20 +146,6 @@ const TopPlaylist = ({
                     </div>
                   </div>
                 </li>
-                {/* <li className='songabt-img'>
-                  <Link to='' className='anchor-foo'>
-                    <p className='hearticon'>
-                      <i class='fa fa-heart-o' aria-hidden='true'></i>
-                    </p>
-                  </Link>
-                </li> */}
-                {/* <li className='songabt-img'>
-                  <Link to='' className='anchor-foo'>
-                    <p className='moreoption'>
-                      <i class='fa fa-ellipsis-v' aria-hidden='true'></i>
-                    </p>
-                  </Link>
-                </li> */}
                 <li className='row-item'>
                   <p>{user.duration}</p>
                 </li>

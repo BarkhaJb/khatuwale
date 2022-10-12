@@ -5,15 +5,17 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
 
-const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying, setIsPlaying}) => {
+const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying, setIsPlaying }) => {
     const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, []);
 
 
   const [release, setRelease] = React.useState([]);
+
+  const[superData, setSuperData]= useState()
   
 
 
@@ -24,11 +26,12 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying,
       .then((json) => {
         setRelease(json);
         console.log('CONSOLE', json);
-        const parsedDataTwo = json.map((item) => {
+        const parsedDatasix = json.map((item) => {
           return { src: item.song, name: item.track, id: item._id };
         });
-        console.log('PARSED', parsedDataTwo);
-        setMusicTracks(parsedDataTwo);
+        console.log('PARSED', parsedDatasix);
+        
+        setMusicTracks(parsedDatasix);
         setRelease(json);
       })
 
@@ -37,12 +40,9 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying,
 
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
+   
     console.log('this is song index---->', index);
     setIsPlaying(false);
-  };
-  const SetIndexToZero = (index) => {
-    setTrackIndex(0);
-    console.log('this is current index', index);
   };
   return (
     <div className='trend'>
@@ -56,7 +56,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying,
           <div className='Trending-song'>
             <div className='trnd-img-about'>
              
-                  <h1>Song Name</h1>
+                 
                     <h2>Latest Releases</h2>
                   <p>Top Release hits, refreshed daily</p>
             </div>

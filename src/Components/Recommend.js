@@ -9,6 +9,7 @@ const Recommend = ({ children ,setMusicTracks,setTrackIndex}) => {
     const [recommend, setRecommend] = React.useState([]);
     const [isReadMore, setIsReadMore] = useState(true);
     const [visible ,setVisible]=useState(3);
+    const[superData, setSuperData]= useState()
 
 
 const toggleReadMore = () => {
@@ -30,13 +31,14 @@ useEffect(() => {
           return { src: item.song, name: item.track, id: item._id };
         });
       
-        setMusicTracks(parsedData);
+        setSuperData(parsedData)
         setRecommend(json);
       })
       .catch((error) => console.log(error));
   }, []);
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
+    setMusicTracks(superData);
   };
 
 

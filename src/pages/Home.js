@@ -10,6 +10,7 @@ import { useLocation } from 'react-router-dom';
  import row2 from '../Components/assets/images/rowtwo.jpg';
  import row3 from '../Components/assets/images/rowthree.jpg';
  import Recommend from '../Components/Recommend';
+ 
 
 const Home = ({
   releaseSong,
@@ -246,7 +247,7 @@ const Home = ({
              <Carousel responsive={responsiveTwo} infinite={true} >
              {trendingSong.map((user, index)=>(
               <div className='slick-slide'>
-                 <li className='blocks-gallery-item'>
+                 <li className='blocks-gallery-item trnd-hv'>
                      <img  className='slider-img trnding-img'
                      src={user.image} onClick={()=>SongSelect(index)} ></img>
                      <div className="playyiconhome"> <Link to='/Trending' > <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
@@ -268,7 +269,7 @@ const Home = ({
                <Carousel className="superhit" responsive={responsiveTwo} infinite={true}>
               {playlist.map((user) => (
                <div className='slick-slide'>
-               <li className='blocks-gallery-item'>
+               <li className='blocks-gallery-item trnd-hv'>
       
                     <img  className='slider-img superhit-img'
                     src={user.image}   onClick={() => MoveToPlaylist(user)} ></img>
@@ -290,7 +291,7 @@ const Home = ({
                 <Carousel responsive={responsiveTwo} infinite={true}>
                     {data.map((user) => (
                      <div className='slick-slide'>
-                     <li className='blocks-gallery-item'>
+                     <li className='blocks-gallery-item trnd-hv'>
                         <img  className='slider-img searchimg'
                         src={user.image}  onClick={() => {
                         navigateToTopArtist(user);
@@ -317,7 +318,7 @@ const Home = ({
         <Carousel responsive={responsiveTwo} infinite={true} >
         {releaseSong.map((user, index) => (
           <div className='slick-slide'>
-            <li className='blocks-gallery-item'>
+            <li className='blocks-gallery-item trnd-hv'>
             
                  <img  className='slider-img Releaseimg  '
                   src={user.image}  onClick={() => navigateToNewRelease(index)} ></img>

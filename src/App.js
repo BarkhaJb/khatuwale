@@ -162,7 +162,12 @@ function App() {
                  />
         </Routes>
         </div>
-        <Footer />
+        <Footer  releaseSong={releaseSong}
+        setTrackIndex={setTrackIndex} 
+          setCurrentArtist={setCurrentArtist}
+          setMusicTracks={setMusicTracks}
+           />
+           
         <Player  musicTracks={musicTracks}
           trackIndex={trackIndex}
           setTrackIndex={setTrackIndex} 

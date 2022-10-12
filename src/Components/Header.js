@@ -32,6 +32,14 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
       setScroll(window.scrollY > 50);
     });
   }, []);
+
+  const handleScroll = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
  
 
   useEffect(() => {
@@ -64,8 +72,8 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                      <div className="logo-n-toggle">
                     <div className="logo">
                     {" "}
-                    <Link className="logo-box" to="">            
-                       <img src={logo} className="logoimg" />        
+                    <Link  className="logo-box" to="">            
+                       <img onClick={()=>handleScroll()} src={logo} className="logoimg" />        
                          </Link>          
                     </div>
       
@@ -88,7 +96,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                         <Nav onClick={() => setExpanded(false)}>
                               <ul className="navbar-nav mr-auto">
                               <li className="nav-item">
-                                   <NavLink  to="/"  className="nav-link">
+                                   <NavLink onClick={()=>handleScroll()} to="/"  className="nav-link">
                                     {" "}
                                     Home
                                       </NavLink>
@@ -96,7 +104,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                                      <li className="nav-item dropdown">
                                           <NavLink  to=""
                                                   className="nav-link dropdown-toggle"
-                                                href="#"
+                                                
                                                     id="navbarDropdown"
                                                          role="button"
                                                   data-toggle="dropdown"
@@ -106,7 +114,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                                                        Top Artists
                                               </NavLink>
 
-                                         <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                         <div  onClick={()=>handleScroll()} class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                                     {artist.map((user) => (
                                                  <ul>
                                     <li
@@ -121,25 +129,25 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                                  </li>
 
                                <li className="nav-item">
-                                   <NavLink  to="/Trending"  className="nav-link">
+                                   <NavLink onClick={()=>handleScroll()}  to="/Trending"  className="nav-link">
                                     {" "}
                                     Trending Bhajans
                                       </NavLink>
                                </li>
                               <li className="nav-item">
-                                 <NavLink  to="/Allbhajan" className="nav-link">
+                                 <NavLink onClick={()=>handleScroll()}  to="/Allbhajan" className="nav-link">
                                  {" "}
                                 All Bhajans
                                          </NavLink>
                                    </li>
                                           <li className="nav-item">
-                                                 <NavLink  to="/newReleases"className="nav-link">
+                                                 <NavLink  onClick={()=>handleScroll()} to="/newReleases"className="nav-link">
                                               Latest Release
                                            </NavLink>
                                           </li>
                                     
                                           <li className="nav-item sound">
-                                                 <NavLink  to="/radio"className="nav-link">
+                                                 <NavLink onClick={()=>handleScroll()}  to="/radio"className="nav-link">
                                                  <i class="fa fa-volume-up" aria-hidden="true"></i>
                                              <p className="radiopara"> Shri Shyam Radio</p>
                                            </NavLink>
