@@ -41,6 +41,8 @@ function App() {
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentArtist, setCurrentArtist] = useState(null);
   const [isPlaying, setIsPlaying] = useState(true);
+  const[selectStyle, setSelectStyle] =useState()
+  const [isPlay, setIsPlay] = useState(true);
   
   
   
@@ -70,8 +72,10 @@ function App() {
   const audiofunction = () => {
     if (player.current.isPlaying()) {
       player.current.audio.current.pause();
+      isPlay(false);
     } else {
       player.current.audio.current.play();
+      isPlay(true);
     }
     return player.current.isPlaying();
   };
@@ -81,7 +85,8 @@ function App() {
     <div className="App">
      
      <Router>
-     <Menu  setCurrentArtist={setCurrentArtist} />
+     <Menu  setCurrentArtist={setCurrentArtist}  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle} />
      {/* <Trending/>
      <Newsong/> */}
       <div className='topMargin'>
@@ -90,13 +95,19 @@ function App() {
                   fetchSongs={fetchSongs}
                   setReleaseSong={setReleaseSong}
                   setMusicTracks={setMusicTracks} 
-                  setCurrentArtist={setCurrentArtist} />} />
+                  setCurrentArtist={setCurrentArtist}
+                  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle}
+                  isPlay={isPlay} />} />
           <Route path='/Trending' element={<Trend  setMusicTracks={setMusicTracks}
                   fetchSongs={fetchSongs}
                   setTrackIndex={setTrackIndex}
                   audiofunction={ audiofunction}
                   setIsPlaying={setIsPlaying}
-                  isPlaying={isPlaying}/>}
+                  isPlaying={isPlaying} 
+                  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle}
+                  isPlay={isPlay}/>}
                    />
           <Route path='/search' element={<SearchContent  setTrackIndex={setTrackIndex} setMusicTracks={setMusicTracks}/>} />
            <Route path='/Top-Artist' element={<Artist releaseSong={releaseSong}
@@ -106,7 +117,11 @@ function App() {
                   setDefaultMusic={setDefaultMusic}
                   setTrackIndex={setTrackIndex}
                   setIsPlaying={setIsPlaying}
-                  isPlaying={isPlaying} />} />
+                  isPlaying={isPlaying} 
+                  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle}
+                  isPlay={isPlay} />} />
+
           <Route path='/TopBhajan' element={<TopBhajan  />} />
           <Route path='/Category' element={<Category currentArtist={currentArtist}
                   setTrackIndex={setTrackIndex}
@@ -126,7 +141,12 @@ function App() {
                   setTrackIndex={setTrackIndex}
                   audiofunction={audiofunction}
                   setIsPlaying={setIsPlaying}
-                  isPlaying={isPlaying}/>}
+                  isPlaying={isPlaying}
+                  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle}
+                  isPlay={isPlay}
+                  
+                  />}
             />
             <Route
               path='/TopPlaylist'
@@ -138,7 +158,9 @@ function App() {
                   setMusicTracks={setMusicTracks}
                   audiofunction={ audiofunction}
                   setIsPlaying={setIsPlaying}
-                  isPlaying={isPlaying}/>}
+                  isPlaying={isPlaying}
+                  isPlay={isPlay}
+                  />}
             
             />
               
@@ -158,7 +180,9 @@ function App() {
               setMusicTracks={setMusicTracks}
              audiofunction={ audiofunction}
               setIsPlaying={setIsPlaying}
-                isPlaying={isPlaying} />}
+                isPlaying={isPlaying} 
+                isPlay={isPlay}
+               />}
                  />
         </Routes>
         </div>
@@ -173,7 +197,8 @@ function App() {
           setTrackIndex={setTrackIndex} 
           player={player}
           setIsPlaying={setIsPlaying}
-          isPlaying={isPlaying}/>
+          isPlaying={isPlaying}
+          setIsPlay={setIsPlay}/>
        
           
       </Router>

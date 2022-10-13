@@ -2,15 +2,17 @@ import React,{useState , useEffect}  from "react";
 import tr_img1 from '../Components/assets/images/trending1.png';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import bgimg from '../Components/assets/images/play-bg.gif'
 
 
 
 
-const Trend=({setMusicTracks, setTrackIndex,audiofunction, isPlaying, setIsPlaying})=>{
-    const [release, setRelease] = React.useState([]);
+const Trend=({setMusicTracks, setTrackIndex,audiofunction, isPlaying, setIsPlaying , selectStyle, setSelectStyle, isPlay})=>{
+    const [trending, setTrending] = React.useState([]);
+   
     const { pathname } = useLocation();
     
-    const[superData, setSuperData]= useState()
+    //const[superData, setSuperData]= useState()
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,14 +29,14 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, isPlaying, setIsPlayi
               return { src: item.song, name: item.track, id: item._id };
             });
             console.log('PARSED', parsedData);
-           setSuperData(parsedData)
-            setRelease(json);
+            setMusicTracks(parsedData)
+            setTrending(json);
           })
           .catch((error) => console.log(error));
       }, []);
       const ChangeCurrentSong = (index) => {
      
-        setMusicTracks(superData);
+        setSelectStyle(index)
         setTrackIndex(index);
         console.log('this is song index---->', index);
         setIsPlaying(false);
@@ -44,7 +46,8 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, isPlaying, setIsPlayi
     return(
         <div className="trend">
             <div className="trend-area">
-            {/* <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>Category</Link>-- <span className='rts-tag'>{currentArtist.title}</span></h6></div> */}
+           
+            <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>Trending</Link></h6></div>
                 <section className="sec-1">
                 <div className="trendimg">
               <img src={tr_img1}  />
@@ -84,11 +87,11 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, isPlaying, setIsPlayi
                 </li>
                 <li className="songabt-dur"><p className="heading">Duration</p></li>
               </ul>
-              {release.map((user, index) => (
+              {trending.map((user, index) => (
               <ul  className="song-about"  onClick={() => ChangeCurrentSong(index)}>
                 <li className="songabt-img">
                     <div className="listimg">
-                      <img src={user.image}    onClick={() => ChangeCurrentSong(index)} />
+                      <img src={selectStyle=== index && isPlay === true ? bgimg: user.image}    onClick={() => ChangeCurrentSong(index)} />
                       <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     
                     </div>

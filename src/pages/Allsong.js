@@ -1,18 +1,18 @@
 import React, { useEffect,useState } from 'react';
 import release1 from '../Components/assets/images/releasehead.png';
-
+import bgimg from '../Components/assets/images/play-bg.gif'
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
 
-const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, setIsPlaying}) => {
+const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, setIsPlaying, isPlay}) => {
     const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-
+  const [selectStyle, setSelectStyle]= useState();
   const [songs, setSongs] = React.useState([]);
   const [superData , setSuperData] = useState();
 
@@ -39,6 +39,7 @@ const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, set
 
   const ChangeCurrentSong = (index) => {
     setMusicTracks(superData);
+    setSelectStyle(index)
     setTrackIndex(index);
     console.log('this is song index---->', index);
     setIsPlaying(false);
@@ -47,6 +48,7 @@ const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, set
   return (
     <div className='trend'>
       <div className='trend-area'>
+      <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>All Bhajans</Link></h6></div>
         <section className='sec-1'>
           <div className='trendimg'>
             <a href='' className='bigimg'>
@@ -57,7 +59,7 @@ const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, set
             <div className='trnd-img-about'>
              
                 
-                    <h2>All Bajans</h2>
+                    <h2>All Bhajans</h2>
                   <p>all bajan's of khatushyam</p>
             </div>
             <div className='trndbtn'>
@@ -112,7 +114,7 @@ const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, set
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img
-                      src={user.image}
+                      src={selectStyle=== index && isPlay === true ? bgimg: user.image}
                       // onClick={() => ChangeCurrentSong(index)}
                     />
 

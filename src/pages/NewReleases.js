@@ -1,11 +1,12 @@
 import React, { useEffect,useState } from 'react';
 import release1 from '../Components/assets/images/releasehead.png';
-
+import bgimg from '../Components/assets/images/play-bg.gif'
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
 
-const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying, setIsPlaying }) => {
+const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying,isPlay, setIsPlaying ,selectStyle,
+  setSelectStyle}) => {
     const { pathname } = useLocation();
 
   useEffect(() => {
@@ -15,7 +16,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying,
 
   const [release, setRelease] = React.useState([]);
 
-  const[superData, setSuperData]= useState()
+  //const[superData, setSuperData]= useState()
   
 
 
@@ -40,13 +41,14 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying,
 
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
-   
+   setSelectStyle(index)
     console.log('this is song index---->', index);
     setIsPlaying(false);
   };
   return (
     <div className='trend'>
       <div className='trend-area'>
+      <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>New Releases</Link></h6></div>
         <section className='sec-1'>
           <div className='trendimg'>
             <a href='' className='bigimg'>
@@ -112,7 +114,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying,
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img
-                      src={user.image}
+                      src={selectStyle === index && isPlay === true ? bgimg:  user.image}
                       onClick={() => ChangeCurrentSong(index)}
                     />
 

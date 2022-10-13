@@ -6,6 +6,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import bgimg from '../Components/assets/images/play-bg.gif'
+
+
+
 
 const Category = ({
   setMusicTracks,
@@ -17,6 +21,7 @@ const Category = ({
    isPlaying, setIsPlaying, player
 }) => {
   const { pathname } = useLocation();
+  const [selectStyle, setSelectStyle]= useState();
   const navigate = useNavigate();
  
 
@@ -53,15 +58,13 @@ const Category = ({
   
     setTrackIndex(index);
     setMusicTracks(superData);
+    setSelectStyle(index)
     console.log('this is song index---->', index);
     setIsPlaying(false)
     
   };
 
-  const SetIndexToZero = (index) => {
-    setTrackIndex(0);
-    console.log('this is current index', index);
-  };
+  
 
   return (
     <div className='trend'>
@@ -70,6 +73,7 @@ const Category = ({
         <section className='sec-1'>
           <div className='trendimg'>
             <img src={currentArtist?.image}  className="art-img"/>
+          
           </div>
           <div className='Trending-song'>
             <div className='trnd-img-about'>
@@ -129,11 +133,14 @@ const Category = ({
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img
-                      src={user.image}
+                      src={selectStyle=== index? bgimg: user.image}
+                      
                       // onClick={() => ChangeCurrentSong(index)}
                     />
+                    
                     <div className='playyicon'>
                       <i class='fa fa-play-circle-o' aria-hidden='true'></i>{' '}
+                      
                     </div>
                   </div>
                 </li>

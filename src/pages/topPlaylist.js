@@ -1,11 +1,8 @@
 import React,{useState , useEffect}  from "react";
-import tr_img1 from '../Components/assets/images/tr_img1.jpg';
-import tr_img2 from '../Components/assets/images/tr_img2.png';
-import tr_img4 from '../Components/assets/images/tr_img4.jpg';
-import tr_img3 from '../Components/assets/images/tr_img3.jpg';
 import { Link, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import bgimg from '../Components/assets/images/play-bg.gif'
 
 const TopPlaylist = ({
   setMusicTracks,
@@ -13,11 +10,13 @@ const TopPlaylist = ({
   user,
   currentArtist,
   fetchSongs,
-  audiofunction, isPlaying, setIsPlaying
+  audiofunction, isPlaying, setIsPlaying, isPlay 
+ 
 }) => {
   const [release, setRelease] = React.useState([]);
   const[superData, setSuperData]= useState()
   const [playlist, setPlaylist] = useState([]);
+  const[selectStyle, setSelectStyle] = useState()
   const navigate = useNavigate();
   const { pathname } = useLocation();
  
@@ -48,6 +47,7 @@ const TopPlaylist = ({
   const ChangeCurrentSong = (index) => {
 
     setMusicTracks(superData);
+    setSelectStyle(index)
     setTrackIndex(index);
     console.log('this is song index---->', index);
     setIsPlaying(false);
@@ -65,6 +65,7 @@ const TopPlaylist = ({
   return (
     <div className='trend'>
       <div className='trend-area'>
+      <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>Top Playlist</Link>-- <span className='rts-tag'>{currentArtist.title}</span></h6></div>
         <section className='sec-1'>
           <div className='trendimg'>
             <img src={currentArtist?.image} />
@@ -128,7 +129,7 @@ const TopPlaylist = ({
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img
-                      src={user.image}
+                      src={selectStyle=== index && isPlay === true? bgimg:  user.image}
                       onClick={() => ChangeCurrentSong(index)}
                     />
                     <div className='playyicon'>

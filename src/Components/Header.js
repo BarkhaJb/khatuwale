@@ -12,7 +12,8 @@ import { NavLink } from 'react-router-dom';
  import { useLocation } from 'react-router-dom';
 //  import toggel from "./assets/images/toggel.png";
 
-const Menu = ({ setCurrentArtist, searchAPI }) => {
+const Menu = ({ setCurrentArtist, searchAPI ,  selectStyle,
+  setSelectStyle}) => {
   const [scroll, setScroll] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [artist, setArtist] = useState([]);
@@ -53,6 +54,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
   const MoveToTopArtist = (user) => {
     console.log('navigating artist', user);
     setCurrentArtist(user);
+    setSelectStyle(null);
     navigate('/Top-Artist');
   };
 

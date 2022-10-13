@@ -40,6 +40,7 @@ const Radio = ({
 
   return (
 <div className="araeaaaa">
+<h6 className='rts-rts'>You Are Now Listening to Shri KhatuShyam Non-Stop Radio</h6>
       <div className="radio-img">
           <img src={radioimg} />
           </div>

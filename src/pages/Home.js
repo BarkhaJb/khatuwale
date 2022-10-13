@@ -6,9 +6,6 @@ import {useNavigate} from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
  import  event from '../Components/assets/images/eventback.png';
  import  eventright  from '../Components/assets/images/eventright.png';
- import row1 from '../Components/assets/images/rowone.jpg';
- import row2 from '../Components/assets/images/rowtwo.jpg';
- import row3 from '../Components/assets/images/rowthree.jpg';
  import Recommend from '../Components/Recommend';
  
 
@@ -19,6 +16,9 @@ const Home = ({
   fetchSongs,
   setTrackIndex,
   setMusicTracks,
+  selectStyle,
+ setSelectStyle,
+ isPlay
 
 }) => {
   const { pathname } = useLocation();
@@ -99,6 +99,9 @@ const Home = ({
   const [data, setData] = React.useState([]);
   const [category, setCategory] = React.useState([]);
   const [playlist, setPlaylist] = React.useState([]);
+  
+  
+  
 
 
   useEffect(() => {
@@ -134,6 +137,7 @@ const Home = ({
   const SongSelect = (index) => {
     navigate('/Trending');
     setTrackIndex(index);
+    setSelectStyle(index)
     console.log('ths is user');
   };
   const navigateToTopArtist = (user) => {
@@ -149,7 +153,7 @@ const Home = ({
     navigate('/category');
   };
   const navigateToNewRelease = (index) => {
-
+    setSelectStyle(index)
     setTrackIndex(index)
     navigate('/newReleases');
   };
@@ -187,7 +191,7 @@ const Home = ({
         </div>
       </div>
       <Recommend setMusicTracks={setMusicTracks} 
-      setTrackIndex={ setTrackIndex}/>
+      setTrackIndex={ setTrackIndex} isPlay={isPlay}/>
 {/*  
       <div className="slider  ulhover">
         {' '}
@@ -246,13 +250,13 @@ const Home = ({
          <div className='about-slider1 trnding-area'>
              <Carousel responsive={responsiveTwo} infinite={true} >
              {trendingSong.map((user, index)=>(
-              <div className='slick-slide'>
+              <div className='slick-slide' onClick={()=>SongSelect(index)}>
                  <li className='blocks-gallery-item trnd-hv'>
                      <img  className='slider-img trnding-img'
-                     src={user.image} onClick={()=>SongSelect(index)} ></img>
+                     src={user.image}  ></img>
                      <div className="playyiconhome"> <Link to='/Trending' > <i class="fa fa-play-circle-o" aria-hidden="true"></i></Link> </div>
                  </li>
-              <div className="songname" onClick={()=>SongSelect(index)}>
+              <div className="songname">
                  <p className="artsong">{user.track}</p>
                  <p className="artname">{user.artist}</p>
               </div>
@@ -290,15 +294,13 @@ const Home = ({
           <div className='about-slider1 Searched'>
                 <Carousel responsive={responsiveTwo} infinite={true}>
                     {data.map((user) => (
-                     <div className='slick-slide'>
+                     <div className='slick-slide'  onClick={() => {
+                      navigateToTopArtist(user);
+                       }}>
                      <li className='blocks-gallery-item trnd-hv'>
                         <img  className='slider-img searchimg'
-                        src={user.image}  onClick={() => {
-                        navigateToTopArtist(user);
-                         }} ></img>
-                        <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true" onClick={() => 
-                        navigateToTopArtist(user)
-                        }></i></div>
+                        src={user.image}  ></img>
+                        <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
               
                      </li>
            
@@ -317,11 +319,11 @@ const Home = ({
           <div className='about-slider1 release-area'>
         <Carousel responsive={responsiveTwo} infinite={true} >
         {releaseSong.map((user, index) => (
-          <div className='slick-slide'>
+          <div className='slick-slide' onClick={() => navigateToNewRelease(index)}>
             <li className='blocks-gallery-item trnd-hv'>
             
                  <img  className='slider-img Releaseimg  '
-                  src={user.image}  onClick={() => navigateToNewRelease(index)} ></img>
+                  src={user.image}   ></img>
                     <div className="playyiconhome"><i class="fa fa-play-circle-o" aria-hidden="true" onClick={() => navigateToNewRelease(index)}></i></div>
       
     
