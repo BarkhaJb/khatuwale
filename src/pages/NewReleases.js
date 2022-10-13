@@ -58,11 +58,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying,
           <div className='Trending-song'>
             <div className='trnd-img-about'>
              
-<<<<<<< HEAD
                   {/* <h1>Song Name</h1> */}
-=======
-                 
->>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
                     <h2>Latest Releases</h2>
                   <p>Top Release hits, refreshed daily</p>
             </div>
@@ -118,7 +114,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction , isPlaying,
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img
-                      src={selectStyle === index && isPlay === true ? bgimg:  user.image}
+                      src={user.image}
                       onClick={() => ChangeCurrentSong(index)}
                     />
 

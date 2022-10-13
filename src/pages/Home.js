@@ -18,7 +18,8 @@ const Home = ({
   setMusicTracks,
   selectStyle,
  setSelectStyle,
- isPlay
+ isPlay,
+ 
 
 }) => {
   const { pathname } = useLocation();
@@ -191,12 +192,10 @@ const Home = ({
         </div>
       </div>
       <Recommend setMusicTracks={setMusicTracks} 
-<<<<<<< HEAD
-      setTrackIndex={ setTrackIndex}/>
+      setTrackIndex={ setTrackIndex}  isPlay={isPlay}/>
 
      
-=======
-      setTrackIndex={ setTrackIndex} isPlay={isPlay}/>
+     
 {/*  
       <div className="slider  ulhover">
         {' '}
@@ -246,7 +245,7 @@ const Home = ({
                </div> 
          </div>
       </div> */}
->>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
+
       <div className="slider  ulhover">
         {' '}
        

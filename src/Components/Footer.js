@@ -162,17 +162,15 @@ const Footer = ({ setCurrentArtist , setTrackIndex, setMusicIndex, releaseSong})
     const[category,setCategory]=useState([]);
     const [playlist, setPlaylist] = React.useState([]);
     const[artist,setArtist]=useState([]);
-<<<<<<< HEAD
+
     const { pathname } = useLocation();
-=======
 
     const [famesongs, setFameSongs] = useState([])
  
->>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
     const navigate = useNavigate();
 
 
-    const { pathname } = useLocation();
+    // const { pathname } = useLocation();
    
     useEffect(() => {
         window.scrollTo(0, 0);

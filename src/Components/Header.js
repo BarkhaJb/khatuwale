@@ -55,6 +55,7 @@ const Menu = ({ setCurrentArtist, searchAPI ,  selectStyle,
     console.log('navigating artist', user);
     setCurrentArtist(user);
     setSelectStyle(null);
+    setSelectStyle(null);
     navigate('/Top-Artist');
   };
 
@@ -97,26 +98,16 @@ const Menu = ({ setCurrentArtist, searchAPI ,  selectStyle,
        
                         <Nav onClick={() => setExpanded(false)}>
                               <ul className="navbar-nav mr-auto">
-<<<<<<< HEAD
                               <li className="nav-item outli">
                                    <NavLink  to="/"  className="nav-link "  aria-current="page" >
                                     
-=======
-                              <li className="nav-item">
-                                   <NavLink onClick={()=>handleScroll()} to="/"  className="nav-link">
-                                    {" "}
->>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
                                     Home
                                       </NavLink>
                                </li>
                                      <li className="nav-item dropdown outli">
                                           <NavLink  to=""
                                                   className="nav-link dropdown-toggle"
-<<<<<<< HEAD
                                                
-=======
-                                                
->>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
                                                     id="navbarDropdown"
                                                          role="button"
                                                   data-toggle="dropdown"
@@ -141,41 +132,26 @@ const Menu = ({ setCurrentArtist, searchAPI ,  selectStyle,
                                    </div>
                                  </li>
 
-<<<<<<< HEAD
-                               <li className="nav-item outli">
-                                   <NavLink  to="/Trending"  className="nav-link">
-=======
                                <li className="nav-item">
-                                   <NavLink onClick={()=>handleScroll()}  to="/Trending"  className="nav-link">
->>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
+                                   <NavLink  to="/Trending"  className="nav-link">
                                     {" "}
                                     Trending Bhajans
                                       </NavLink>
                                </li>
-<<<<<<< HEAD
-                              <li className="nav-item outli">
-                                 <NavLink  to="/Allbhajan" className="nav-link">
-=======
                               <li className="nav-item">
-                                 <NavLink onClick={()=>handleScroll()}  to="/Allbhajan" className="nav-link">
->>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
+                                 <NavLink  to="/Allbhajan" className="nav-link">
                                  {" "}
                                 All Bhajans
                                          </NavLink>
                                    </li>
-<<<<<<< HEAD
-                                          <li className="nav-item outli">
-                                                 <NavLink  to="/newReleases"className="nav-link">
-=======
                                           <li className="nav-item">
-                                                 <NavLink  onClick={()=>handleScroll()} to="/newReleases"className="nav-link">
->>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
+                                                 <NavLink  to="/newReleases"className="nav-link">
                                               Latest Release
                                            </NavLink>
                                           </li>
                                     
                                           <li className="nav-item sound">
-                                                 <NavLink onClick={()=>handleScroll()}  to="/radio"className="nav-link">
+                                                 <NavLink  to="/radio"className="nav-link">
                                                  <i class="fa fa-volume-up" aria-hidden="true"></i>
                                              <p className="radiopara"> Shri Shyam Radio</p>
                                            </NavLink>
