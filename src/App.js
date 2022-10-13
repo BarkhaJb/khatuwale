@@ -15,7 +15,7 @@ import TopPlaylist from './pages/topPlaylist';
 import NewReleases from './pages/NewReleases';
 import SearchContent from './pages/search';
 import Radio from './pages/Radio';
-import Allbhajan from './pages/Allsong';
+import AllSongs from './pages/Allsong';
 
 
 function App() {
@@ -40,6 +40,11 @@ function App() {
   const [releaseSong, setReleaseSong] = useState([]);
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentArtist, setCurrentArtist] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const[selectStyle, setSelectStyle] =useState()
+  const [isPlay, setIsPlay] = useState(true);
+  
+  
   
   const fetchSongs = () => {
     const url = 'http://localhost:3100/playlist/songs/633c3487cca1438524d18e91';
@@ -67,8 +72,10 @@ function App() {
   const audiofunction = () => {
     if (player.current.isPlaying()) {
       player.current.audio.current.pause();
+      isPlay(false);
     } else {
       player.current.audio.current.play();
+      isPlay(true);
     }
     return player.current.isPlaying();
   };
@@ -78,7 +85,8 @@ function App() {
     <div className="App">
      
      <Router>
-     <Menu  setCurrentArtist={setCurrentArtist} />
+     <Menu  setCurrentArtist={setCurrentArtist}  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle} />
      {/* <Trending/>
      <Newsong/> */}
       <div className='topMargin'>
@@ -87,11 +95,19 @@ function App() {
                   fetchSongs={fetchSongs}
                   setReleaseSong={setReleaseSong}
                   setMusicTracks={setMusicTracks} 
-                  setCurrentArtist={setCurrentArtist} />} />
+                  setCurrentArtist={setCurrentArtist}
+                  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle}
+                  isPlay={isPlay} />} />
           <Route path='/Trending' element={<Trend  setMusicTracks={setMusicTracks}
                   fetchSongs={fetchSongs}
                   setTrackIndex={setTrackIndex}
-                  audiofunction={ audiofunction}/>}
+                  audiofunction={ audiofunction}
+                  setIsPlaying={setIsPlaying}
+                  isPlaying={isPlaying} 
+                  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle}
+                  isPlay={isPlay}/>}
                    />
           <Route path='/search' element={<SearchContent  setTrackIndex={setTrackIndex} setMusicTracks={setMusicTracks}/>} />
            <Route path='/Top-Artist' element={<Artist releaseSong={releaseSong}
@@ -99,13 +115,22 @@ function App() {
                   setMusicTracks={setMusicTracks}
                   audiofunction={ audiofunction}
                   setDefaultMusic={setDefaultMusic}
-                  setTrackIndex={setTrackIndex} />} />
+                  setTrackIndex={setTrackIndex}
+                  setIsPlaying={setIsPlaying}
+                  isPlaying={isPlaying} 
+                  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle}
+                  isPlay={isPlay} />} />
+
           <Route path='/TopBhajan' element={<TopBhajan  />} />
           <Route path='/Category' element={<Category currentArtist={currentArtist}
                   setTrackIndex={setTrackIndex}
                   fetchSongs={fetchSongs}
                   setMusicTracks={setMusicTracks}
-                  audiofunction={ audiofunction} />} />
+                  audiofunction={ audiofunction}
+                  setIsPlaying={setIsPlaying}
+                  isPlaying={isPlaying} 
+                />} />
           <Route path='/latestsong' element={<Latest />} />
           <Route
               path='/newReleases'
@@ -115,7 +140,13 @@ function App() {
                   fetchSongs={fetchSongs}
                   setTrackIndex={setTrackIndex}
                   audiofunction={audiofunction}
-                />}
+                  setIsPlaying={setIsPlaying}
+                  isPlaying={isPlaying}
+                  selectStyle={selectStyle}
+                  setSelectStyle={setSelectStyle}
+                  isPlay={isPlay}
+                  
+                  />}
             />
             <Route
               path='/TopPlaylist'
@@ -126,31 +157,48 @@ function App() {
                   fetchSongs={fetchSongs}
                   setMusicTracks={setMusicTracks}
                   audiofunction={ audiofunction}
-                />}
+                  setIsPlaying={setIsPlaying}
+                  isPlaying={isPlaying}
+                  isPlay={isPlay}
+                  />}
             
             />
               
-           <Route path='/radio' element={<Radio setTrackIndex={setTrackIndex} 
+           <Route path='/radio' element={<Radio 
+         
                 setMusicTracks={setMusicTracks}
                 audiofunction={ audiofunction}
-                 />} />
-              <Route path='/Allbhajan' element={<Allbhajan setMusicTracks={setMusicTracks}
-                  fetchSongs={fetchSongs}
-                  setTrackIndex={setTrackIndex}
-                  audiofunction={ audiofunction} />} />
+                setIsPlaying={setIsPlaying}
+                isPlaying={isPlaying}
+                fetchSongs={fetchSongs} />} />
+
+
+              <Route path='/Allbhajan' element={
+              <AllSongs 
+              fetchSongs={fetchSongs}
+              setTrackIndex={setTrackIndex}
+              setMusicTracks={setMusicTracks}
+             audiofunction={ audiofunction}
+              setIsPlaying={setIsPlaying}
+                isPlaying={isPlaying} 
+                isPlay={isPlay}
+               />}
+                 />
         </Routes>
         </div>
         <Footer  releaseSong={releaseSong}
         setTrackIndex={setTrackIndex} 
-          setCurrentArtist={setCurrentArtist} />
+          setCurrentArtist={setCurrentArtist}
+          setMusicTracks={setMusicTracks}
+           />
+           
         <Player  musicTracks={musicTracks}
           trackIndex={trackIndex}
           setTrackIndex={setTrackIndex} 
           player={player}
-          setMusicTracks={setMusicTracks}
-          fetchSongs={fetchSongs}
-          setCurrentArtist={setCurrentArtist} 
-          audiofunction={audiofunction}/>
+          setIsPlaying={setIsPlaying}
+          isPlaying={isPlaying}
+          setIsPlay={setIsPlay}/>
        
           
       </Router>

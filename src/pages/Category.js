@@ -6,6 +6,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import bgimg from '../Components/assets/images/play-bg.gif'
+
+
+
 
 const Category = ({
   setMusicTracks,
@@ -14,16 +18,19 @@ const Category = ({
   currentArtist,
   fetchSongs,
   audiofunction,
+   isPlaying, setIsPlaying, player
 }) => {
   const { pathname } = useLocation();
+  const [selectStyle, setSelectStyle]= useState();
   const navigate = useNavigate();
-  const [isPlaying, setIsPlaying] = useState(true);
+ 
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [currentArtist]);
   const [release, setRelease] = React.useState([]);
   const [category, setCategory] = useState([]);
+  const[superData, setSuperData]= useState()
 
   useEffect(() => {
     if (currentArtist === null) {
@@ -39,7 +46,8 @@ const Category = ({
           return { src: item.song, name: item.track, id: item._id };
         });
         console.log('PARSED', parsedDataTwo);
-        setMusicTracks(parsedDataTwo);
+      setSuperData(parsedDataTwo)
+       
        
       })
 
@@ -47,26 +55,29 @@ const Category = ({
   }, []);
 
   const ChangeCurrentSong = (index) => {
+  
     setTrackIndex(index);
+    setMusicTracks(superData);
+    setSelectStyle(index)
     console.log('this is song index---->', index);
-    setIsPlaying(false);
+    setIsPlaying(false)
+    
   };
 
-  const SetIndexToZero = (index) => {
-    setTrackIndex(0);
-    console.log('this is current index', index);
-  };
+  
 
   return (
     <div className='trend'>
       <div className='trend-area'>
+        <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>Category</Link>-- <span className='rts-tag'>{currentArtist.title}</span></h6></div>
         <section className='sec-1'>
           <div className='trendimg'>
             <img src={currentArtist?.image}  className="art-img"/>
+          
           </div>
           <div className='Trending-song'>
             <div className='trnd-img-about'>
-              <h2>Lene Aaja Khatu</h2>
+              <h2>{currentArtist?.title}</h2>
               <p>Top trending hits, refreshed daily</p>
             </div>
             <div className='trndbtn'>
@@ -122,11 +133,14 @@ const Category = ({
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img
-                      src={user.image}
-                      onClick={() => ChangeCurrentSong(index)}
+                      src={selectStyle=== index? bgimg: user.image}
+                      
+                      // onClick={() => ChangeCurrentSong(index)}
                     />
+                    
                     <div className='playyicon'>
                       <i class='fa fa-play-circle-o' aria-hidden='true'></i>{' '}
+                      
                     </div>
                   </div>
                 </li>

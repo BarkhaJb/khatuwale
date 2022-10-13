@@ -2,19 +2,24 @@ import React,{useState , useEffect}  from "react";
 import tr_img1 from '../Components/assets/images/trending1.png';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import bgimg from '../Components/assets/images/play-bg.gif'
 
 
 
 
-const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
-    const [release, setRelease] = React.useState([]);
+const Trend=({setMusicTracks, setTrackIndex,audiofunction, isPlaying, setIsPlaying , selectStyle, setSelectStyle, isPlay})=>{
+    const [trending, setTrending] = React.useState([]);
+   
     const { pathname } = useLocation();
-    const [isPlaying, setIsPlaying] = useState(true);
-
+    
+    //const[superData, setSuperData]= useState()
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+
+  
     useEffect(() => {
         const url = 'http://localhost:3100/trending';
         fetch(url)
@@ -24,34 +29,41 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
               return { src: item.song, name: item.track, id: item._id };
             });
             console.log('PARSED', parsedData);
-            setMusicTracks(parsedData);
-            setRelease(json);
+            setMusicTracks(parsedData)
+            setTrending(json);
           })
           .catch((error) => console.log(error));
       }, []);
       const ChangeCurrentSong = (index) => {
+     
+        setSelectStyle(index)
         setTrackIndex(index);
         console.log('this is song index---->', index);
         setIsPlaying(false);
       };
-      const SetIndexToZero =(index) => {
-        setTrackIndex(0);
-      }
+     
 
     return(
         <div className="trend">
             <div className="trend-area">
+           
+            <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>Trending</Link></h6></div>
                 <section className="sec-1">
                 <div className="trendimg">
               <img src={tr_img1}  />
                 </div>
                 <div className="Trending-song">
+<<<<<<< HEAD
                     
             
 
               
                 <div className="trnd-img-about">
                       <h1>Song Name</h1>
+=======
+                    <div className="trnd-img-about">
+                  
+>>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
                     <h2>Trending Songs</h2>
                   <p>Top trending hits, refreshed daily</p>
                 </div>
@@ -82,11 +94,11 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
                 </li>
                 <li className="songabt-dur"><p className="heading">Duration</p></li>
               </ul>
-              {release.map((user, index) => (
+              {trending.map((user, index) => (
               <ul  className="song-about"  onClick={() => ChangeCurrentSong(index)}>
                 <li className="songabt-img">
                     <div className="listimg">
-                      <img src={user.image}    onClick={() => ChangeCurrentSong(index)} />
+                      <img src={selectStyle=== index && isPlay === true ? bgimg: user.image}    onClick={() => ChangeCurrentSong(index)} />
                       <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     
                     </div>

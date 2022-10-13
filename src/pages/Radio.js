@@ -7,13 +7,12 @@ import { useLocation } from 'react-router-dom';
 const Radio = ({
   
     setMusicTracks,
-    setTrackIndex,
     audiofunction,
-    setPlaylist
+    setPlaylist, isPlaying, setIsPlaying, 
   }) =>{
     const [allSong, setAllSong] = React.useState([]);
     const [radio, setRadio] = React.useState([]);
-    const [isPlaying, setIsPlaying] = useState(true);
+    
     
 
 
@@ -25,11 +24,11 @@ const Radio = ({
         .then((json) => {
         
           console.log('CONSOLE', json);
-          const parsedDataTwo = json.map((item) => {
+          const parsedDataFour = json.map((item) => {
             return { src: item.song, name: item.track, id: item._id };
           });
-          console.log('PARSED', parsedDataTwo);
-          setMusicTracks(parsedDataTwo);
+          console.log('PARSED', parsedDataFour);
+          setMusicTracks(parsedDataFour);
           setRadio(json);
         })
   
@@ -41,6 +40,7 @@ const Radio = ({
 
   return (
 <div className="araeaaaa">
+<h6 className='rts-rts'>You Are Now Listening to Shri KhatuShyam Non-Stop Radio</h6>
       <div className="radio-img">
           <img src={radioimg} />
           </div>

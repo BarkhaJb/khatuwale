@@ -1,14 +1,17 @@
 import React, { useState,useEffect } from "react";
 import "../App.css";
 import { Link } from 'react-router-dom';
+import bgimg from '../Components/assets/images/play-bg.gif'
 
 
 
-const Recommend = ({ children ,setMusicTracks,setTrackIndex}) => {
+const Recommend = ({ children ,setMusicTracks,setTrackIndex, isPlay}) => {
     const text = children;
     const [recommend, setRecommend] = React.useState([]);
     const [isReadMore, setIsReadMore] = useState(true);
     const [visible ,setVisible]=useState(3);
+    const[superData, setSuperData]= useState()
+    const [selectStyle, setSelectStyle]= useState();
 
 
 const toggleReadMore = () => {
@@ -30,13 +33,15 @@ useEffect(() => {
           return { src: item.song, name: item.track, id: item._id };
         });
       
-        setMusicTracks(parsedData);
+        setSuperData(parsedData)
         setRecommend(json);
       })
       .catch((error) => console.log(error));
   }, []);
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
+    setMusicTracks(superData);
+    setSelectStyle(index)
   };
 
 
@@ -68,7 +73,7 @@ return (
     <div className="row-area" >
        {/* <div className="recommend-no">01</div> */}
          <div className="row-image">
-           <Link to='/'>   <img src={song.image}  className="roimg"></img></Link>
+           <Link to='/'>   <img src={selectStyle=== index && isPlay === true ? bgimg: song.image}  className="roimg"></img></Link>
          </div>
         <div className="row-content">
           <p className="recommend-song">{song.track}</p>

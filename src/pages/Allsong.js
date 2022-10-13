@@ -1,20 +1,22 @@
 import React, { useEffect,useState } from 'react';
 import release1 from '../Components/assets/images/releasehead.png';
-
+import bgimg from '../Components/assets/images/play-bg.gif'
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
 
-const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
+const AllSongs = ({ setMusicTracks, setTrackIndex ,audiofunction, isPlaying, setIsPlaying, isPlay}) => {
     const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  const [selectStyle, setSelectStyle]= useState();
+  const [songs, setSongs] = React.useState([]);
+  const [superData , setSuperData] = useState();
 
-  const [release, setRelease] = React.useState([]);
-  const [isPlaying, setIsPlaying] = useState(true);
+ 
 
 
   useEffect(() => {
@@ -22,31 +24,31 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
-        setRelease(json);
+       
         console.log('CONSOLE', json);
-        const parsedDataTwo = json.map((item) => {
+        const parsedDataThree = json.map((item) => {
           return { src: item.song, name: item.track, id: item._id };
         });
-        console.log('PARSED', parsedDataTwo);
-        setMusicTracks(parsedDataTwo);
-        setRelease(json);
+        console.log('PARSED', parsedDataThree);
+        setSuperData(parsedDataThree)
+        setSongs(json);
       })
 
       .catch((error) => console.log(error));
   }, []);
 
   const ChangeCurrentSong = (index) => {
+    setMusicTracks(superData);
+    setSelectStyle(index)
     setTrackIndex(index);
     console.log('this is song index---->', index);
     setIsPlaying(false);
   };
-  const SetIndexToZero = (index) => {
-    setTrackIndex(0);
-    console.log('this is current index', index);
-  };
+  
   return (
     <div className='trend'>
       <div className='trend-area'>
+      <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>All Bhajans</Link></h6></div>
         <section className='sec-1'>
           <div className='trendimg'>
             <a href='' className='bigimg'>
@@ -56,9 +58,9 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
           <div className='Trending-song'>
             <div className='trnd-img-about'>
              
-                  <h1>Song Name</h1>
-                    <h2>Latest Releases</h2>
-                  <p>Top Release hits, refreshed daily</p>
+                
+                    <h2>All Bhajans</h2>
+                  <p>all bajan's of khatushyam</p>
             </div>
             <div className='trndbtn'>
               <button className='footer-btn'  onClick={() => {
@@ -107,13 +109,13 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
                 <p className='heading'>Duration</p>
               </li>
             </ul>
-            {release.map((user, index) => (
+            {songs.map((user, index) => (
               <ul className='song-about'  onClick={() => ChangeCurrentSong(index)}>
                 <li className='songabt-img'>
                   <div className='listimg'>
                     <img
-                      src={user.image}
-                      onClick={() => ChangeCurrentSong(index)}
+                      src={selectStyle=== index && isPlay === true ? bgimg: user.image}
+                      // onClick={() => ChangeCurrentSong(index)}
                     />
 
                     <div className='playyicon'>
@@ -144,4 +146,4 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
     </div>
   );
 };
-export default NewReleases;
+export default AllSongs;

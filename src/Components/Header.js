@@ -12,7 +12,8 @@ import { NavLink } from 'react-router-dom';
  import { useLocation } from 'react-router-dom';
 //  import toggel from "./assets/images/toggel.png";
 
-const Menu = ({ setCurrentArtist, searchAPI }) => {
+const Menu = ({ setCurrentArtist, searchAPI ,  selectStyle,
+  setSelectStyle}) => {
   const [scroll, setScroll] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [artist, setArtist] = useState([]);
@@ -32,6 +33,14 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
       setScroll(window.scrollY > 50);
     });
   }, []);
+
+  const handleScroll = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
  
 
   useEffect(() => {
@@ -45,6 +54,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
   const MoveToTopArtist = (user) => {
     console.log('navigating artist', user);
     setCurrentArtist(user);
+    setSelectStyle(null);
     navigate('/Top-Artist');
   };
 
@@ -64,8 +74,8 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                      <div className="logo-n-toggle">
                     <div className="logo">
                     {" "}
-                    <Link className="logo-box" to="">            
-                       <img src={logo} className="logoimg" />        
+                    <Link  className="logo-box" to="">            
+                       <img onClick={()=>handleScroll()} src={logo} className="logoimg" />        
                          </Link>          
                     </div>
       
@@ -87,16 +97,26 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
        
                         <Nav onClick={() => setExpanded(false)}>
                               <ul className="navbar-nav mr-auto">
+<<<<<<< HEAD
                               <li className="nav-item outli">
                                    <NavLink  to="/"  className="nav-link "  aria-current="page" >
                                     
+=======
+                              <li className="nav-item">
+                                   <NavLink onClick={()=>handleScroll()} to="/"  className="nav-link">
+                                    {" "}
+>>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
                                     Home
                                       </NavLink>
                                </li>
                                      <li className="nav-item dropdown outli">
                                           <NavLink  to=""
                                                   className="nav-link dropdown-toggle"
+<<<<<<< HEAD
                                                
+=======
+                                                
+>>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
                                                     id="navbarDropdown"
                                                          role="button"
                                                   data-toggle="dropdown"
@@ -107,7 +127,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                                                        Top Artists
                                               </NavLink>
 
-                                         <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                         <div  onClick={()=>handleScroll()} class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                                     {artist.map((user) => (
                                                  <ul>
                                     <li
@@ -121,26 +141,41 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                                    </div>
                                  </li>
 
+<<<<<<< HEAD
                                <li className="nav-item outli">
                                    <NavLink  to="/Trending"  className="nav-link">
+=======
+                               <li className="nav-item">
+                                   <NavLink onClick={()=>handleScroll()}  to="/Trending"  className="nav-link">
+>>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
                                     {" "}
                                     Trending Bhajans
                                       </NavLink>
                                </li>
+<<<<<<< HEAD
                               <li className="nav-item outli">
                                  <NavLink  to="/Allbhajan" className="nav-link">
+=======
+                              <li className="nav-item">
+                                 <NavLink onClick={()=>handleScroll()}  to="/Allbhajan" className="nav-link">
+>>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
                                  {" "}
                                 All Bhajans
                                          </NavLink>
                                    </li>
+<<<<<<< HEAD
                                           <li className="nav-item outli">
                                                  <NavLink  to="/newReleases"className="nav-link">
+=======
+                                          <li className="nav-item">
+                                                 <NavLink  onClick={()=>handleScroll()} to="/newReleases"className="nav-link">
+>>>>>>> 45a90c68a1c8aea93ceb92f688a561da3bcfaad0
                                               Latest Release
                                            </NavLink>
                                           </li>
                                     
                                           <li className="nav-item sound">
-                                                 <NavLink  to="/radio"className="nav-link">
+                                                 <NavLink onClick={()=>handleScroll()}  to="/radio"className="nav-link">
                                                  <i class="fa fa-volume-up" aria-hidden="true"></i>
                                              <p className="radiopara"> Shri Shyam Radio</p>
                                            </NavLink>

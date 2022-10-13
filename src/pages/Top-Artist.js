@@ -1,23 +1,10 @@
 import React ,{useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
-import dol from '../Components/assets/images/dol.jpg';
-import Hanji from '../Components/assets/images/hanji.jpg';
-import song from '../Components/assets/images/song.jpg';
 import 'react-multi-carousel/lib/styles.css';
-import Carousel from 'react-multi-carousel';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import bgimg from '../Components/assets/images/play-bg.gif'
 
-// const Artist = ({
-//   releaseSong,
-//   currentArtist,
-//   setMusicTracks,
-//   setDefaultMusic,
-//   setTrackIndex,
-// }) => {
-//   const [displaySongs, setDisplaySongs] = useState([]);
-//   const navigate = useNavigate();
-//   const { pathname } = useLocation();
 
   
 //   useEffect(() => {
@@ -126,10 +113,15 @@ const Artist=({releaseSong,
     setMusicTracks,
     setDefaultMusic,
     setTrackIndex,
-    audiofunction})=>{
+    audiofunction , isPlaying, setIsPlaying, selectStyle, setSelectStyle, isPlay})=>{
     const [release, setRelease] = React.useState([]);
     const { pathname } = useLocation();
-    const [isPlaying, setIsPlaying] = useState(true);
+
+
+
+    const[superData, setSuperData]= useState()
+   
+    
 
     const [displaySongs, setDisplaySongs] = useState([]);
       const navigate = useNavigate();
@@ -138,7 +130,7 @@ const Artist=({releaseSong,
       
       useEffect(() => {
         window.scrollTo(0, 0);
-      }, [pathname]);
+      }, [currentArtist]);
     
     
       const responsive1111 = {
@@ -183,13 +175,17 @@ const Artist=({releaseSong,
               return { src: item.song, name: item.track, id: item._id };
             });
             console.log('PARSED', parsedDataTwo);
-            setMusicTracks(parsedDataTwo);
+           setSuperData(parsedDataTwo)
             setDisplaySongs(json);
           })
     
           .catch((error) => console.log(error));
       }, [currentArtist, navigate, setMusicTracks]);
+
+
       const ChangeCurrentSong = (index) => {
+        setMusicTracks(superData);
+        setSelectStyle(index)
         setTrackIndex(index);
       };
     
@@ -197,6 +193,7 @@ const Artist=({releaseSong,
     return(
         <div className="trend">
             <div className="trend-area">
+            <div className='routes' ><h6 className='rts-rts'><Link className='rts-rts' to={'/'}>Home</Link> -- <Link className='rts-rts'>Top Artist</Link>-- <span className='rts-tag'>{displaySongs[0]?.artist}</span></h6></div>
                 <section className="sec-1">
                   
                       <div className="trendimg">
@@ -207,9 +204,9 @@ const Artist=({releaseSong,
                      <div className="Trending-song">
                               <div className="trnd-img-about">
                             
-                                <h1>{displaySongs[0]?.artist}</h1>
+                                <h1>Top Artist</h1>
                                
-                                 <h2>Top-Artist</h2>
+                                 <h2>{displaySongs[0]?.artist}</h2>
                                 <p>Top Artist hits, refreshed daily</p>
                               </div>
             
@@ -245,7 +242,7 @@ const Artist=({releaseSong,
                              <ul  className="song-about"  onClick={() => ChangeCurrentSong(index)}>
                              <li className="songabt-img">
                                 <div className="listimg">
-                                  <Link to='' className='topart-img'><img src={user.image} onClick={() => ChangeCurrentSong(index)} /></Link>
+                                  <Link to='' className='topart-img'><img src ={selectStyle=== index && isPlay === true ? bgimg:  user.image} onClick={() => ChangeCurrentSong(index)} /></Link>
                                   <div className="playyicon"><i class="fa fa-play-circle-o" aria-hidden="true"></i> </div>
                     
                              </div>

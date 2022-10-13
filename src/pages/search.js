@@ -3,6 +3,9 @@ import { useLocation } from 'react-router-dom';
 
 const SearchContent = ({ setMusicTracks, setTrackIndex }) => {
   const [search, setSearch] = useState([]);
+  const[superData, setSuperData]= useState();
+
+
   const location = useLocation();
   console.log(location.state);
 
@@ -18,7 +21,7 @@ const SearchContent = ({ setMusicTracks, setTrackIndex }) => {
             return { src: item.song, name: item.track, id: item._id };
           });
           console.log('PARSED', parsedData);
-          setMusicTracks(parsedData);
+          setSuperData(parsedData);
           setSearch(json);
         });
     }
@@ -27,6 +30,7 @@ const SearchContent = ({ setMusicTracks, setTrackIndex }) => {
 
   const ChangeCurrentSong = (index) => {
     setTrackIndex(index);
+    setMusicTracks(superData);
     console.log('this is song index---->', index);
   };
   const SetIndexToZero = (index) => {
@@ -39,7 +43,7 @@ const SearchContent = ({ setMusicTracks, setTrackIndex }) => {
     <div className='ul-song'>
       <ul className='card-area'>
         {search?.map((user, index) => (
-          <li className='card'>
+          <li className='card trnd-hv'>
             <img src={user.image} onClick={() => ChangeCurrentSong(index)}/>
             <div className='song-name'>
               <p>{user.track}</p>
