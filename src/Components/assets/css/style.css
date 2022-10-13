@@ -55,6 +55,13 @@
     justify-content: center;
         width: 100%;
 }
+
+img.slider-top-img:hover{
+    transform: scale(0.9);
+    transition:.5s;
+    opacity: 0.55;
+    box-shadow:0px 0px 10px 5px #5b5656;
+}
 .menu {
 
     border-top: 1px solid #ff4808;
@@ -66,8 +73,11 @@
     margin: 0;
 }
 i.fa.fa-search{
-    color: #6f6363;
-    font-size: 24px;
+    color: white;
+    font-size: 22px;
+}
+.searchfont{
+    color:white ;
 }
 button.searchbtn{
     position: absolute;
@@ -366,12 +376,13 @@ img.slider-img.superhit-img{
 }
 .top-footer-para h2::after{
     display: block;
-    width: 40%;
+    width: 38%;
     background: linear-gradient(to right, #FF4808 58%,#847e7d 25%);
     content: '';
     height: 2px;
     right: 0;
     left: 0;
+    margin: auto;
 }
 .about-para{
     padding: 20px;
@@ -400,12 +411,21 @@ img.slider-img.superhit-img{
     border-bottom: 1px solid #66666663;
  
 }
+
 .footer-awsfnts-area{
-    padding: 20px;
+    padding: 12px 0 20px 0;
 }
 .icon{
     margin: 20px;
     font-size: 40px;
+}
+.connectus p{
+    font-size: 18px ;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 18px 0 12px 0;
+
 }
 .footer-para{
     border-bottom: 1px solid #66666663;
@@ -521,6 +541,13 @@ i.fa.fa-heart-o{
     font-size: 15px;
     color: black;
 }
+.footer-album, .footer-genres, .footer-artist, .footer-release{
+    width: 50%;
+}
+.twocoloum{
+    display: flex;
+    width: 100%;
+}
 
 /* search page */
 .Search-result {
@@ -546,19 +573,20 @@ i.fa.fa-heart-o{
     border-bottom: 1px solid #FB4607;
     width: 100%;
 }
-.row-area{
-    padding: 12px 0;
-    /* border-bottom: 1px solid #FB4607; */
-    display: flex;
+.row1:hover{
+    box-shadow: 0 0px 8px grey;
+ 
 }
+
+
 .row-time {
     padding: 31px 0;
-    width: 50%;
+    width: 10%;
     text-align: end;
     font-size: 17px;
 }
 .row-area {
-    width: 50%;
+    width: 90%;
     padding: 12px 0;
     /* border-bottom: 1px solid #FB4607; */
     display: flex;
@@ -589,10 +617,13 @@ p.recommend-artist {
     display: flex;
 }
 .rightheading-area {
-    width: 50%;
+    width: 60%;
+}
+.rightheading-area h2{
+    padding: 0 0 0 4px;
 }
 .leftheading-area {
-    width: 50%;
+    width: 40%;
     text-align: end;
 }
 h5.see-head {
@@ -611,7 +642,7 @@ h5.see-head {
     position: fixed;
     bottom: 0;
     width: 100%;
-    max-width: 1353px;
+    /* max-width: 1353px; */
     z-index: 1;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -670,6 +701,8 @@ button.rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button path{
 .Trending-song{
     margin-top: 18px;
     padding: 0 0 0 32px;
+    display: flex;
+    flex-direction: column;
     text-align: left;
 }
 .Trending-song p{
@@ -924,11 +957,23 @@ button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
     margin-left: 15px;
     margin-top: 12px;
 }
+.upcomingarea{
+    padding-left: 20px;
+    display: flex;
+    width: 100%;
+}
 .upcomingEvents {
-    margin-top: 25px;
+    background-image: url("../images/eventback.png");
+    margin: auto;
+    margin-left: 0px;
+    /* padding-left: 62px; */
+    padding-top: 30px;
   display: flex;
     background-size: cover;
     background-repeat: no-repeat;
+
+    border-radius: 17px;
+
 }
 .eventhead h2{
     font: 40px;
@@ -937,7 +982,7 @@ button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
 .eventhead h2::after{ content: '';
     content: '';
     position: absolute;
-    width: 23%;
+    width:31%;
     background: linear-gradient(to right, #f7ecec 75%,#71372B 25%);
     content: '';
     height: 2px;
@@ -950,17 +995,20 @@ button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
 img.eventimgsize{
     width: 100%;
     height: 100%;
-    max-width: 343px;
-    min-height: 254px;
+    /* max-width: 343px;
+    min-height: 254px; */
+    max-width: 438px;
+    /* min-height: 340px; */
+    padding: 0 21px;
 }
 
 .event-left{
-    padding: 25px 0;
+    /* padding: 25px 0; */
     width: 60%;
     margin: 0 auto;
 }
 .event-right {
-  
+  width: 40%;
     padding: 60px 8px;
 }
 .eventhead {
@@ -972,14 +1020,7 @@ img.eventimgsize{
 .eventhead h2{
     font-size: 39px;
 }
-/* .eventhead h2::after{
-    content: '';
-    display: block;
-    position: relative;
-    width: 17%;
-    border: 1px solid #f1eeedd9;
-    margin-top: 4px;
-} */
+
 
 
 .about-event {
@@ -1014,10 +1055,10 @@ font-weight: 600!important;
 }
 .area1{
     padding: 10px 0;
-    margin-right: 16px;
+   margin: 12px;
     border-radius: 9px;
-    width: 20%;
-    background-image: linear-gradient(to bottom right, #f7553b, #A64556);
+    width: 43%;
+    background-image: linear-gradient(to bottom right,#f3735f, #6e2e39);
 }
 .area1 p{
     margin: 0 0 13px 0;
@@ -1049,271 +1090,365 @@ font-weight: 600!important;
 
 
     @media only screen  and (max-width : 991px){
-        .dropdown-item{
-            font-size: 12px;
-        }
-        .nav-link {
-            font-size: 11px!important;
-        }
-        h2.newsong-head{
-            font-size: 24px;
-        }
-        .logo-n-toggle{
-            display: flex;
-            width: 100%;
-            display: contents;
-        }
         
-        .logo-box{
-            width: 90%;
-        }
-        .logo{
-            width: 50%;
-        }
-        .toggle-btn{
-            width: 50%;
-            text-align: end;
-            display: flex;
-            justify-content: end;
-            align-items: center;
-        }
-        
-        .navbar-toggler-icon{
-            background-image: url('../images/toggel.png');
-        }
-        .sec-1{
-            flex-direction: column;
-            align-items: center;
-           margin: 17px;
-        }
-        .trendimg{
-            width: 260px;
-        }
-        .bigimg img{
-            width: 100%;
-            box-shadow: 5px 8px 11px 0px #888888 !important;
-
-        }
-        .event-h1{
-            font-size: 22px;
-        }
-        .Trending-song{
-            width: 100%;
-            margin-top: 18px;
-            display: flex;
-            flex-direction: column-reverse;
-            padding: 0;
-        }
-        .footer-btn{
-            margin: 0;
-            width: 100%;
-        }
-        .trnd-img-about{
-            text-align: left;
-            margin-top: 15px;
-        }
-        .Trending-song h2{
-            margin-bottom: 0;
-            line-height: 1.75em;
-        }
-        .artist{
-            display: none;
-        }
-        .song-about{
-            width: 95%;
-            padding: 0;
-        }
-        .icon{
-            margin: 6px;
-        }
-        .track{
-            width: 100%;
-        }
-        .songabt-dur{
-            width: 40%;
-        }
-        .trend{
-            padding: 0;
-        }
-        .footer-album, .footer-genres, .footer-artist, .footer-release{
-            width: 50%;
-            text-align: center;
-        }
-        .navbar-nav{
-            line-height: 2em;
-        }
-        .navbar-search{
-            display: none;
-        }
-       .topMargin {
-    
-        /* margin-top: 220px !important ; */
-    }
-    button:focus:not(:focus-visible){
-        outline: none;
-        border-color: inherit;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-    .playyicon{
-        top: 0%;
-    left: 3%;
-    }
-    .navbar-collapse{
-        min-height: 190px;
-    }
-    .navbar-nav{
-        margin: 24px 0;
-    }
-    .footer-awsfnts{
-        padding: 12px 0;
-    }
-    .footer-content{
-       flex-wrap: wrap;
-    }
-    .about-para{
-        flex-direction: column;
-       
-        padding: 0;
-    }
-    .about-para2{
-        line-height: 2.75em;
-    }
-    .top-footer-para p{
-        width: 80%;
-    }
-    .event-h1{
-        font-size: 22px;
-        text-align: center;
-    }
-    .events-h3{
-        font-size: 18px!important;
-    }
-    .sliderrr{
-        box-shadow: none;
-    }
-    .menu1-content, .menu2-content, .menu3-content, .menu4-content{
-        padding: 0;
-    }
-    li.album-item.bullet{
-        text-align: center;
-    }
-        .top-footer-para p {
-            font-size: 14px;
-           
-        }
-         img.slider-img.trnding-img ,img.slider-img.Releaseimg{
-            width: 100%;
-            max-width: none;
-
-        }
-        img.slider-img.superhit-img{
-            width: 100%;
-            max-width: none;
-            height: 100%;
-            /* min-height: 274px; */
-           
-        }
-        img.slider-img.searchimg{
-            width: 100%;
-            height: 100%;
-            /* max-width: 189px;
-            min-height:189px; */
-            max-width: 201px;
-            min-height:201px;
-            border-radius: 114px;
-        }
-        .songname p{
-            text-align: left;
-            padding-left: 11px;
-        }
-        .searchpara p{
-            text-align: center;
-        }
-        .top-footer-para h2 {
-            margin: 8px 0;
-            font-size: 22px;
-    }
-        .slider-heading{
-        font-size: 22px;
-    }
-    .slider{
-        margin-bottom: 0;
-    }
-    .bottom-footer-para{
-        padding: 10px 0;
-    }
-    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left{
-      display: none;
-    }
-    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
-        display: none;
-    }
-
-.navbar-search{
-    width: 90%;
-    margin: 0 auto;
+.headre-area{
+   display: inline;
 }
-
-.navbar-toggler{
+.navbar-search{
+    margin-top: 19px !important;
+    padding-left:0;
+    margin: auto;
+    width: 75%;
+    max-width: initial;
+    margin-bottom: 17px !important;
+    /* position: relative; */
+}
+button.navbar-toggler.collapsed{
+    position: absolute;
+    top: 82px;
+    right: 12px;
     font-size: 16px;
-    border: none !important;
-    padding: 0 10px;
+}
+.navbar-toggler{
+    border: none;
+    top: 82px;
+    right: 12px;
+    font-size: 16px;
+    position: absolute;
 }
 .navbar-nav{
-    margin: 0 auto;
-    width: 90%;
+    padding: 12px;
 }
-.navbar-nav li{
-    padding: 5px 0;
+.logo-n-toggle{
+    text-align: center;
+    width: auto;
+    
 }
-
-.playyicon{
-    top: 32%;
-    left: 44%;
+button.searchbtn{
+    padding: 10px 12px;
 }
-.track{
-    font-size: 13px;
-}
-.songabt, .heading-row{
-    padding-left: 25px;
-}
-.trnd-img-about h1{
-    margin-bottom: 5px;
+i.fa.fa-search{
     font-size: 16px;
 }
-.trnd-img-about h2 ,.Trending-song h2{
+.searchbtn p{
+    display: none;
+}
+.track p, .artist p ,.anchor-foo ,.about-para2 ,.top-footer-para p{
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.foo-heading{
+    font-size: 18px !important;
+}
+.foot-btn-icon{
+    width: 40px;
+    height: 40px;
+}
+.fa{
+    font-size: 25px;
+}
+.top-footer-para h2{
+    font-size: 22px;
+    margin: 15px 0;
+}
+.top-footer-para{
+    width: 100% !important;
+    text-align: center;
+}
+.songabt, .heading-row{
+    width: 100%;
+    overflow: hidden;
+}
+.track{
+    width: 60%;
+}
+.artist{
+    width: 40%;
+}
+.topMargin{
+    margin-top: 166px;
+}
+.slider-heading {
+    font-size: 18px;
+  
+    padding: 0 0 0 0;
+}
+ p.recommend-song{
+    font-size: 18px;
+    padding: 0;
+    margin-bottom: 7px;
+ }
+ p.text {
+    font-size: 16px;
+}
+.about-event h3{
     font-size: 20px !important;
+    text-align: center;
+    /* text-align: inherit; */
+}
+img.slider-img.Releaseimg, img.slider-img.trnding-img ,img.slider-img.superhit-img{
+    max-width: none;
+}
+.searchimg{
+    max-width: 205px;
+    width: 100%;
+    height: 100%;
+    border-radius: 108px;
+}
+.songname p{
+margin-top: 7px;
+}
+.row-content{
+    margin-left: 17px;
+    text-align: left;
+}
+.menu1-content, .menu2-content, .menu3-content, .menu4-content{
+    padding: 0;
+}
+.anchor-foo{
+    margin-right: 20px;
+}
+.dropdown-item {
+    line-height: 1.7em;
+}
+.outli{
+    padding-bottom: 12px;
+}
+.songname p{
+    font-size: 14px;
+}
+.eventhead{
+    text-align: center;
+    margin: 12px 0;
+}
+.eventhead h2{
+    font-size: 30px;
+}
+.eventhead h2::after{
+  display: block;
+  margin: auto;
+  position: initial;
+  width: 18%;
+}
+.eventimgsize {
+    max-width: 290px !important;
+}
+
+.area1 p{
+    font-size: 14px;
+}
+.navbar-toggler:focus{
+         box-shadow: none; 
+}
+.upcomingarea{
+    align-items: center;
+    flex-direction: column-reverse;
+}
+.event-right {
+    width: 100%;
+    padding:  4px 0;;
+}
+.event-left{
+    width: 100%;
+}
+.upcomingEvents{
+    padding-top: 8px;
+    padding-left: 0;
+}
+.about-event h3::after{
+    margin: auto;
+    width: 24%;
+}
+.concert{
+    width: 80%;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
 }
 }
 
-@media only screen  and (max-width :747px){
-.topMargin{
-    /* margin-top: 184px !important; */
-}
-}
- @media only screen and (max-width :498px){
-        img.slider-img.searchimg{
-            max-width: 126px;
-            min-height: 126px;
+
+ @media only screen and (max-width :747px){
+       
+        .sec-1{
+            flex-direction: column;
         }
-        .topMargin{
-            /* margin-top: 138px !important; */
+        .trendimg img{
+            max-width: 300px;
+        }
+        .trnd-img-about h1{
+            margin-bottom: 5px;
+        }
+        .trnd-img-about h2{
+            font-size: 22px !important;
+        }
+        .artist ,.track {
+            width: 100% !important;
+        }
+        .trnd-img-about{
+            margin-top: 14px;
+        }
+        .Trending-song{
+            flex-direction: column-reverse;
+            padding: 0;
+           
+        }
+        .footer-btn{
+            margin: 11px 0 0 0;
+            width: 100%;
+        }
+        .trndbtn{
+            width: 100%;
+        }
+        .about-para{
+            display: block;
+            padding: 20px 20px 20px 0;
+            
+        }
+        .about-para2 {
+            padding: 11px 10px 0 0px;
+        }
+        li.about-para2.right-border{
+            border: none;
+        }
+        .footer-content{
+            display: inline;
+        }
+        .footer-para{
+            text-align: left;
+        }
+        
+        .songabt, .heading-row{
+            padding-left: 24px;
+            display: block;
+        }
+        p.heading.artist-head {
+            display: none;
+        }
+        .track p{
+            margin-bottom: 1px;
+        }
+        .foo-heading{
+            margin-top: 17px;
+        }
+        .footer-menu1  , .footer-menu2 , .footer-menu3 , .footer-menu4{
+            margin: 0 auto !important;
+            width: 75% !important;
+        }
+        
+        
+
+       
+    }
+    @media only screen and (max-width :535px){
+        .searchimg{
+           max-width: 187px;
+        }
+        .slider-heading::after{
+            width: 20%;
+        }
+       
+        .eventhead h2{
+            font-size: 23px;
+    margin: 0;
+        }
+      
+        .eventhead{
+            text-align: center;
+            margin: 24px 0;
+        }
+      
+        .concert{
+            padding: 12px 0;
+        }
+       
+    }
+    @media only screen and (max-width :512px){
+        
+        .artist{
+            width: 35%;
+        }
+        .track{
+            width: 65%;
+        }
+        p.recommend-song ,p.recommend-artist{
+            font-size: 14px;
+        }
+        .row-time{
+            font-size: 14px;
+        }
+        p.artname {
+            font-size: 14px;
+        }
+        .anchor-foo{
+            margin-right: 15px !important;
+        }
+        .foot-btn-icon{
+            width: 35px;
+            height: 35px;
+        }
+        .fa {
+            font-size: 18px;
         }
         
     }
-@media only screen and (max-width: 1300px) and (min-width: 992px){
-    .nav-link {
-        font-size: 11px!important;
+
+
+    @media only screen and (max-width :474px){
+        .searchimg{
+            max-width: 138px;
+        }
+        .twocoloum{
+          display: inline;
+        }
+        .footer-album, .footer-genres, .footer-artist, .footer-release{
+            width: 100%;
+        }
+        .footer-menu1, .footer-menu2, .footer-menu3, .footer-menu4{
+            margin: 0 !important;
+        }
+        
+        .rightheading-area{
+            width: 100%;
+        }
+        .row-time{
+            display: none;
+        }
+        .roimg{
+            width: 40px;
+        }
+
+        .area1.thirdrow{
+            display: none;
+        }
+        .area1{
+            width: 80%;
+        }
+        .areaicon{
+            font-size: 18px !important;
+        }
+        .concert{
+            padding: 0;
+        }
+
+        }
+
+   
+    @media only screen and (max-width :372px){
+        .searchimg{
+            max-width: 113px;
+        }
+        img.slider-img.superhit-img{
+            min-height: 113px;
+        }
     }
-    .dropdown-item{
-        font-size: 12px;
-    }
-    .navbar-nav li{
-        padding-left: 7px;
-    padding-right: 2px;
-    }
-}
+
+
+  
+
+
 
 
 

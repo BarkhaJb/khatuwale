@@ -20,7 +20,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
   const { pathname } = useLocation();
  
 
-
+ 
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -78,7 +78,7 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                      aria-label="Search"
                       onChange={(e) => setSearchValue(e.target.value)}
                   />
-                    <button onClick={SearchSongs} className="searchbtn"><i class="fa fa-search" aria-hidden="true"></i>Search</button>
+                    <button onClick={SearchSongs} className="searchbtn"><i class="fa fa-search" aria-hidden="true"></i><p className="searchfont">Search</p></button>
                      </div>
                   </div>
                     <Navbar.Toggle aria-controls='responsive-na' onClick={() => setExpanded(expanded ? false : "expanded")} />
@@ -87,21 +87,22 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
        
                         <Nav onClick={() => setExpanded(false)}>
                               <ul className="navbar-nav mr-auto">
-                              <li className="nav-item">
-                                   <NavLink  to="/"  className="nav-link">
-                                    {" "}
+                              <li className="nav-item outli">
+                                   <NavLink  to="/"  className="nav-link "  aria-current="page" >
+                                    
                                     Home
                                       </NavLink>
                                </li>
-                                     <li className="nav-item dropdown">
+                                     <li className="nav-item dropdown outli">
                                           <NavLink  to=""
                                                   className="nav-link dropdown-toggle"
-                                                href="#"
+                                               
                                                     id="navbarDropdown"
                                                          role="button"
                                                   data-toggle="dropdown"
                                              aria-haspopup="true"
                                                     aria-expanded="false"
+                                                    aria-current="page"
                                                     >
                                                        Top Artists
                                               </NavLink>
@@ -120,19 +121,19 @@ const Menu = ({ setCurrentArtist, searchAPI }) => {
                                    </div>
                                  </li>
 
-                               <li className="nav-item">
+                               <li className="nav-item outli">
                                    <NavLink  to="/Trending"  className="nav-link">
                                     {" "}
                                     Trending Bhajans
                                       </NavLink>
                                </li>
-                              <li className="nav-item">
+                              <li className="nav-item outli">
                                  <NavLink  to="/Allbhajan" className="nav-link">
                                  {" "}
                                 All Bhajans
                                          </NavLink>
                                    </li>
-                                          <li className="nav-item">
+                                          <li className="nav-item outli">
                                                  <NavLink  to="/newReleases"className="nav-link">
                                               Latest Release
                                            </NavLink>

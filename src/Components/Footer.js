@@ -1,16 +1,20 @@
 import React ,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 
 
 const Footer = ({ setCurrentArtist}) => {
     const[category,setCategory]=useState([]);
     const [playlist, setPlaylist] = React.useState([]);
     const[artist,setArtist]=useState([]);
- 
+    const { pathname } = useLocation();
     const navigate = useNavigate();
    
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [pathname]);
+    
     useEffect(() => {
         const url = 'http://localhost:3100/category/songs';
         fetch(url)
@@ -58,6 +62,7 @@ Jay shree Shyam.
     <div className='container-fluid'>
         <div className='container'>
         <div className='footer-awsfnts'>
+          <div className="connectus"><p>Connect with us</p></div>
            <div className='footer-awsfnts-area'>
         <Link to='' className='anchor-foo'><button className='foot-btn-icon face'> <i className="fa fa-facebook" aria-hidden="true"></i></button></Link>
         <Link to='' className='anchor-foo'><button className='foot-btn-icon insta'><i className="fa fa-instagram" aria-hidden="true"></i></button></Link>
@@ -76,6 +81,7 @@ Jay shree Shyam.
                 </ul>
         </div>
  <div className='footer-content'>
+  <div className="twocoloum">
     <div className='footer-album'>
        <div className='footer-menu1'>
       <div className='album-area'>
@@ -106,6 +112,8 @@ Jay shree Shyam.
         </div>
      </div>
     </div>  
+    </div>
+    <div className="twocoloum">
     <div className='footer-artist'>
      <div className='footer-menu3'>
         <h4 className='foo-heading'>artist</h4>
@@ -136,7 +144,8 @@ Jay shree Shyam.
             </div>
         </div>
 
-    </div>     
+    </div>  
+    </div>   
  </div>
  </div>
  <div className='bottom-footer'>

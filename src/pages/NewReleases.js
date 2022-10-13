@@ -56,7 +56,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
           <div className='Trending-song'>
             <div className='trnd-img-about'>
              
-                  <h1>Song Name</h1>
+                  {/* <h1>Song Name</h1> */}
                     <h2>Latest Releases</h2>
                   <p>Top Release hits, refreshed daily</p>
             </div>
@@ -86,7 +86,7 @@ const NewReleases = ({ setMusicTracks, setTrackIndex ,audiofunction}) => {
                     <p className='heading'>Track</p>
                   </div>
                   <div className='artist'>
-                    <p className='heading'>Artist</p>
+                    <p className='heading  artist-head'>Artist</p>
                   </div>
                 </div>
               </li>

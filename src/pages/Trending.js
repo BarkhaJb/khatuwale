@@ -46,13 +46,15 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
               <img src={tr_img1}  />
                 </div>
                 <div className="Trending-song">
-                    <div className="trnd-img-about">
+                    
+            
+
+              
+                <div className="trnd-img-about">
                       <h1>Song Name</h1>
                     <h2>Trending Songs</h2>
                   <p>Top trending hits, refreshed daily</p>
                 </div>
-            
-
                 <div className="trndbtn">
                 <button className="footer-btn" onClick={() => {
                   const play = audiofunction();
@@ -74,7 +76,7 @@ const Trend=({setMusicTracks, setTrackIndex,audiofunction, })=>{
                 <li className="songabt">
                     <div className="heading-row">
                         <div className="track"><p className="heading">Track</p></div>
-                        <div className="artist"><p className="heading">Artist</p></div>
+                        <div className="artist "><p className="heading  artist-head">Artist</p></div>
                     </div>
                 
                 </li>

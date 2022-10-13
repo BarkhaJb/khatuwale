@@ -235,7 +235,7 @@ const Artist=({releaseSong,
                             <li className="songabt">
                                <div className="heading-row">
                                  <div className="track"><p className="heading">Track</p></div>
-                                      <div className="artist"><p className="heading">Artist</p></div>
+                                      <div className="artist"><p className="heading  artist-head">Artist</p></div>
                              </div>
                 
                              </li>

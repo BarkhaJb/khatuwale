@@ -187,55 +187,8 @@ const Home = ({
       </div>
       <Recommend setMusicTracks={setMusicTracks} 
       setTrackIndex={ setTrackIndex}/>
-{/*  
-      <div className="slider  ulhover">
-        {' '}
-       
-         <div className='slider1'>
-           <div className="heading-area">
-              <div className="rightheading-area">
-              <h2 className='slider-heading'>Khatuwaleshyam Recommends</h2>
-              </div>
-              <div className="leftheading-area">
-                <h5 className='see-head'>see all</h5>
-                </div>
-           </div>
-         </div>    
-         <div className='about-slider1 recommend'>
-              <div className="row1">
-               <div className="row-area">
-                <div className="recommend-no">01</div>
-                  <div className="row-image">
-                  <Link to='/'>   <img src={row1}  className="roimg"></img></Link>
-                  </div>
-                   <div className="row-content">
-                    <p className="recommend-song">Haare Ke Sahare Aaja</p>
-                    <p className="recommend-artist">sanjay mittal</p>
-                    </div>
-                    </div>
-              </div>
-              <div className="row1">
-                <div className="row-area">
-                   <div className="recommend-no">02</div>
-                  <div className="row-image"> <Link to='/'>   <img src={row2} className="roimg" ></img></Link></div>
-                  <div className="row-content">
-                   <p className="recommend-song">Haara Hu Baba</p>
-                   <p className="recommend-artist">kanhaiya mittal</p>
-                  </div>
-                  </div>
-               </div> 
-               <div className="row1">
-               <div className="row-area">
-               <div className="recommend-no">03</div>
-                   <div className="row-image"> <Link to='/'>   <img src={row3} className="roimg" ></img></Link></div>
-                   <div className="row-content">
-                   <p className="recommend-song">Pakad Lo Hath Banwari Ka</p>
-                    <p className="recommend-artist">upasna mehta</p>
-                    </div>
-                    </div>
-               </div> 
-         </div>
-      </div> */}
+
+     
       <div className="slider  ulhover">
         {' '}
        
@@ -339,7 +292,8 @@ const Home = ({
        </div>
       </div>
     {/* </div> */}
-    <div style={{ backgroundImage:`url(${event})` }} className='upcomingEvents'  >
+    <div   className='upcomingEvents' >
+     <div  className="upcomingarea" >
            <div className="event-left">
                      <div className='eventhead'>
                             <h2>upcoming Events</h2>
@@ -348,6 +302,7 @@ const Home = ({
                       <h3>Khatushyam Bhajan Sandhya</h3>
                      </div>
                      <div className="concert">
+                      
                         <div className="area1">
                             <div  className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-map-marker areaicon" aria-hidden="true"></i></button></Link>
                                <p>Indore</p></div>
@@ -360,13 +315,13 @@ const Home = ({
                            <div  className="area-content"> <Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-calendar areaicon" aria-hidden="true"></i></button></Link><p>06 oct..</p></div>
                             <div className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-clock-o areaicon" aria-hidden="true"></i></button></Link><p>06:00 pm</p></div>
                         </div>
-                        <div className="area1">
+                        <div className="area1 thirdrow">
                             <div  className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-map-marker areaicon" aria-hidden="true"></i></button></Link>
                                <p>Indore</p></div>
                            <div  className="area-content"> <Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-calendar areaicon" aria-hidden="true"></i></button></Link><p>06 oct..</p></div>
                             <div className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-clock-o areaicon" aria-hidden="true"></i></button></Link><p>06:00 pm</p></div>
                         </div>
-                        <div className="area1">
+                        <div className="area1 thirdrow">
                             <div  className="area-content"><Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-map-marker areaicon" aria-hidden="true"></i></button></Link>
                                <p>Indore</p></div>
                            <div  className="area-content"> <Link to='' className='eventlink'> <button className='eventbtn'><i class="fa fa-calendar areaicon" aria-hidden="true"></i></button></Link><p>06 oct..</p></div>
@@ -378,7 +333,8 @@ const Home = ({
                <div className="eventimg"> <img src={eventright}  className="eventimgsize"/></div>
            </div>
 
-    </div>      
+    </div>    
+    </div>  
 </div>
            
     

@@ -50,7 +50,7 @@ return (
          <div className='slider1'>
            <div className="heading-area">
               <div className="rightheading-area">
-              <h2 className='slider-heading'>Khatuwaleshyam Recommends</h2>
+              <h2 className='slider-heading'> Recommends</h2>
               </div>
               <div className="leftheading-area">
                 <h5 className='see-head'><p className="text">
